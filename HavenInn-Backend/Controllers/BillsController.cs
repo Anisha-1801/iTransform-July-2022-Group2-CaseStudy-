@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HavenInn_Library.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="Receptionist,Owner,Manager")]
     public class BillsController : ControllerBase
     {
         private readonly HavenInnContext _context;

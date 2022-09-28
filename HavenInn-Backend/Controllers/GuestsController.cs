@@ -8,11 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using HavenInn_Library.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using System.Runtime.InteropServices;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Receptionist,Owner")]
     public class GuestsController : ControllerBase
     {
         private readonly HavenInnContext _context;

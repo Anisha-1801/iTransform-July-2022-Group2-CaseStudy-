@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HavenInn_Library.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class ServicesController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -22,6 +25,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Services
         [HttpGet]
+        [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<IEnumerable<Services>>> GetServices()
         {
             return await _context.Services.ToListAsync();
@@ -29,6 +33,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Services/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<Services>> GetServices(int id)
         {
             var services = await _context.Services.FindAsync(id);
@@ -44,7 +49,8 @@ namespace HavenInn_Backend.Controllers
         // PUT: api/Services/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
+        [HttpPut("Update/{id}")]
+        [Authorize(Roles = "Owner,Manager")]
         public async Task<IActionResult> PutServices(int id, Services services)
         {
             if (id != services.ServiceId)
@@ -76,7 +82,8 @@ namespace HavenInn_Backend.Controllers
         // POST: api/Services
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
+        [HttpPost("Add")]
+        [Authorize(Roles = "Owner,Manager")]
         public async Task<ActionResult<Services>> PostServices(Services services)
         {
             _context.Services.Add(services);
@@ -86,7 +93,8 @@ namespace HavenInn_Backend.Controllers
         }
 
         // DELETE: api/Services/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "Owner,Manager")]
         public async Task<ActionResult<Services>> DeleteServices(int id)
         {
             var services = await _context.Services.FindAsync(id);
