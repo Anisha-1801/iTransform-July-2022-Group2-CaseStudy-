@@ -1,10 +1,8 @@
 import './App.css';
 import  Home  from './Components/Home'
 import Guest from './Components/Guest'
-
 import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom'
-
-
+import Login from './Login pages/Login';
 
 function App() {
     return (
@@ -26,16 +24,18 @@ function App() {
                                 Guest
                             </NavLink>
                         </li>
-                        
-
+                        <li className="nav-item- m-1">
+                            <NavLink className="btn btn-light btn-outline-primary" to="/Login">
+                                Login
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
 
                 <Routes>
                     <Route path="/Home" element={<Home />} />
                     <Route path="/Guest" element={<Guest />} />
-                   
-
+                    <Route path="/Login" element={<Login/>} />
                 </Routes>
             </div>
         </BrowserRouter>

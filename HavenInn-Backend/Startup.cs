@@ -71,6 +71,7 @@ namespace HavenInn_Backend
             services.AddDbContext<HavenInnContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("HavenInnContext")));
 
+
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
