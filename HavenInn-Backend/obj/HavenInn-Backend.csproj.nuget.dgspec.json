@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CASE STUDY\\HavenInn\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "D:\\CASE STUDY\\HavenInn\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CASE STUDY\\HavenInn\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "D:\\CASE STUDY\\HavenInn\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\anish\\.nuget\\packages\\",
-        "outputPath": "D:\\CASE STUDY\\HavenInn\\HavenInn Library\\obj\\",
+        "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\JANHAVI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\anish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JANHAVI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -94,24 +93,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\CASE STUDY\\HavenInn\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CASE STUDY\\HavenInn\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "D:\\CASE STUDY\\HavenInn\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\anish\\.nuget\\packages\\",
-        "outputPath": "D:\\CASE STUDY\\HavenInn\\HavenInn-Backend\\obj\\",
+        "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\JANHAVI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\anish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JANHAVI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -120,15 +119,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\CASE STUDY\\HavenInn\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "D:\\CASE STUDY\\HavenInn\\HavenInn Library\\HavenInnLibrary.csproj"
+              "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
@@ -143,6 +141,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[3.1.25, )"
@@ -171,6 +173,10 @@
               "target": "Package",
               "version": "[3.1.25, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.23.1, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
@@ -178,6 +184,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.23.1, )"
             }
           },
           "imports": [
@@ -191,6 +201,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.26, 3.1.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -199,7 +215,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     }
