@@ -6076,23 +6076,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JANHAVI\\.nuget\\packages\\": {},
+    "C:\\Users\\HP\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
       "projectName": "HavenInnLibrary",
-      "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
-      "packagesPath": "C:\\Users\\JANHAVI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
+      "projectPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\JANHAVI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6168,7 +6168,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

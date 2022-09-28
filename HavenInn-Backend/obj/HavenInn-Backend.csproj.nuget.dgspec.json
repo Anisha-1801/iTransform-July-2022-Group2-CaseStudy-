@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\JANHAVI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
+        "projectPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\JANHAVI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -93,24 +93,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\JANHAVI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn-Backend\\obj\\",
+        "projectPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\JANHAVI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -125,8 +125,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\HavenInn_Project\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj"
+              "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
@@ -201,12 +201,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.26, 3.1.26]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -215,7 +209,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
