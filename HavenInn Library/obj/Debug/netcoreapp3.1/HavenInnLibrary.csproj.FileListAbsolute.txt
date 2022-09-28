@@ -1,0 +1,13 @@
+D:\CASE STUDY\HavenInn\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.deps.json
+D:\CASE STUDY\HavenInn\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.runtimeconfig.json
+D:\CASE STUDY\HavenInn\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.runtimeconfig.dev.json
+D:\CASE STUDY\HavenInn\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.dll
+D:\CASE STUDY\HavenInn\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.pdb
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.csproj.AssemblyReference.cache
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.AssemblyInfoInputs.cache
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.AssemblyInfo.cs
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.csproj.CoreCompileInputs.cache
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.dll
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.pdb
+D:\CASE STUDY\HavenInn\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.genruntimeconfig.cache
