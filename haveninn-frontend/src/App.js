@@ -1,7 +1,7 @@
 import './App.css';
 import  Home  from './Components/Home'
 import Guest from './Components/Guest'
-import Update from './Components/Update'
+
 import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom'
 
 
@@ -26,11 +26,7 @@ function App() {
                                 Guest
                             </NavLink>
                         </li>
-                        <li className="nav-item- m-1">
-                            <NavLink className="btn btn-light btn-outline-primary" to="/Update">
-                              Update
-                            </NavLink>
-                        </li>
+                        
 
                     </ul>
                 </nav>
@@ -38,7 +34,7 @@ function App() {
                 <Routes>
                     <Route path="/Home" element={<Home />} />
                     <Route path="/Guest" element={<Guest />} />
-                    <Route path="/Update" element={<Update/>} />
+                   
 
                 </Routes>
             </div>
