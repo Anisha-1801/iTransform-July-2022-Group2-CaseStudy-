@@ -13,7 +13,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Owner")]
+    
     public class DepartmentsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -25,6 +25,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Departments
         [HttpGet]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Department>>> GetDepartment()
         {
             return await _context.Department.ToListAsync();
@@ -32,6 +33,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Departments/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Department>> GetDepartment(int id)
         {
             var department = await _context.Department.FindAsync(id);
@@ -48,6 +50,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> PutDepartment(int id, Department department)
         {
             if (id != department.DepartmentId)
@@ -80,6 +83,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult<Department>> PostDepartment(Department department)
         {
             _context.Department.Add(department);
@@ -90,6 +94,7 @@ namespace HavenInn_Backend.Controllers
 
         // DELETE: api/Departments/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult<Department>> DeleteDepartment(int id)
         {
             var department = await _context.Department.FindAsync(id);

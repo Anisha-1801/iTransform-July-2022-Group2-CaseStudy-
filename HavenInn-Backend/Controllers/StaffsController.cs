@@ -13,7 +13,6 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Owner,Manager")]
     public class StaffsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -25,6 +24,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Staffs
         [HttpGet]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Staff>>> GetStaff()
         {
             return await _context.Staff.ToListAsync();
@@ -32,6 +32,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Staffs/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Staff>> GetStaff(int id)
         {
             var staff = await _context.Staff.FindAsync(id);
@@ -48,6 +49,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<IActionResult> PutStaff(int id, Staff staff)
         {
             if (id != staff.StaffId)
@@ -80,6 +82,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Staff>> PostStaff(Staff staff)
         {
             _context.Staff.Add(staff);
@@ -90,6 +93,7 @@ namespace HavenInn_Backend.Controllers
 
         // DELETE: api/Staffs/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Staff>> DeleteStaff(int id)
         {
             var staff = await _context.Staff.FindAsync(id);

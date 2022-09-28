@@ -15,7 +15,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Receptionist,Owner")]
+    
     public class GuestsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -27,6 +27,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Guests
         [HttpGet]
+        [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Guest>>> GetGuest()
         {
             return await _context.Guest.ToListAsync();
@@ -34,6 +35,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Guests/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<Guest>> GetGuest(int id)
         {
             var guest = await _context.Guest.FindAsync(id);
@@ -45,7 +47,8 @@ namespace HavenInn_Backend.Controllers
 
             return guest;
         }
-         [HttpGet("search/{name}")]
+         [HttpGet("{name}")]
+        [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Guest>>> GetGuestByName(string name)
         {
             IQueryable<Guest> query = _context.Guest;
@@ -75,6 +78,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<IActionResult> PutGuest(int id, Guest guest)
         {
             if (id != guest.GuestId)
@@ -107,6 +111,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Guest>> PostGuest(Guest guest)
         {
             _context.Guest.Add(guest);
@@ -114,19 +119,10 @@ namespace HavenInn_Backend.Controllers
 
             return CreatedAtAction("GetGuest", new { id = guest.GuestId }, guest);
         }
-        //PATCH :api/Guests/5
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> UpdateGuest([FromBody] JsonPatchDocument Guest, [FromRoute] int id)
-        {
 
-            var guest = await _context.Guest.FindAsync(id);
-            Guest.ApplyTo(guest);
-            await _context.SaveChangesAsync();
-            return Ok();
-
-        }
         // DELETE: api/Guests/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Guest>> DeleteGuest(int id)
         {
             var guest = await _context.Guest.FindAsync(id);

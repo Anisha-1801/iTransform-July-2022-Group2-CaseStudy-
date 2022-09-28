@@ -12,7 +12,6 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles ="Receptionist,Owner,Manager")]
     public class BillsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -24,6 +23,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Bills
         [HttpGet]
+        [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<IEnumerable<Bill>>> GetBill()
         {
             return await _context.Bill.ToListAsync();
@@ -31,6 +31,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Bills/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<Bill>> GetBill(int id)
         {
             var bill = await _context.Bill.FindAsync(id);
@@ -47,6 +48,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<IActionResult> PutBill(int id, Bill bill)
         {
             if (id != bill.BillId)
@@ -79,6 +81,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Bill>> PostBill(Bill bill)
         {
             _context.Bill.Add(bill);
@@ -89,6 +92,7 @@ namespace HavenInn_Backend.Controllers
 
         // DELETE: api/Bills/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Bill>> DeleteBill(int id)
         {
             var bill = await _context.Bill.FindAsync(id);

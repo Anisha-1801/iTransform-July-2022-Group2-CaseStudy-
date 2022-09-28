@@ -13,7 +13,6 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Owner,Manager")]
     public class InventoriesController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -25,6 +24,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Inventories
         [HttpGet]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Inventory>>> GetInventory()
         {
             return await _context.Inventory.ToListAsync();
@@ -32,6 +32,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Inventories/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Inventory>> GetInventory(int id)
         {
             var inventory = await _context.Inventory.FindAsync(id);
@@ -48,6 +49,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<IActionResult> PutInventory(int id, Inventory inventory)
         {
             if (id != inventory.InventoryId)
@@ -80,6 +82,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
         {
             _context.Inventory.Add(inventory);
@@ -90,6 +93,7 @@ namespace HavenInn_Backend.Controllers
 
         // DELETE: api/Inventories/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Inventory>> DeleteInventory(int id)
         {
             var inventory = await _context.Inventory.FindAsync(id);

@@ -13,7 +13,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Receptionist,Owner")]
+
     public class ReservationsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -25,6 +25,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Reservations
         [HttpGet]
+        [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Reservation>>> GetReservation()
         {
             return await _context.Reservation.ToListAsync();
@@ -32,6 +33,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Reservations/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<Reservation>> GetReservation(int id)
         {
             var reservation = await _context.Reservation.FindAsync(id);
@@ -48,6 +50,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<IActionResult> PutReservation(int id, Reservation reservation)
         {
             if (id != reservation.ReservationId)
@@ -80,6 +83,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Reservation>> PostReservation(Reservation reservation)
         {
             _context.Reservation.Add(reservation);
@@ -90,6 +94,7 @@ namespace HavenInn_Backend.Controllers
 
         // DELETE: api/Reservations/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Reservation>> DeleteReservation(int id)
         {
             var reservation = await _context.Reservation.FindAsync(id);

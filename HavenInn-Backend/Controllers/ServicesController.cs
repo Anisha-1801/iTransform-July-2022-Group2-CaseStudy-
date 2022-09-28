@@ -49,7 +49,7 @@ namespace HavenInn_Backend.Controllers
         // PUT: api/Services/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("Update/{id}")]
+        [HttpPut("{id}")]
         [Authorize(Roles = "Owner,Manager")]
         public async Task<IActionResult> PutServices(int id, Services services)
         {
@@ -82,7 +82,7 @@ namespace HavenInn_Backend.Controllers
         // POST: api/Services
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost("Add")]
+        [HttpPost]
         [Authorize(Roles = "Owner,Manager")]
         public async Task<ActionResult<Services>> PostServices(Services services)
         {
@@ -93,7 +93,7 @@ namespace HavenInn_Backend.Controllers
         }
 
         // DELETE: api/Services/5
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("{id}")]
         [Authorize(Roles = "Owner,Manager")]
         public async Task<ActionResult<Services>> DeleteServices(int id)
         {

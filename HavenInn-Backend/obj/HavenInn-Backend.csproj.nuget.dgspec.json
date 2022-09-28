@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
+        "projectPath": "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\arfin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\arfin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,21 +93,17 @@
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn-Backend\\obj\\",
+        "projectPath": "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\arfin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\arfin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -125,8 +117,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\haveninncasestudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj"
+              "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "C:\\Users\\arfin\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
