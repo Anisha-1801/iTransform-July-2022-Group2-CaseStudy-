@@ -27,7 +27,14 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Inventory>>> GetInventory()
         {
+            try
+            { 
             return await _context.Inventory.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Inventories/5
@@ -35,6 +42,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Inventory>> GetInventory(int id)
         {
+            try 
+            { 
             var inventory = await _context.Inventory.FindAsync(id);
 
             if (inventory == null)
@@ -43,6 +52,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return inventory;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/Inventories/5
@@ -63,7 +77,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!InventoryExists(id))
                 {
@@ -85,10 +99,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
         {
-            _context.Inventory.Add(inventory);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Inventory.Add(inventory);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInventory", new { id = inventory.InventoryId }, inventory);
+                return CreatedAtAction("GetInventory", new { id = inventory.InventoryId }, inventory);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Inventories/5
@@ -96,6 +117,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Inventory>> DeleteInventory(int id)
         {
+            try 
+            { 
             var inventory = await _context.Inventory.FindAsync(id);
             if (inventory == null)
             {
@@ -106,6 +129,11 @@ namespace HavenInn_Backend.Controllers
             await _context.SaveChangesAsync();
 
             return inventory;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool InventoryExists(int id)

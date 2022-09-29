@@ -31,13 +31,20 @@ namespace HavenInn_Backend.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] UserLogin userLogin)
         {
-            var user = Authenticate(userLogin);
-            if (user != null)
+            try
             {
-                var Token = Generate(user);
-                return Ok(Token);
+                var user = Authenticate(userLogin);
+                if (user != null)
+                {
+                    var Token = Generate(user);
+                    return Ok(Token);
+                }
+                return NotFound("User Not found");
             }
-            return NotFound("User Not found");
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private string Generate(User user)

@@ -28,7 +28,14 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<IEnumerable<RoomType>>> GetRoomType()
         {
-            return await _context.RoomType.ToListAsync();
+            try
+            {
+                return await _context.RoomType.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/RoomTypes/5
@@ -36,6 +43,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<RoomType>> GetRoomType(int id)
         {
+            try
+            { 
             var roomType = await _context.RoomType.FindAsync(id);
 
             if (roomType == null)
@@ -44,6 +53,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return roomType;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/RoomTypes/5
@@ -64,7 +78,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!RoomTypeExists(id))
                 {
@@ -86,10 +100,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner")]
         public async Task<ActionResult<RoomType>> PostRoomType(RoomType roomType)
         {
+            try
+            { 
             _context.RoomType.Add(roomType);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRoomType", new { id = roomType.RoomTypeId }, roomType);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/RoomTypes/5
@@ -97,16 +118,23 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner")]
         public async Task<ActionResult<RoomType>> DeleteRoomType(int id)
         {
-            var roomType = await _context.RoomType.FindAsync(id);
-            if (roomType == null)
+            try
             {
-                return NotFound();
+                var roomType = await _context.RoomType.FindAsync(id);
+                if (roomType == null)
+                {
+                    return NotFound();
+                }
+
+                _context.RoomType.Remove(roomType);
+                await _context.SaveChangesAsync();
+
+                return roomType;
             }
-
-            _context.RoomType.Remove(roomType);
-            await _context.SaveChangesAsync();
-
-            return roomType;
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool RoomTypeExists(int id)

@@ -30,14 +30,23 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Guest>>> GetGuest()
         {
+            try
+            { 
             return await _context.Guest.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Guests/5
-        [HttpGet("{id}")]
+        [HttpGet("Search/{id}")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<Guest>> GetGuest(int id)
         {
+            try 
+            { 
             var guest = await _context.Guest.FindAsync(id);
 
             if (guest == null)
@@ -46,11 +55,17 @@ namespace HavenInn_Backend.Controllers
             }
 
             return guest;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
          [HttpGet("{name}")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Guest>>> GetGuestByName(string name)
         {
+
             IQueryable<Guest> query = _context.Guest;
             if (!string.IsNullOrEmpty(name))
             {
@@ -67,9 +82,9 @@ namespace HavenInn_Backend.Controllers
                 return guests;
 
             }
-            catch (Exception)
+              catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error in Retrieving Data from Database");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
 
         }
@@ -81,6 +96,7 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<IActionResult> PutGuest(int id, Guest guest)
         {
+
             if (id != guest.GuestId)
             {
                 return BadRequest();
@@ -92,7 +108,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!GuestExists(id))
                 {
@@ -114,10 +130,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Guest>> PostGuest(Guest guest)
         {
-            _context.Guest.Add(guest);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Guest.Add(guest);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGuest", new { id = guest.GuestId }, guest);
+                return CreatedAtAction("GetGuest", new { id = guest.GuestId }, guest);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Guests/5
@@ -125,16 +148,23 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Guest>> DeleteGuest(int id)
         {
-            var guest = await _context.Guest.FindAsync(id);
-            if (guest == null)
+            try
             {
-                return NotFound();
+                var guest = await _context.Guest.FindAsync(id);
+                if (guest == null)
+                {
+                    return NotFound();
+                }
+
+                _context.Guest.Remove(guest);
+                await _context.SaveChangesAsync();
+
+                return guest;
             }
-
-            _context.Guest.Remove(guest);
-            await _context.SaveChangesAsync();
-
-            return guest;
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool GuestExists(int id)

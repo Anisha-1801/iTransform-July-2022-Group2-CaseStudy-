@@ -27,13 +27,22 @@ namespace HavenInn_Backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
+            try
+            { 
             return await _context.User.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
+            try
+            { 
             var user = await _context.User.FindAsync(id);
 
             if (user == null)
@@ -42,6 +51,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return user;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/Users/5
@@ -61,7 +75,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!UserExists(id))
                 {
@@ -82,16 +96,25 @@ namespace HavenInn_Backend.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            try
+            { 
             _context.User.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(int id)
         {
+            try
+            { 
             var user = await _context.User.FindAsync(id);
             if (user == null)
             {
@@ -102,6 +125,11 @@ namespace HavenInn_Backend.Controllers
             await _context.SaveChangesAsync();
 
             return user;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool UserExists(int id)

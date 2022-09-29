@@ -28,7 +28,14 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Department>>> GetDepartment()
         {
+            try
+            { 
             return await _context.Department.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Departments/5
@@ -36,6 +43,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Department>> GetDepartment(int id)
         {
+            try
+            { 
             var department = await _context.Department.FindAsync(id);
 
             if (department == null)
@@ -44,6 +53,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return department;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/Departments/5
@@ -53,6 +67,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner")]
         public async Task<IActionResult> PutDepartment(int id, Department department)
         {
+            try
+            { 
             if (id != department.DepartmentId)
             {
                 return BadRequest();
@@ -64,7 +80,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!DepartmentExists(id))
                 {
@@ -77,6 +93,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return NoContent();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // POST: api/Departments
@@ -86,10 +107,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner")]
         public async Task<ActionResult<Department>> PostDepartment(Department department)
         {
+            try
+            { 
             _context.Department.Add(department);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDepartment", new { id = department.DepartmentId }, department);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Departments/5
@@ -97,6 +125,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner")]
         public async Task<ActionResult<Department>> DeleteDepartment(int id)
         {
+            try
+            { 
             var department = await _context.Department.FindAsync(id);
             if (department == null)
             {
@@ -107,6 +137,11 @@ namespace HavenInn_Backend.Controllers
             await _context.SaveChangesAsync();
 
             return department;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool DepartmentExists(int id)

@@ -27,7 +27,14 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Staff>>> GetStaff()
         {
+            try
+            {
             return await _context.Staff.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Staffs/5
@@ -35,6 +42,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Staff>> GetStaff(int id)
         {
+            try
+            { 
             var staff = await _context.Staff.FindAsync(id);
 
             if (staff == null)
@@ -43,6 +52,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return staff;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/Staffs/5
@@ -63,7 +77,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!StaffExists(id))
                 {
@@ -85,10 +99,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Staff>> PostStaff(Staff staff)
         {
+            try
+            { 
             _context.Staff.Add(staff);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetStaff", new { id = staff.StaffId }, staff);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Staffs/5
@@ -96,6 +117,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Staff>> DeleteStaff(int id)
         {
+            try 
+            { 
             var staff = await _context.Staff.FindAsync(id);
             if (staff == null)
             {
@@ -106,6 +129,11 @@ namespace HavenInn_Backend.Controllers
             await _context.SaveChangesAsync();
 
             return staff;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool StaffExists(int id)

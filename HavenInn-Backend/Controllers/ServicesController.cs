@@ -28,7 +28,14 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<IEnumerable<Services>>> GetServices()
         {
+            try
+            { 
             return await _context.Services.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Services/5
@@ -36,6 +43,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<Services>> GetServices(int id)
         {
+            try
+            { 
             var services = await _context.Services.FindAsync(id);
 
             if (services == null)
@@ -44,6 +53,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return services;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/Services/5
@@ -53,6 +67,7 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner,Manager")]
         public async Task<IActionResult> PutServices(int id, Services services)
         {
+
             if (id != services.ServiceId)
             {
                 return BadRequest();
@@ -64,7 +79,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!ServicesExists(id))
                 {
@@ -86,10 +101,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner,Manager")]
         public async Task<ActionResult<Services>> PostServices(Services services)
         {
+            try
+            { 
             _context.Services.Add(services);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetServices", new { id = services.ServiceId }, services);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Services/5
@@ -97,6 +119,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Owner,Manager")]
         public async Task<ActionResult<Services>> DeleteServices(int id)
         {
+            try
+            { 
             var services = await _context.Services.FindAsync(id);
             if (services == null)
             {
@@ -107,6 +131,11 @@ namespace HavenInn_Backend.Controllers
             await _context.SaveChangesAsync();
 
             return services;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool ServicesExists(int id)

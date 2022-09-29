@@ -28,7 +28,14 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<IEnumerable<Reservation>>> GetReservation()
         {
+            try
+            { 
             return await _context.Reservation.ToListAsync();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Reservations/5
@@ -36,6 +43,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<ActionResult<Reservation>> GetReservation(int id)
         {
+            try
+            { 
             var reservation = await _context.Reservation.FindAsync(id);
 
             if (reservation == null)
@@ -44,6 +53,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return reservation;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/Reservations/5
@@ -53,6 +67,7 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<IActionResult> PutReservation(int id, Reservation reservation)
         {
+
             if (id != reservation.ReservationId)
             {
                 return BadRequest();
@@ -64,7 +79,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!ReservationExists(id))
                 {
@@ -86,10 +101,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Reservation>> PostReservation(Reservation reservation)
         {
+            try 
+            { 
             _context.Reservation.Add(reservation);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetReservation", new { id = reservation.ReservationId }, reservation);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Reservations/5
@@ -97,6 +119,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Reservation>> DeleteReservation(int id)
         {
+            try
+            { 
             var reservation = await _context.Reservation.FindAsync(id);
             if (reservation == null)
             {
@@ -107,6 +131,11 @@ namespace HavenInn_Backend.Controllers
             await _context.SaveChangesAsync();
 
             return reservation;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool ReservationExists(int id)

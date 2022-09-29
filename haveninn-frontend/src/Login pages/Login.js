@@ -15,7 +15,10 @@ import React, { Component } from 'react'
     login(){
         fetch('https://localhost:44331/api/UserLogin',{
             method:"POST",
-            body:JSON.stringify(this.state)
+            body:this.state
+
+        }).then(res=>{
+          console.log(res)
         }).then((response)=>{
             response.json().then((result)=>{
                 console.warn("result",result);

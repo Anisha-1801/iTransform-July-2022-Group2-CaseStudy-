@@ -26,7 +26,15 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<IEnumerable<Bill>>> GetBill()
         {
-            return await _context.Bill.ToListAsync();
+            try
+            {
+                return await _context.Bill.ToListAsync();
+
+            }
+              catch(Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // GET: api/Bills/5
@@ -34,6 +42,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner,Manager")]
         public async Task<ActionResult<Bill>> GetBill(int id)
         {
+            try
+            { 
             var bill = await _context.Bill.FindAsync(id);
 
             if (bill == null)
@@ -42,6 +52,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return bill;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // PUT: api/Bills/5
@@ -51,6 +66,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<IActionResult> PutBill(int id, Bill bill)
         {
+            try
+            { 
             if (id != bill.BillId)
             {
                 return BadRequest();
@@ -62,7 +79,7 @@ namespace HavenInn_Backend.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+              catch (DbUpdateConcurrencyException)
             {
                 if (!BillExists(id))
                 {
@@ -75,6 +92,11 @@ namespace HavenInn_Backend.Controllers
             }
 
             return NoContent();
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // POST: api/Bills
@@ -84,10 +106,17 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Bill>> PostBill(Bill bill)
         {
+            try
+            { 
             _context.Bill.Add(bill);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBill", new { id = bill.BillId }, bill);
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         // DELETE: api/Bills/5
@@ -95,6 +124,8 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Receptionist,Owner")]
         public async Task<ActionResult<Bill>> DeleteBill(int id)
         {
+            try 
+            { 
             var bill = await _context.Bill.FindAsync(id);
             if (bill == null)
             {
@@ -105,6 +136,11 @@ namespace HavenInn_Backend.Controllers
             await _context.SaveChangesAsync();
 
             return bill;
+            }
+              catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
         }
 
         private bool BillExists(int id)
