@@ -1,4 +1,7 @@
+
+using HavenInn_Library.Interface;
 using HavenInn_Library.Models;
+using HavenInn_Library.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +37,9 @@ namespace HavenInn_Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+
+            services.AddSingleton<IEmailSender, EmailSenderService>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                .AddJwtBearer(options =>
                {
@@ -60,6 +66,7 @@ namespace HavenInn_Backend
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+           
             services.AddControllers();
             services.AddSwaggerGen(options =>
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CaseStudy-HavenInn\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {}
+    "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {}
   },
   "projects": {
-    "D:\\CaseStudy-HavenInn\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CaseStudy-HavenInn\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "D:\\CaseStudy-HavenInn\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectPath": "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
         "packagesPath": "C:\\Users\\naveen kumar\\.nuget\\packages\\",
-        "outputPath": "D:\\CaseStudy-HavenInn\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
+        "outputPath": "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[3.1.25, )"
@@ -73,7 +77,27 @@
               "target": "Package",
               "version": "[3.1.25, )"
             },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[6.4.0, )"
             }
