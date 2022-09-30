@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HavenInn_Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace HavenInn_Backend.Controllers
 {
@@ -102,15 +103,33 @@ namespace HavenInn_Backend.Controllers
         public async Task<ActionResult<Reservation>> PostReservation(Reservation reservation)
         {
             try 
-            { 
-            _context.Reservation.Add(reservation);
+            {
+                DateTime checkin= Convert.ToDateTime(reservation.CheckIn);
+                DateTime checkout = Convert.ToDateTime(reservation.CheckOut);
+
+                TimeSpan period= checkout.Subtract(checkin);    
+                 
+            _context.Reservation.Add(new Reservation
+            {
+                ReservationId = reservation.ReservationId,
+                GuestId=reservation.GuestId,
+                UserId=reservation.UserId,
+                RoomId=reservation.RoomId,
+                ServiceId=reservation.ServiceId,
+                CheckIn=reservation.CheckIn,
+                CheckOut=reservation.CheckOut,
+                BookingTime= reservation.BookingTime,
+                NoOfNights=Convert.ToInt32(period.Days),
+                NumberOfAdults=reservation.NumberOfAdults,
+                NumberOfChildren=reservation.NumberOfChildren
+            });
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetReservation", new { id = reservation.ReservationId }, reservation);
             }
               catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.InnerException}");
             }
         }
 

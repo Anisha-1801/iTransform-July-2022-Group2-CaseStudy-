@@ -183,7 +183,8 @@ namespace HavenInn_Backend.Controllers
                 .Select(s => s.ServiceId).FirstOrDefault();
             var serviceprice = _context.Services.Where(s => s.ServiceId == Convert.ToInt32(service)).Select(s => s.Price).FirstOrDefault();
             var price = (Convert.ToInt32(nights) * Convert.ToDecimal(roomprice)) + Convert.ToDecimal(serviceprice);
-             Bill bill1=new Bill
+           
+            Bill bill1=new Bill
                {
                 BillId = bill.BillId,
                 PaymentMode = bill.PaymentMode,
