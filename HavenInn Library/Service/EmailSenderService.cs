@@ -24,15 +24,15 @@ namespace HavenInn_Library.Service
             _smtpSettings = smtpSettings.Value;
         }
 
-        public async Task<string> SendEmailAsync(string recipientEmail, string recipientFirstName, string Body)
+        public async Task<string> SendEmailAsync(string recipientEmail, string recipientFirstName,string Subject,string Body)
         {
             var message = new MimeMessage();
             message.From.Add(MailboxAddress.Parse(_smtpSettings.SenderEmail));
             message.To.Add(MailboxAddress.Parse(recipientEmail));
-            message.Subject = "How to send email in .Net Core";
-            message.Body = new TextPart("plain")
+            message.Subject = Subject;
+            message.Body = new TextPart("html")
             {
-                Text = Body
+                Text = $"<h3>{Body}</h3>"
             };
 
             var client = new SmtpClient();

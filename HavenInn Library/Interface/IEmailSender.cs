@@ -5,6 +5,6 @@ namespace HavenInn_Library.Interface
 {
     public interface IEmailSender
     {
-        Task<string> SendEmailAsync(string recipientEmail, string recipientFirstName, string Body);
+        Task<string> SendEmailAsync(string recipientEmail, string recipientFirstName,string Subject ,string Body);
     }
 }
