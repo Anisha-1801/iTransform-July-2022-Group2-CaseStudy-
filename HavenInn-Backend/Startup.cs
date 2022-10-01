@@ -59,9 +59,10 @@ namespace HavenInn_Backend
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
-            services.AddDbContext<HavenInnContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("HavenInnContext")));
-
+            services.AddDbContext<HavenInnContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("HavenInnContext"));
+                options.EnableSensitiveDataLogging(true);
+            });
 
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)

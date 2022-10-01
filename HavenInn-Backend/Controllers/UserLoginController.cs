@@ -62,7 +62,7 @@ namespace HavenInn_Backend.Controllers
             };
 
             var Token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Audience"], claims,
-                expires: DateTime.Now.AddMinutes(15), signingCredentials: credentials);
+                expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(Token);
         }

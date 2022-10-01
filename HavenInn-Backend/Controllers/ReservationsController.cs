@@ -107,9 +107,13 @@ namespace HavenInn_Backend.Controllers
                 DateTime checkin= Convert.ToDateTime(reservation.CheckIn);
                 DateTime checkout = Convert.ToDateTime(reservation.CheckOut);
 
-                TimeSpan period= checkout.Subtract(checkin);    
-                 
-            _context.Reservation.Add(new Reservation
+                TimeSpan period= checkout.Subtract(checkin);
+                
+                
+                //var room = _context.Room.Where(r => r.RoomId == reservation.RoomId).Single();
+               
+
+                _context.Reservation.Add(new Reservation
             {
                 ReservationId = reservation.ReservationId,
                 GuestId=reservation.GuestId,
@@ -123,13 +127,16 @@ namespace HavenInn_Backend.Controllers
                 NumberOfAdults=reservation.NumberOfAdults,
                 NumberOfChildren=reservation.NumberOfChildren
             });
-            await _context.SaveChangesAsync();
+                
+                await _context.SaveChangesAsync();
+                //await RoomStatus(Convert.ToInt32(reservation.RoomId));
+                //IQueryable query = _context.Room.FromSql($"Update Room set isAvailable=false where RoomId=={reservation.RoomId}");
 
-            return CreatedAtAction("GetReservation", new { id = reservation.ReservationId }, reservation);
+                return CreatedAtAction("GetReservation", new { id = reservation.ReservationId }, reservation);
             }
               catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.InnerException}");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
 
@@ -161,5 +168,22 @@ namespace HavenInn_Backend.Controllers
         {
             return _context.Reservation.Any(e => e.ReservationId == id);
         }
+
+        //private async Task<IActionResult> RoomStatus(int id)
+        //{
+        //   var room = _context.Room.Where(r=>r.RoomId==id).FirstOrDefault();
+        //    Room room1 = new Room
+        //    {
+        //        RoomId = room.RoomId,
+        //        RoomTypeId = room.RoomTypeId,
+        //        IsAvailable = false,
+        //        Description = room.Description
+        //    };
+
+        //    _context.Entry(room1).State = EntityState.Modified;
+        //    await _context.SaveChangesAsync();
+
+        //    return NoContent();
+        //}
     }
 }

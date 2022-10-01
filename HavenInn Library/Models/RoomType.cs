@@ -16,7 +16,16 @@ namespace HavenInn_Library.Models
         }
         [Key]
         public int RoomTypeId { get; set; }
+
+
+        [Required]
+        [RegularExpression("^[A-Z][a-zA-Z ]*$", ErrorMessage = "Roomtype Name should not contain numbers or special characters !!")]
         public string RoomTypeName { get; set; }
+
+
+        [Required]
+        [RegularExpression("^([0-9])$", ErrorMessage = "Cannot contain characters!!")]
+        [Range(1000,250000)]
         public decimal? Price { get; set; }
 
         public virtual ICollection<Room> Room { get; set; }

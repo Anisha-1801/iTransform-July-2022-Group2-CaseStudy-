@@ -16,7 +16,16 @@ namespace HavenInn_Library.Models
         }
         [Key]
         public int ServiceId { get; set; }
+
+
+        [Required]
+        [RegularExpression("^[A-Z][a-zA-Z ]*$", ErrorMessage = "Service Name should not contain numbers or special characters !!")]
         public string ServiceName { get; set; }
+
+
+        [Required]
+        [RegularExpression("^([0-9])$", ErrorMessage = "Cannot contain characters!!")]
+        [Range(1,1000000)]
         public decimal? Price { get; set; }
 
         public virtual ICollection<Reservation> Reservation { get; set; }

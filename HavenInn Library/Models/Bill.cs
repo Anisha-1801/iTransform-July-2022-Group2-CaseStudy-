@@ -12,11 +12,21 @@ namespace HavenInn_Library.Models
     {
         [Key]
         public int BillId { get; set; }
+
+        [Required]
         public string PaymentMode { get; set; }
+
+        [Required]
         public int? ReservationId { get; set; }
+
+       
         public decimal? TotalPrice { get; set; }
+
         public DateTime? PaymentTime { get; set; }
+
         public string TransactionId { get; set; }
+
+        [Required]
         public string Status { get; set; }
     }
 }

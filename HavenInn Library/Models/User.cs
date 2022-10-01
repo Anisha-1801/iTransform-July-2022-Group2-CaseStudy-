@@ -17,9 +17,18 @@ namespace HavenInn_Library.Models
         }
         [Key]
         public int UserId { get; set; }
+
+        [Required]
         public string Password { get; set; }
+
+        [Required]
         public string Role { get; set; }
+
+        [Required]
         public int? StaffId { get; set; }
+
+        [Required]
+        [EmailAddress(ErrorMessage = "Invalid Emailid !!")]
         public string Email { get; set; }
 
         public virtual Staff Staff { get; set; }

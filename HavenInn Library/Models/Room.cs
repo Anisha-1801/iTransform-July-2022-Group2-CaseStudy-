@@ -16,9 +16,18 @@ namespace HavenInn_Library.Models
         }
         [Key]
         public int RoomId { get; set; }
+
+        [Required]
         public int? RoomTypeId { get; set; }
+
+
+        [Required]
         public bool? IsAvailable { get; set; }
+
+
+        [Required]
         public string Description { get; set; }
+
 
         public virtual RoomType RoomType { get; set; }
         public virtual ICollection<Reservation> Reservation { get; set; }

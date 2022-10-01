@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {}
+    "D:\\Capg\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {}
   },
   "projects": {
-    "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "D:\\Capg\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "D:\\Capg\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\naveen kumar\\.nuget\\packages\\",
-        "outputPath": "D:\\CaseStudy\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
+        "projectPath": "D:\\Capg\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\Shama\\.nuget\\packages\\",
+        "outputPath": "D:\\Capg\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\naveen kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Shama\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.2.2, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[3.4.1, )"
@@ -118,7 +117,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
