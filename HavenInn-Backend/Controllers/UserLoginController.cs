@@ -57,6 +57,7 @@ namespace HavenInn_Backend.Controllers
 
                   //new Claim(ClaimTypes.GivenName,user.Staff.FirstName),
                   //new Claim(ClaimTypes.Surname,user.Staff.LastName),
+                  new Claim(ClaimTypes.SerialNumber,Convert.ToString(user.UserId)),
                   new Claim(ClaimTypes.Role,user.Role),
                   new Claim(ClaimTypes.Email,user.Email)
             };

@@ -8,12 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using HavenInn_Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using System.Security.Claims;
 
 namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Owner")]
+   
     public class UsersController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -25,6 +26,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Users
         [HttpGet]
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
             try
@@ -39,6 +41,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
             try
@@ -62,14 +65,34 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Roles = "Owner,Manager,Receptionist")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var userclaims = identity.Claims;
+
+            User U = new User
+            {
+                UserId = Convert.ToInt32(userclaims.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value),
+                Email = userclaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value,
+                Role = userclaims.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value
+            };
+
+
+
+
             if (id != user.UserId)
             {
-                return BadRequest();
+                return Ok("User not found");
+            }      
+            else if(id==user.UserId & id==U.UserId)
+            {
+                _context.Entry(user).State = EntityState.Modified;
             }
-
-            _context.Entry(user).State = EntityState.Modified;
+            else
+            {
+                return Ok(" cannot change another user password ");
+            }
 
             try
             {
@@ -94,6 +117,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult<User>> PostUser(User user)
         {
             try
@@ -111,6 +135,7 @@ namespace HavenInn_Backend.Controllers
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult<User>> DeleteUser(int id)
         {
             try
