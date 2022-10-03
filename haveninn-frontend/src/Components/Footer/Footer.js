@@ -43,7 +43,7 @@ import './footer-logo.png'
                   <div className="col-lg-8 mb-50">
                       <div className="footer-widget">
                           <div className="footer-logo">
-                              <a href="index.html"><img src={require("./footer-logo.png")} className="img-fluid" alt="logo"/></a>
+                              <a href="index.html"><img src={require("./footer-logo.png")} alt="logo"/></a>
                           </div>
                           <div className="footer-text">
                               <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
