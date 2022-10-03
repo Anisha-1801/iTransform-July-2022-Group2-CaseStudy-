@@ -1,5 +1,4 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import './App.css';
 import AboutUs from './Components/AboutUs/AboutUs';
 import Contact from './Components/Contact/Contact';
 import LandingPage from './Components/LandingPage/LandingPage';
