@@ -84,7 +84,8 @@ namespace HavenInn_Backend.Controllers
             if (id != user.UserId)
             {
                 return Ok("User not found");
-            }      
+            }
+      
             else if(id==user.UserId & id==U.UserId)
             {
                 _context.Entry(user).State = EntityState.Modified;

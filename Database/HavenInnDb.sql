@@ -121,7 +121,7 @@ Price	decimal(10,2)
 ALTER TABLE [User]
 ADD CONSTRAINT FK_User_Staff
 FOREIGN KEY (StaffId) REFERENCES Staff(StaffId) 
-on delete set null
+on delete cascade
 
 ALTER TABLE Staff
 ADD CONSTRAINT FK_Staff_Department
@@ -349,5 +349,6 @@ Select * from [User]
 select * from Room where isAvailable='true'
 select * from Bill where Status='Paid'
 Select * from Inventory where isStockAvailable='true'
+
 
 

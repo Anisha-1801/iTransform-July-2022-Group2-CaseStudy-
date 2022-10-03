@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HavenInn_Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using System.Security.Claims;
 
 namespace HavenInn_Backend.Controllers
 {
@@ -117,6 +118,16 @@ namespace HavenInn_Backend.Controllers
         [Authorize(Roles = "Manager,Owner")]
         public async Task<ActionResult<Staff>> DeleteStaff(int id)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var userclaims = identity.Claims;
+
+            User U = new User
+            {
+                UserId = Convert.ToInt32(userclaims.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value),
+                Email = userclaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value,
+                Role = userclaims.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value
+            };
+            var role2=_context.User.Where(e=>e.StaffId==id).Select(s=>s.Role).FirstOrDefault();
             try 
             { 
             var staff = await _context.Staff.FindAsync(id);
@@ -124,11 +135,22 @@ namespace HavenInn_Backend.Controllers
             {
                 return NotFound();
             }
-
-            _context.Staff.Remove(staff);
-            await _context.SaveChangesAsync();
-
-            return staff;
+            else if(U.Role=="Manager" & role2=="Receptionist")
+            {
+                _context.Staff.Remove(staff);
+                await _context.SaveChangesAsync();
+                    return staff;
+            }
+            else if (U.Role == "Owner")
+            {
+                _context.Staff.Remove(staff);
+                await _context.SaveChangesAsync();
+                return staff;
+            }
+            else
+            {
+              return Ok("You are not Authorized to delete Staff");
+            }
             }
               catch (Exception e)
             {
