@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 // import {Link} from 'react-router-dom';
 import "./Navigation.css";
 import "./logo.png";
+import Login from "../Login/Login";
 
-class Navigation extends Component {
-  render() {
+function Navigation() {
+    const [modalShow, setModalShow] = React.useState(false);
     return (
       <div>
         <nav className="my-navbar navbar navbar-expand-lg navbar-dark">
@@ -45,15 +46,16 @@ class Navigation extends Component {
                   </a>
                 </li>
               </ul>
-              <a className="btn btn-outline-light" href="/login">
-                    <i class="fa fa-user"> </i> Log In
-              </a>
+              <button className="btn btn-outline-light" onClick={() => setModalShow(true)}>
+                    <i className="fa fa-user"> </i> Log In
+              </button>
+              <Login show={modalShow} onHide={() => setModalShow(false)}/>
             </div>
           </div>
         </nav>
       </div>
     );
   }
-}
+
 
 export default Navigation;
