@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Footer from '../Footer/Footer'
 import Navigation from '../Navigation/Navigation'
 
 class LandingPage extends Component {
@@ -7,6 +8,7 @@ class LandingPage extends Component {
       <div>
         <Navigation/>
         LandingPage
+        <Footer/>
     </div>
     )
   }
