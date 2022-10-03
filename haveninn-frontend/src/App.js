@@ -1,45 +1,28 @@
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import './App.css';
-import  Home  from './Components/Home'
-import Guest from './Components/Guest'
-import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom'
-import Login from './Login pages/Login';
+import AboutUs from './Components/AboutUs/AboutUs';
+import Contact from './Components/Contact/Contact';
+import LandingPage from './Components/LandingPage/LandingPage';
+import Login from './Components/Login/Login';
 
 function App() {
-    return (
-        <BrowserRouter>
-            <div className="App container">
-                <h3 className="d-flex justify-content-center m-3">
-                    HavenInn Management System
-                </h3>
-
-                <nav className="navbar navbar-expand-sm bg-light navbar-dark">
-                    <ul className="navbar-nav">
-                        <li className="nav-item- m-1">
-                            <NavLink className="btn btn-light btn-outline-primary" to="/Home">
-                                Home
-                            </NavLink>
-                        </li>
-                        <li className="nav-item- m-1">
-                            <NavLink className="btn btn-light btn-outline-primary" to="/Guest">
-                                Guest
-                            </NavLink>
-                        </li>
-                        <li className="nav-item- m-1">
-                            <NavLink className="btn btn-light btn-outline-primary" to="/Login">
-                                Login
-                            </NavLink>
-                        </li>
-                    </ul>
-                </nav>
-
-                <Routes>
-                    <Route path="/Home" element={<Home />} />
-                    <Route path="/Guest" element={<Guest />} />
-                    <Route path="/Login" element={<Login/>} />
-                </Routes>
-            </div>
+  return (
+    <div className="App">
+         <BrowserRouter> 
+         <Routes>
+            <Route exact path='/' element={<LandingPage/>}/>
+            <Route exact path="/home" element={<LandingPage/>}/>
+            <Route path='/about' element={<AboutUs/>} />
+            <Route path='/contact' element={<Contact/>} />
+            <Route path='/login' element={<Login/>} />
+            {/* <Route path='/signup' element={<Signup/>} /> 
+            <Route path='/login' element={<Login/>} /> 
+            <Route path='/addpet' element={<AddPet/>} />  */}
+          </Routes>
+          {/* <Footer/> */}
         </BrowserRouter>
-    );
+    </div>
+  );
 }
 
 export default App;
