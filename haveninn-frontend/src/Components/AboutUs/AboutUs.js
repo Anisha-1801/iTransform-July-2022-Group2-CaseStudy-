@@ -6,7 +6,6 @@ class AboutUs extends Component {
   render() {
     return (
       <div className="aboutus">
-        <Navigation />
         <h1 id="about-head">HavenInn - Hotel Management System</h1>
         <h5 className="about-text">
           The purpose of <i>HavenInn</i> is to simplify the

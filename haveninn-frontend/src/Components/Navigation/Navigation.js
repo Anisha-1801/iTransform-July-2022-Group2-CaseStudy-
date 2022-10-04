@@ -39,7 +39,7 @@ function Navigation() {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav ms-auto">
+              <ul className="navbar-nav ms-auto navbar-center">
                 <li className="nav-item">
                   <a className="nav-link" aria-current="page" href="/home">
                     Home
@@ -55,16 +55,28 @@ function Navigation() {
                     Contact
                   </a>
                 </li>
+                {isUserLoggedin ?
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/dashboard">
+                      Dashboard
+                    </a>
+                  </li>
+                </>:
+                <>
+                   
+                </>
+                }
               </ul>
               {isUserLoggedin ? 
               <>
-                <span>{email}</span>
-                <button className="btn btn-outline-warning" onClick={logout}>
+                <span className="email-span">{email}</span>
+                <button className="btn prop btn-outline-warning" onClick={logout}>
                       <i className="fa fa-user"> </i> &nbsp; Log Out
                 </button>
               </>:
               <>
-                <button className="btn btn-outline-warning" onClick={() => setModalShow(true)}>
+                <button className="btn prop btn-outline-warning" onClick={() => setModalShow(true)}>
                 <i className="fa fa-user"> </i> &nbsp; Log In
                 </button>
                 <Login show={modalShow} onHide={() => setModalShow(false)}/>

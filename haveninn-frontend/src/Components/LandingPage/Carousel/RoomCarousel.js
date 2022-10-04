@@ -10,11 +10,6 @@ export default class RoomCarousel extends Component {
         {/* CALL TO ACTION */}
         <section id="cta">
           <h3 class="cta-heading">Together let's redefine Urban Living luxuriously.</h3>
-          <Link to={"/login"}>
-            <button type="button" class="btn btn-outline-dark btn-lg" id="db1">
-            <i class=" lg fa fa-user"></i> &nbsp; &nbsp;Log In
-          </button>
-          </Link>
         </section>
 
         {/* CAROUSEL */}

@@ -40,7 +40,6 @@ const Contact = () => {
 
   return (
     <div>
-      <Navigation />
       <div className="form-body">
         {result && (
           <p className={`${result.success ? "success" : "error"}`}>

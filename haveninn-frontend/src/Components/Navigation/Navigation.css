@@ -14,7 +14,7 @@
     font-family:'Josefin Sans', sans-serif;
 }
 
-.navbar-nav{
+/* .navbar-nav{
     text-align: center;
     margin-right: 35%;
     margin-top:1.5%;
@@ -22,17 +22,28 @@
 .nav-item{
     font-size: 20px;
     margin-right: 10px;
-} 
+}  */
 
-
-.btn{
-    margin-top:1%;
-    margin-right: 70px;
-    font-size: 18px;
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    font-size: 20px;
 }
 
-span{
-    margin-right:25px;
+
+.prop{
+    /* margin-top:1%;
+    margin-right: 70px;
+    font-size: 18px; */
+    position:absolute;
+    left:85%;
+}
+
+.email-span{
+    position:absolute;
     color:#fff;
-    margin-top: 5px;
+    margin-top: 3px;
+    left:70%;
+    font-family:'Josefin Sans', sans-serif;
 }

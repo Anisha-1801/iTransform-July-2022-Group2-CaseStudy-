@@ -30,7 +30,8 @@ namespace HavenInn_Backend.Controllers
         {
             try
             {
-                return await _context.Room.ToListAsync();
+                //var rooms = _context.Room.Include("RoomType");
+                return await _context.Room.Include(i => i.RoomType).ToListAsync();
             }
               catch (Exception e)
             {
@@ -62,13 +63,13 @@ namespace HavenInn_Backend.Controllers
 
         [HttpGet("available")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
-        public async Task<ActionResult<IEnumerable<Room>>> availablerooms(bool status)
+        public async Task<ActionResult<IEnumerable<Room>>> availablerooms()
         {
             IQueryable<Room> query = _context.Room;
             
             try
             {
-                var rooms = await query.Where(r=>r.IsAvailable== status).ToListAsync();
+                var rooms = await query.Where(r=>r.IsAvailable== true).ToListAsync();
                 if (rooms == null)
                 {
                     return NotFound();
