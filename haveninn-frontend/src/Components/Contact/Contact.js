@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Navigation from "../Navigation/Navigation";
 import "./contact.css";
-// import axios from 'axios'
+import axios from 'axios'
+import Variables from "../../Variables/Variables";
 
 const Contact = () => {
   const [state, setState] = useState({
-    name: "",
     email: "",
+    name: "",
     subject: "",
     message: "",
   });
@@ -15,17 +16,17 @@ const Contact = () => {
   const [result, setResult] = useState(null);
 
   const sendEmail = (event) => {
-    // event.preventDefault();
-    // axios
-    // .post('http://localhost:5000/contactus', { ...state })
-    // .then(response => {
-    // setResult(response.data);
-    // setState({ name: '', email: '', subject: '', message: '' });
-    // })
-    // .catch(() => {
-    // setResult({ success: false, 
-    //             message: 'Something went wrong. Try again later'});
-    // });
+    event.preventDefault();
+    axios
+    .post(Variables.api + 'EmailSender/SendEmail/', { ...state })
+    .then(response => {
+    setResult(response.data);
+    setState({ email: '', name: '', subject: '', message: '' });
+    })
+    .catch((err) => {
+    setResult({ success: false, 
+                message: 'Something went wrong. Try again later'+ err});
+    });
   };
 
   const onInputChange = (event) => {

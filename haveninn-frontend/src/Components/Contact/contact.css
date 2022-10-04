@@ -36,3 +36,11 @@
 #link-to-signup{
     text-decoration: none;
 }
+
+.success{
+    text-align:center
+}
+
+.error{
+    text-align:center
+}
