@@ -1,6 +1,7 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import AboutUs from './Components/AboutUs/AboutUs';
 import Contact from './Components/Contact/Contact';
+import Footer from './Components/Footer/Footer';
 import LandingPage from './Components/LandingPage/LandingPage';
 
 
@@ -19,6 +20,7 @@ function App() {
           </Routes>
           {/* <Footer/> */}
         </BrowserRouter>
+        <Footer/>
     </div>
   );
 }

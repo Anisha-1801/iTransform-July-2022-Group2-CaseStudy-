@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
 import Introduction from "./Introduction/Introduction";
+import RoomCarousel from "./Carousel/RoomCarousel";
 
 class LandingPage extends Component {
   render() {
@@ -9,8 +9,7 @@ class LandingPage extends Component {
       <div>
         <Navigation />
         <Introduction/>
-        LandingPage
-        <Footer />
+        <RoomCarousel/>
       </div>
     );
   }

@@ -1,0 +1,67 @@
+#testimonials {
+  text-align: center;
+  background-color: #1e1e1e;
+  color: #1e1e1e;
+}
+.test-img {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  min-height: 572px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* opacity: 0.7; */
+
+}
+.carousel-item {
+  padding: 18% 15%;
+}
+.testimonial-text {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #fff;
+
+}
+
+em {
+  color: #fff;
+}
+.box{
+  padding: 5%;
+  background-color: #1e1e1e;
+  text-align: center;
+  margin:auto;
+  background-color: rgba(0,0,0,.5);
+}
+/* Call to action */
+
+#cta {
+  background-color: #d9b553;
+  padding-top: 8%;
+  text-align: center;
+}
+.cta-heading {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 3.5rem;
+  padding-left: 17%;
+  padding-right: 17%;
+}
+#db1 {
+  margin: 2% 1%;
+}
+
+.img1 {
+  background: url(./images/room.jpg);
+}
+
+.img2 {
+  background: url(./images/food-table.jpg);
+}
+
+.img3 {
+  background: url(./images/amenities.jpg);
+}

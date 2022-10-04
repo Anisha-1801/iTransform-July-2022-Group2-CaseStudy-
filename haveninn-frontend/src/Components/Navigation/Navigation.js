@@ -46,8 +46,8 @@ function Navigation() {
                   </a>
                 </li>
               </ul>
-              <button className="btn btn-outline-light" onClick={() => setModalShow(true)}>
-                    <i className="fa fa-user"> </i> Log In
+              <button className="btn btn-outline-warning" onClick={() => setModalShow(true)}>
+                    <i className="fa fa-user"> </i> &nbsp; Log In
               </button>
               <Login show={modalShow} onHide={() => setModalShow(false)}/>
             </div>

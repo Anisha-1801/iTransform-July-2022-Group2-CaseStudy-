@@ -14,7 +14,7 @@ import './footer-logo.png'
                           <i className="fas fa-map-marker-alt"></i>
                           <div className="cta-text">
                               <h4>Find us</h4>
-                              <span>Capgemini Services, Airoli.</span>
+                              <span>Capgemini India Pvt Ltd, Airoli</span>
                           </div>
                       </div>
                   </div>
@@ -23,7 +23,7 @@ import './footer-logo.png'
                           <i className="fas fa-phone"></i>
                           <div className="cta-text">
                               <h4>Call us</h4>
-                              <span>9876543210 0</span>
+                              <span>1234567890</span>
                           </div>
                       </div>
                   </div>
@@ -43,7 +43,7 @@ import './footer-logo.png'
                   <div className="col-lg-8 mb-50">
                       <div className="footer-widget">
                           <div className="footer-logo">
-                              <a href="index.html"><img src={require("./footer-logo.png")} alt="logo"/></a>
+                              <a href="/home"><img src={require("./footer-logo.png")} alt="logo"/></a>
                           </div>
                           <div className="footer-text">
                               <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing

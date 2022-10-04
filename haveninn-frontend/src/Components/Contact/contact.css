@@ -1,0 +1,38 @@
+#label-heading{
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-align:center;
+    padding-right:17%;
+    margin-left: 20%;
+    margin-bottom: 15%;
+}
+#submit-button{
+    margin:5% 30%;
+  }
+
+  .form-body{
+    background-color: #000000;
+    font-family: "Montserrat";
+    color:#ffffff;
+}
+.SignupForm{
+    padding: 5% 38%;
+
+}
+#signup-head{
+    text-align: center;
+    padding-right:15%;
+}
+
+.label-heading{
+    padding-top:2%;
+    padding-bottom:2%;
+}
+
+#sign-up-button{
+  margin:5% 33%;
+}
+
+#link-to-signup{
+    text-decoration: none;
+}

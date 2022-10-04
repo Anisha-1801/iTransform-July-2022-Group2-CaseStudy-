@@ -1,6 +1,6 @@
 .my-navbar{
-    background-color: #1e1e1e;
-    font-family:'Josefin Sans', sans-serif;
+    background-color: #000000;
+    
 }
 
 .logo{
@@ -11,6 +11,7 @@
     color:#fff;
     margin-left:2px;
     margin-top:1.5%;
+    font-family:'Josefin Sans', sans-serif;
 }
 
 .navbar-nav{
