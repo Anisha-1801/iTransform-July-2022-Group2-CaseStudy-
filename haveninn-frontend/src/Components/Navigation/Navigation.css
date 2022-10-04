@@ -1,6 +1,6 @@
 .my-navbar{
     background-color: #000000;
-    
+  
 }
 
 .logo{
@@ -22,11 +22,17 @@
 .nav-item{
     font-size: 20px;
     margin-right: 10px;
-}
+} 
+
+
 .btn{
     margin-top:1%;
     margin-right: 70px;
     font-size: 18px;
 }
 
-
+span{
+    margin-right:25px;
+    color:#fff;
+    margin-top: 5px;
+}

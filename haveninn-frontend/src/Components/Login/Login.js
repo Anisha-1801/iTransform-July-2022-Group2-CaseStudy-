@@ -28,7 +28,8 @@ function Login(props) {
     };
     axios.post(Variables.api + "UserLogin", payload)
     .then((res) => {localStorage.setItem('token', res.data)
-                       alert('login Successful')})
+    localStorage.setItem('email',payload.email)
+          window.location.reload()})
     .catch((err)=> {console.log(err)
     alert('invalid credentials')
     setState({ email: '', password: '' })

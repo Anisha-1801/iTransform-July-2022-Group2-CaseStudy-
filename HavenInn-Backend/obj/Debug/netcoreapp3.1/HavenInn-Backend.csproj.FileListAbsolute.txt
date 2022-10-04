@@ -1349,3 +1349,4 @@ D:\Capg\HavenInn-CaseStudy\HavenInn-Backend\obj\Debug\netcoreapp3.1\HavenInn-Bac
 D:\Capg\HavenInn-CaseStudy\HavenInn-Backend\obj\Debug\netcoreapp3.1\HavenInn-Backend.pdb
 D:\Capg\HavenInn-CaseStudy\HavenInn-Backend\obj\Debug\netcoreapp3.1\HavenInn-Backend.genruntimeconfig.cache
 D:\CaseStudy\HavenInn-CaseStudy\HavenInn-Backend\bin\Debug\netcoreapp3.1\FluentValidation.dll
+D:\HavenInn-CaseStudy\HavenInn-Backend\bin\Debug\netcoreapp3.1\FluentValidation.dll

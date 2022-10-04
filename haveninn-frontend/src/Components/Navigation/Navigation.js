@@ -3,9 +3,19 @@ import React from "react";
 import "./Navigation.css";
 import "./logo.png";
 import Login from "../Login/Login";
-
+import Variables from "../../Variables/Variables";
+ 
 function Navigation() {
     const [modalShow, setModalShow] = React.useState(false);
+    const t = Variables.token;
+    const email = Variables.email;
+    const isUserLoggedin = t != null? true : false
+
+    function logout() {
+      localStorage.clear();
+      window.location.reload();
+    }
+
     return (
       <div>
         <nav className="my-navbar navbar navbar-expand-lg navbar-dark">
@@ -46,10 +56,20 @@ function Navigation() {
                   </a>
                 </li>
               </ul>
-              <button className="btn btn-outline-warning" onClick={() => setModalShow(true)}>
-                    <i className="fa fa-user"> </i> &nbsp; Log In
-              </button>
-              <Login show={modalShow} onHide={() => setModalShow(false)}/>
+              {isUserLoggedin ? 
+              <>
+                <span>{email}</span>
+                <button className="btn btn-outline-warning" onClick={logout}>
+                      <i className="fa fa-user"> </i> &nbsp; Log Out
+                </button>
+              </>:
+              <>
+                <button className="btn btn-outline-warning" onClick={() => setModalShow(true)}>
+                <i className="fa fa-user"> </i> &nbsp; Log In
+                </button>
+                <Login show={modalShow} onHide={() => setModalShow(false)}/>
+              </>
+              }
             </div>
           </div>
         </nav>
