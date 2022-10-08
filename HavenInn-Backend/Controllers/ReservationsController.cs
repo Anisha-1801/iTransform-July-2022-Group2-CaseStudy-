@@ -30,8 +30,8 @@ namespace HavenInn_Backend.Controllers
         public async Task<ActionResult<IEnumerable<Reservation>>> GetReservation()
         {
             try
-            { 
-            return await _context.Reservation.ToListAsync();
+            {
+                return await _context.Reservation.Include("Guest").Include("Room").Include(s=>s.Service).ToListAsync();
             }
               catch (Exception e)
             {
@@ -108,11 +108,11 @@ namespace HavenInn_Backend.Controllers
                 DateTime checkout = Convert.ToDateTime(reservation.CheckOut);
 
                 TimeSpan period= checkout.Subtract(checkin);
-                
-                
-                //var room = _context.Room.Where(r => r.RoomId == reservation.RoomId).Single();
+
+
                
 
+                string time = DateTime.Now.ToLongTimeString();
                 _context.Reservation.Add(new Reservation
             {
                 ReservationId = reservation.ReservationId,
@@ -122,15 +122,15 @@ namespace HavenInn_Backend.Controllers
                 ServiceId=reservation.ServiceId,
                 CheckIn=reservation.CheckIn,
                 CheckOut=reservation.CheckOut,
-                BookingTime= reservation.BookingTime,
+                BookingTime= Convert.ToDateTime(time) ,
                 NoOfNights=Convert.ToInt32(period.Days),
                 NumberOfAdults=reservation.NumberOfAdults,
                 NumberOfChildren=reservation.NumberOfChildren
             });
                 
                 await _context.SaveChangesAsync();
-                //await RoomStatus(Convert.ToInt32(reservation.RoomId));
-                //IQueryable query = _context.Room.FromSql($"Update Room set isAvailable=false where RoomId=={reservation.RoomId}");
+               
+                
 
                 return CreatedAtAction("GetReservation", new { id = reservation.ReservationId }, reservation);
             }
@@ -171,10 +171,9 @@ namespace HavenInn_Backend.Controllers
 
         //private async Task<IActionResult> RoomStatus(int id)
         //{
-        //   var room = _context.Room.Where(r=>r.RoomId==id).FirstOrDefault();
+        //    var room = _context.Room.Where(r => r.RoomId == id).FirstOrDefault();
         //    Room room1 = new Room
         //    {
-        //        RoomId = room.RoomId,
         //        RoomTypeId = room.RoomTypeId,
         //        IsAvailable = false,
         //        Description = room.Description

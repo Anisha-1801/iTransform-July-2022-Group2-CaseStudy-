@@ -37,12 +37,21 @@ namespace Email02.Controllers
             }
         }
 
-        [HttpPost, Route("Email/Guest/Reservation")]
-        public async Task<IActionResult> SendEmailAsynctoguest(/*string recipientEmail, string recipientFirstName*/string Body,string GuestName)
+        [HttpPost, Route("Reservation")]
+        public async Task<IActionResult> SendEmailAsynctoguest(/*string recipientEmail, string recipientFirstName*/int id)
         {
             string Subject = "Reservation Successfull";
-            string recipientEmail= _context.Guest.Where(g=>g.Name==GuestName).Select(e=>e.Email).FirstOrDefault().ToString();
-            string recipientFirstName = _context.Guest.Where(g => g.Name == GuestName).Select(e => e.Name).FirstOrDefault().ToString();
+            var guest = _context.Guest.Where(g => g.GuestId==id).FirstOrDefault();
+            string recipientEmail = guest.Email ;
+            string recipientFirstName =guest.Name;
+            var reservation =_context.Reservation.Where(r=>r.GuestId==guest.GuestId).Include(i=>i.Room).FirstOrDefault();
+           
+            string Body =$"Welcome to Hotel HavenInn<br/>"+
+                         $"Your Reservation Id:{reservation.ReservationId}<br/>" +
+                         $"Your Room no:{reservation.RoomId}<br/>" +
+                         $"Room Details:{reservation.Room.Description}<br/>" +
+                         $"Check In : {Convert.ToDateTime(reservation.CheckIn).ToShortDateString()} <br/>"+
+                         $"Check out:{Convert.ToDateTime(reservation.CheckOut).ToShortDateString()}";
             try
             {
                 string messageStatus = await _emailSender.SendEmailAsync(recipientEmail, recipientFirstName, Subject,Body);

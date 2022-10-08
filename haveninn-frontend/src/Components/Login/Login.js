@@ -11,6 +11,7 @@ function Login(props) {
     email: "",
     password: "",
   });
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setState((prevState) => ({
@@ -18,6 +19,8 @@ function Login(props) {
       [id]: value,
     }));
   };
+
+  const [result, setResult] = useState(null);
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
@@ -30,11 +33,21 @@ function Login(props) {
     .then((res) => {localStorage.setItem('token', res.data)
     localStorage.setItem('email',payload.email)
           window.location.reload()})
-    .catch((err)=> {console.log(err)
-    alert('invalid credentials')
-    setState({ email: '', password: '' })
-       })  
+    .catch((err)=> {
+      setResult({
+        success:false,
+        message:"Invalid Credentials - " + err.message
+      })
+      setState({ email: '', password: ''})
+       })
   };
+
+  const stoperrormessage = () => {
+    setResult({
+      success: null,
+      message : null
+    })
+  }
  
   return (
     <Modal
@@ -43,10 +56,15 @@ function Login(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header closeButton onClick={stoperrormessage}>
         <Modal.Title id="contained-modal-title-vcenter">Log In</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+      {result && (
+          <p className={`${result.success ? "success" : "error"}`}>
+            {result.message}
+          </p>
+        )}
         <Form className="login-form">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -67,12 +85,14 @@ function Login(props) {
               value={state.password}
               onChange={handleChange}
               placeholder="Password"
+              required
             />
           </Form.Group>
           <Button variant="dark" className="submit" type="submit" onClick={handleSubmitClick}>
             Login
           </Button>
         </Form>
+
       </Modal.Body>
     </Modal>
   );

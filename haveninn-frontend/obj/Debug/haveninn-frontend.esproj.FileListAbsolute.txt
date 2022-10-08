@@ -1,2 +1,4 @@
 D:\CASE STUDY\HavenInn\haveninn-frontend\obj\Debug\haveninn-frontend.esproj.SuggestedBindingRedirects.cache
 D:\CASE STUDY\HavenInn\haveninn-frontend\obj\Debug\haveninn-frontend.esproj.CoreCompileInputs.cache
+D:\HavenInn-CaseStudy\haveninn-frontend\obj\Debug\haveninn-frontend.esproj.SuggestedBindingRedirects.cache
+D:\HavenInn-CaseStudy\haveninn-frontend\obj\Debug\haveninn-frontend.esproj.CoreCompileInputs.cache

@@ -188,7 +188,5 @@ namespace HavenInn_Backend.Controllers
         {
             return _context.Room.Any(e => e.RoomId == id);
         }
-
-       
     }
 }

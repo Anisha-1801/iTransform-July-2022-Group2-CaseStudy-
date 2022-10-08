@@ -26,22 +26,22 @@ namespace HavenInn_Library.Models
         public int? ServiceId { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        [CheckInDate(ErrorMessage = "CheckIn date cannot be in the past !!")]
+        //[DataType(DataType.Date)]
+        //[CheckInDate(ErrorMessage = "CheckIn date cannot be in the past !!")]
         public DateTime? CheckIn { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        [CheckInDate(ErrorMessage = "CheckOut date cannot be in the past !!")]
+        //[DataType(DataType.Date)]
+        //[CheckInDate(ErrorMessage = "CheckOut date cannot be in the past !!")]
         public DateTime? CheckOut { get; set; }
 
         [Required]
-        public TimeSpan? BookingTime { get; set; }
+        public DateTime BookingTime { get; set; }
 
  
         public int? NoOfNights { get; set; }
 
-        [Required]
+       
         public int? NumberOfAdults { get; set; }
         public int? NumberOfChildren { get; set; }
 

@@ -5,8 +5,19 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <div className="intro-banner-wrap">
-	        {/* <img src={require("./hotel-bg.jpg")} class="w-100 img-fluid-hotel" alt="hotel"/> */}
+        <div className="">
+        <img className="recep" src={require("./Images/hotel.png")} alt="receptionist dashboard"/>
+          <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="/searchroom">Rooms</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="/Guest">Guest</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Reservation">Reservation</a>
+            </li>
+          </ul>
         </div>
         <SearchRooms/>
       </div>

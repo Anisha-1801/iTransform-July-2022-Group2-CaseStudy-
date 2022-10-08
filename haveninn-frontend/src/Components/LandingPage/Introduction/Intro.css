@@ -1,5 +1,27 @@
-.img-fluid-hotel {
-    max-width: 100%;
-    height:calc( 100vh - 100px );
-  }
-  
+.intro-banner-wrap{
+  background:url(./hotel-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  min-height: 572px;
+}
+
+  /* Call to action */
+
+#cta {
+  padding: 4%;
+  text-align: center;
+}
+.cta-heading {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 3.5rem;
+  padding: 10% 17%;
+  /* margin-top:5%; */
+  color:#fff;
+  background-color: rgba(0,0,0,.5);
+}
+#db1 {
+  margin: 2% 1%;
+}

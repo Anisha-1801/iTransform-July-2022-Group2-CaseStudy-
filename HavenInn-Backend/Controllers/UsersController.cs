@@ -26,7 +26,7 @@ namespace HavenInn_Backend.Controllers
 
         // GET: api/Users
         [HttpGet]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Receptionist,Manager")]
         public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
             try

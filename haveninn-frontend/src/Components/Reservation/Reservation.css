@@ -1,0 +1,44 @@
+
+.reservation-container{
+    background: rgb(30,30,30);
+    background: linear-gradient(0deg, rgba(30,30,30,1) 36%, rgba(0,0,0,1) 100%);
+    padding:1%;
+
+}
+
+.cardbody{
+    margin-bottom: 0;
+}
+
+.r-card{
+    background-color: #fff;
+}
+
+.r-card:hover{
+    -webkit-transition:  box-shadow .3s ease-out;
+    box-shadow: 3px 6px 8px grey;
+}
+
+.r-card-section{
+    display: inline-block;
+    padding-left: 1%;
+}
+
+.para-head{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 2%;
+    } 
+
+.para-text{
+    padding-top: 1%;
+    font-size: 17px;
+    padding-bottom: 0;
+}
+.label-heading{
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-align:center;
+    color: #fff;
+}

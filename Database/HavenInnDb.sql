@@ -1,5 +1,11 @@
 create database HavenInn
 
+
+USE HavenInn
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF
+GO
+
 Drop Database HavenInn
 
 use HavenInn
@@ -60,7 +66,7 @@ create table Reservation
 	ServiceID	int,
 	CheckIn	datetime,
 	CheckOut	datetime,
-	BookingTime	time,
+	BookingTime	datetime,
 	noOfNights	int,
 	numberOfAdults	int,
 	numberOfChildren	int

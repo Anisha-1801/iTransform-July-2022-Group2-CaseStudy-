@@ -1,0 +1,30 @@
+#features{
+    background-color: white;
+    padding:5%;
+    position: relative;
+    right:5%;
+   }
+.feature-box{
+    text-align: center;
+    padding: 2%;
+}
+.f1{
+    font-family:'Montserrat';
+    font-weight: bold;
+    font-size: 1.5rem;
+    color:black;
+    text-align: center;
+    padding-left:25%;
+
+}
+.f2{
+    color:#8f8f8f;
+    padding-left:20%;
+}
+.logo{
+    color: #d9b553;
+    margin-bottom: 1rem;
+}
+.logo:hover{
+    color:#eee241;
+}

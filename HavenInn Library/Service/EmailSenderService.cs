@@ -32,7 +32,7 @@ namespace HavenInn_Library.Service
             message.Subject = Subject;
             message.Body = new TextPart("html")
             {
-                Text = $"<h3>{Body}</h3>"
+                Text = $"{Body}"
             };
 
             var client = new SmtpClient();

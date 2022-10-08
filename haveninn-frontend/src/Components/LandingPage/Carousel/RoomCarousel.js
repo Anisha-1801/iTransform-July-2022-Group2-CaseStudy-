@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import {Link} from 'react-router-dom';
 import "./styles.css";
 
 export default class RoomCarousel extends Component {
   render() {
     return (
       <div> 
-        {/* CALL TO ACTION */}
-        <section id="cta">
-          <h3 class="cta-heading">Together let's redefine Urban Living luxuriously.</h3>
-        </section>
-
         {/* CAROUSEL */}
         <section id="testimonials">
           <Carousel fade>

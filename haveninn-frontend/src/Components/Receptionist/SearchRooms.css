@@ -1,3 +1,44 @@
-.getroom{
-    padding: 5%;
+.card-container{
+    margin-right:0;
+    background: rgb(30,30,30);
+background: linear-gradient(0deg, rgba(30,30,30,1) 36%, rgba(0,0,0,1) 100%);
+
+}
+
+
+.room-card{
+    margin:0 auto;
+    display:block;
+    border-radius: 10px;
+}
+
+.room-card:hover{
+    /* box-shadow: 5px 10px 8px #c3c3c3; */
+    /* box-shadow: 5px 10px 8px #777777; */
+    /* box-shadow: 5px 10px 0px grey; */
+    -webkit-transition:  box-shadow .3s ease-out;
+    box-shadow: 3px 6px 8px grey;
+}
+.para-head{
+font-family: 'Ubuntu', sans-serif;
+font-weight: 900;
+color: #000;
+margin-bottom: 3%;
+} 
+
+.fw-bold{
+    color:#fff;
+}
+
+.para-text{
+    padding-top: 1%;
+    font-size: 17px;
+}
+
+.filters .form-select{
+    width:15%;
+}
+
+.filters{
+    justify-content: right;
 }
