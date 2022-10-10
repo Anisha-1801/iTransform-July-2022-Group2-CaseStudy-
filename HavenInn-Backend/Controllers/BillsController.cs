@@ -60,6 +60,27 @@ namespace HavenInn_Backend.Controllers
             }
         }
 
+        [HttpGet("RID")]
+        [Authorize(Roles = "Receptionist,Owner,Manager")]
+        public async Task<ActionResult<Bill>> GetBillByReservationid(int id)
+        {
+            try
+            {
+                var bill = await _context.Bill.Where(r => r.ReservationId == id).FirstOrDefaultAsync();
+
+                if (bill == null)
+                {
+                    return NotFound();
+                }
+
+                return bill;
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
+            }
+        }
+
         // PUT: api/Bills/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.

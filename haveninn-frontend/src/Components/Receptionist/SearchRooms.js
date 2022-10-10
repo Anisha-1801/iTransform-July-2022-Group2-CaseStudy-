@@ -97,9 +97,9 @@ handleclick=()=>{
                     </p> 
                     <p className="mt-3">
                       {room.IsAvailable ? (
-                        <button className="btn btn-outline-success">
+                        <a href="/Reservation/Add" className="btn btn-outline-success">
                           <i className="fa fa-bed" aria-hidden="true"></i>&nbsp; Reserve
-                        </button>
+                        </a>
                       ) : (
                         <button className="btn btn-warning" disabled>
                           <i className="fa fa-check" aria-hidden="true"></i>&nbsp; Reserved

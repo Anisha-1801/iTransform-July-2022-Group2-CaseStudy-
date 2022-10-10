@@ -9,7 +9,7 @@
     background: linear-gradient(0deg, rgba(30,30,30,1) 36%, rgba(0,0,0,1) 100%);
     border: 0px;
 }
-.label{
+.form-label{
     color:#000;
     margin-bottom: 4px;
 }
@@ -53,4 +53,9 @@
     color:#fff;
     font-family: 'Ubuntu';
     font-size: 20px;
+  }
+
+  .bill-card{
+    background-color: #fff;
+    border: 0px;
   }

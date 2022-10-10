@@ -47,8 +47,8 @@ namespace HavenInn_Backend.Controllers
             try
             { 
            // var reservation = await _context.Reservation.FindAsync(id);
-            var reservation = await _context.Reservation
-                                            .Where(r => r.ReservationId == id).Include("Guest").Include("Room").Include("Service").Include("User").FirstAsync();
+            var reservation = await _context.Reservation.Where(r => r.ReservationId == id)
+                                            .Include("Guest").Include("Room").Include("Service").FirstAsync();
 
                 if (reservation == null)
             {

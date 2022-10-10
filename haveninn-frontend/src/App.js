@@ -15,10 +15,10 @@ import Bill from './Components/Bill/Bill';
 import AddDepartmentForm from './Components/Department/AddDepartmentForm';
 import Department from './Components/Department/Department';
 import UpdateDepartmentForm from './Components/Department/UpdateDepartmentForm';
-import ViewReservation from './Components/Reservation/ReservationForm/ViewReservation';
 import Inventory from './Components/Inventory/Inventory';
 import AddInventory from './Components/Inventory/AddInventory';
 import GuestUpdateForm from './Components/Guest/GuestUpdateForm';
+import AddBill from './Components/Bill/AddBill';
 
 function App() {
   return (
@@ -39,7 +39,6 @@ function App() {
        {/* Reservation Routes */}
        <Route path='/Reservation' element={<Reservation/>}/>
        <Route path='/Reservation/Add' element={<MakeReservation/>} />
-       <Route path='/Reservation/View' element={<ViewReservation/>} />
        {/* <Route path='/Reservation/Update/' element={<UpdateReservation/>} /> */}
        <Route path='/Department' element={<Department/>} />
        <Route path='/Department/Add' element={<AddDepartmentForm/>} />
@@ -47,7 +46,9 @@ function App() {
        {/* Inventory Routes */}
        <Route path='/Inventory' element={<Inventory/>} />
        <Route path='/Inventory/Add' element={<AddInventory/>} />
+       {/* Bill Routes */}
        <Route path='/Bill' element={<Bill/>} />
+       <Route path='/Bill/Add' element={<AddBill/>} />
      </Routes>
    </BrowserRouter>
    <Footer/>
