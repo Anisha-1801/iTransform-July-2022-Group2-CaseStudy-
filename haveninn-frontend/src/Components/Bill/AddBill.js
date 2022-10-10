@@ -106,25 +106,22 @@ this.setState({
       const filteredreservations = localStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==localStorage.getItem('guestid'))
     return (
       <div>
-       <div className="container">
-        <div className="col-md-6 m-5 mx-auto">
-          <div className='card mt-3 p-3'>
-             <h4 className='text-center'>Guests</h4>
-              <div className="card-body">
-                <form onSubmit={this.idhandler}>
-                  <div className="form-group">
-                    <label className="form-label">Reservation Id</label>
-                    <select className="form-select" value={this.state.ReservationId} onChange={this.idhandler} >
-                        <option value={null}>SelectReservationId </option>
-                            {(localStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==localStorage.getItem('roomid')))).map(rp=>
-                        <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
-                         )}
-                    </select>
-                    <center><button className="btn btn-success mt-3">Get bill</button></center>
-                  </div>
-                </form>
+       <div className="row container">
+        <div className="col-lg-6 col-md-6 col-sm-12">
+          <h4 className='text-center'>Guests</h4>
+            <form onSubmit={this.idhandler}>
+              <div className="form-group">
+                <label className="form-label">Reservation Id :</label>
+                <center>
+                <select className="form-select" value={this.state.ReservationId} onChange={this.idhandler} style={{width:"250px"}}>
+                    <option value={null}>Select Reservation Id </option>
+                        {(localStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==localStorage.getItem('roomid')))).map(rp=>
+                    <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
+                      )}
+                </select>
+                <button className="btn btn-success mt-3">Get bill</button></center>
               </div>
-            </div>
+            </form>
             </div>
           </div>
           <div className="container">

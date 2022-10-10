@@ -78,8 +78,6 @@ class MakeReservation extends Component {
         this.setState({ CheckOut: e.target.value });
     };
 
-   
-
     fetchUsers(){
         axios.get(Variables.api + 'Users', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
         .then(response => response.data)
@@ -165,7 +163,6 @@ class MakeReservation extends Component {
      disableDates = () => {
       var today, dd, mm, yyyy;
       today = new Date();
-      console.log(today)
       dd = today.getDate();
       if (dd < 10) {
           dd = '0' + dd
@@ -187,7 +184,8 @@ class MakeReservation extends Component {
     }
    
     makeReservation=(e)=>{
-      e.preventDefault()
+      e.preventDefault();
+      // eslint-disable-next-line
         const User = this.state.Users.filter( user => user.Email == Variables.email)
         const u=User.map(u=>u.UserId)
         console.log(u[0])
@@ -214,10 +212,7 @@ class MakeReservation extends Component {
              .then( this.setState({
               show: true
             }))
-             .catch(err=> {console.log(err);
-              this.setState({
-                show: false
-              })
+             .catch(err=> {console.log(err)
             })
          // eslint-disable-next-line
           const room=this.state.Rooms.filter(s=>s.RoomId==Reservation.RoomId)
@@ -231,7 +226,10 @@ class MakeReservation extends Component {
          .catch(err=> console.log(err))     
          localStorage.setItem('roomid',Reservation.RoomId)
          localStorage.setItem('guestid',Reservation.GuestId)
-
+          
+         axios.post(Variables.api+`EmailSender/Reservation?id=${Reservation.GuestId}&roomid=${Reservation.RoomId}`)
+         .then(console.log("success"))
+         .catch(err=>console.log(err))
         } 
     }
     
@@ -243,9 +241,6 @@ class MakeReservation extends Component {
         .then(res=>console.log(res))
         .catch(err=>console.log(err))
 
-        axios.post(Variables.api+`EmailSender/Reservation?id=${localStorage.getItem('guestid')}&roomid=${localStorage.getItem('roomid')}`)
-         .then(console.log("success"))
-         .catch(err=>console.log(err))
        }
 
   render() {
@@ -348,7 +343,7 @@ class MakeReservation extends Component {
         <Modal.Body>
               <div className='bill-card card '>
                   <div className="card-body">
-                    <form action="/Bill">
+                    <form action="/Bill/Add">
                       <div className="form-group">
                         <label className="form-label">Reservation Id</label>
                         <select className="form-select" value={this.state.ReservationId} onChange={this.generatebill} >
@@ -357,6 +352,9 @@ class MakeReservation extends Component {
                             <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
                             )}
                         </select>
+                        <center className="mt-2">
+                        <Button type="submit" variant="outline-warning"> Generate Bill</Button>
+                        </center>
                       </div>
                     </form>
                   </div>

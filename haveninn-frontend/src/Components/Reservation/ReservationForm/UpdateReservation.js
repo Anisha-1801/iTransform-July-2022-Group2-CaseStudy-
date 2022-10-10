@@ -1,209 +1,192 @@
-// import { useState,useEffect } from 'react'
-// import {useLocation} from 'react-router-dom';
-// import axios from 'axios'
-// import Variables from '../../../Variables/Variables';
+import React,{useState, useEffect} from 'react'
+import {useLocation} from 'react-router-dom'
+import axios from 'axios'
+import Variables from '../../../Variables/Variables'
+import '../ReservationForm/Form.css'
 
-// function UpdateReservation() {
-//     const location = useLocation();
-//     const reservationId = location.state.Id;
-//     const [Reservations, setReservations] = useState([]);
-//     const [Rooms, setRooms] = useState([]);
-//     const [Services, setServices] = useState([]);
-//     const [Guests, setGuests] = useState([]);
-//     const [Users,setUsers] = useState([]);
-//     const [error, setError] = useState(null);
 
-//     useEffect(() => {
-//         axios.get(Variables.api + "Reservations", {
-//             headers: { Authorization: `Bearer ${Variables.token}` }
-//           })
-//           .then((response) => response.data)
-//           .then(res => setReservations(res))
-//           .catch((error) => {console.log(error); setError(error);});
+function UpdateReservation() {
+    const location = useLocation();
+    const Rid = location.state.Id ;
+    // const [nights, setnights] = useState('');
+    const [gName, setgName] = useState('');
+    const [Rooms, setRooms] = useState([]);
+    const [Service, setServices] = useState([]);
+    const [checkIn, setcheckIn] = useState('');
+    const [checkOut, setcheckOut] = useState('');
+    const [roomId, setroomId] = useState('');
+    const [serviceId, setserviceId] = useState('');
+    const [guestId, setguestId] = useState('');
+    const [userId, setuserId] = useState('');
+    const [adults, setadults] = useState('');
+    const [child, setchild] = useState('');
+    const time = new Date();
+    // const updateTime = time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds() ;
+    // const nights = checkOut - checkIn;
+    const [sName, setsName] = useState('');
 
-//           axios.get(Variables.api + 'Users', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
-//           .then(response => response.data)
-//           .then(res => setUsers(res))
-//           .catch( error => console.log(error))
 
-//           axios.get(Variables.api + 'Services', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
-//           .then(response => response.data)
-//           .then(res => setServices(res))
-//           .catch( error => console.log(error))
+    function fetchRooms(){
+      axios.get(Variables.api + 'Rooms', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
+      .then(response => response.data)
+      .then(res => { setRooms(res)})
+      .catch( error => console.log(error))
 
-//           axios.get(Variables.api + 'Guests', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
-//           .then(response => response.data)
-//           .then(res =>  setGuests(res))
-//           .catch( error => console.log(error))
+      console.log(Rooms)
+  }
 
-//           axios.get(Variables.api + 'Rooms', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
-//           .then(response => response.data)
-//           .then(res => setRooms(res))
-//           .catch( error => console.log(error))
-//       }, []);
+    function fetchServices(){
+    axios.get(Variables.api + 'Services', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
+    .then(response => response.data)
+    .then(res => { setServices(res)})
+    .catch( error => console.log(error))
+  }
 
-//     //Counter 
-//     const increment = () => {
-//         setNumberOfAdults({
-//             NumberOfAdults: prevState.NumberOfAdults + 1
-//         });
-//     }
+  function setCorrectFormat(date){
+    var now = new Date(date);
+    var month = (now.getMonth() + 1);               
+    var day = now.getDate();
+    if (month < 10) 
+        month = "0" + month;
+    if (day < 10) 
+        day = "0" + day;
+    var today = now.getFullYear() + '-' + month + '-' + day;
+    return today
+  }
 
-//     const decrement = () => {
-//         if (this.state.NumberOfAdults === 0) {
-//         } else {
-//             this.setState((prevState) => ({
-//                 NumberOfAdults: prevState.NumberOfAdults - 1
-//             }));
-//         }
-//     }
-//     const inputHandle= e =>{
-//         this.setState({NumberOfAdults:e.target.value})
-//     }
+  useEffect(() => {
+      axios.get(Variables.api + `Reservations/${Rid}`,{ headers: {"Authorization" : `Bearer ${Variables.token}`}})
+      .then(response => response.data)
+      .then(res => { 
+        setguestId(res.GuestId);
+        setuserId(res.UserId);
+        setroomId(res.RoomId);
+        setserviceId(res.ServiceId);
+        setcheckIn(setCorrectFormat(res.CheckIn));
+        setcheckOut(setCorrectFormat(res.CheckOut));
+        // setnights(res.NoOfNights);
+        setadults(res.NumberOfAdults)
+        setchild(res.NumberOfChildren);
+        setgName(res.Guest.Name);
+        setsName(res.Service.ServiceName);
+      })
+      .catch( error => alert(error))
 
-//     const inputChildHandle= e =>{
-//         this.setState({NumberOfChildren:e.target.value})
-//     }
+      fetchRooms();
+      fetchServices();
+  }, [])
 
-//     const incrementChild = () =>{
-//         this.setState((prevState) => ({
-//             NumberOfChildren: prevState.NumberOfChildren + 1
-//         }));
-//     }
+  const UpdateReservation = () => {
 
-//     const decrementChild = () => {
-//         if (this.state.NumberOfChildren === 0) {
-//         } else {
-//             this.setState((prevState) => ({
-//                 NumberOfChildren: prevState.NumberOfChildren - 1
-//             }));
-//         }
-//     }
+    axios.put(Variables.api + `Reservations/${Rid}`,{
+        ReservationId: Rid,
+        GuestId: guestId,
+        UserId : userId,
+        RoomId : roomId,
+        ServiceId : serviceId,
+        CheckIn: checkIn,
+        CheckOut: checkOut,
+        // BookingTime: updateTime,
+        // NoOfNights: nights,
+        NumberOfAdults: adults,
+        NumberOfChildren: child
+    },
+    { headers: {"Authorization" : `Bearer ${Variables.token}`}})
+    .then(res => console.log(res))
+    .catch( error => alert(error))
+  }
 
-//     //Date functionality
-//     const disableDates = () => {
-//       var today, dd, mm, yyyy;
-//       today = new Date();
-//       console.log(today)
-//       dd = today.getDate();
-//       if (dd < 10) {
-//           dd = '0' + dd
-//       }
-//       mm = today.getMonth() + 1;
-//       if (mm < 10) {
-//           mm = '0' + mm
-//       }
-//       yyyy = today.getUTCFullYear();
-//       return yyyy + "-" + mm + "-" + dd;
-//   }
 
-//     const UpdateReservationById = reservationId => {
-//         axios.post(Variables.api + "Reservations", {
-//             header: { Authorization: `Bearer ${Variables.token}` }
-//         })
-//         .then((response) => response.data)
-//         .catch((error) => {console.log(error); setError(error);});
-//     }
+  return (
+    <div>
+      <div className="r-container">
+        <div className="r-container container">
+          <div className="row">
+            <div className="rf-card card col-md-6 offset-md-3 offset-md-3">
+                <h3 className="form-card-title">Update Reservation</h3>
+              <div className="card-body">
+                <form action="/Reservation" onSubmit={()=>{UpdateReservation()}}> 
+                    <div className="row">
+                      <div className="col-lg-6 col-md-6 col-sm-12">
+                      <div className="form-group">
+                        <label>Reservation Id : </label>
+                        <input type="text" className="form-control" disabled={true} defaultValue={Rid}/>
+                      </div>
+                      </div>
+                    <div className="col-lg-6 col-md-6 col-sm-12">
+                      <div className="form-group">
+                        <label>Guest : </label>
+                        <input type="text" className="form-control" defaultValue={gName} disabled={true}/>
+                      </div>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-lg-6 col-md-6 col-sm-12">
+                  <div className="form-group">
+                    <label> Check-In: </label>
+                    <input type="date" name="CheckIn" className="form-control" defaultValue={checkIn} disabled={true}/>
+                  </div>
+                  </div>
+                  <div className="col-lg-6 col-md-6 col-sm-12">
+                  <div className="form-group">
+                    <label> Check-Out: </label>
+                    <input name="CheckOut" className="form-control" type="date" defaultValue={checkOut} 
+                    onChange={e => setcheckOut(e.target.value)}/>
+                  </div>
+                  </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-6 col-md-6 col-sm-12">
+                  <div className="form-group">
+                    <label> Room Number: </label>
+                    <select className="form-select" onChange={e => setroomId(e.target.value)}>
+                        <option defaultValue={roomId}>{roomId} </option>
+                        {(Rooms.filter(r=>r.IsAvailable == true)).map(rp=>
+                        <option  key={rp.RoomId} value={rp.RoomId}>{rp.RoomId} {rp.RoomType.RoomTypeName}</option>
+                         )} 
+                    </select>
+                  </div>
+                  </div>
+                  <div className="col-lg-6 col-md-6 col-sm-12">
+                  <div className="form-group">
+                  <label> Services: </label>
+                    <select className="form-select" onChange={e => setserviceId(e.target.value)}>
+                        <option value={serviceId}> {sName}</option>
+                            {Service.map(s=>
+                        <option key={s.ServiceId} value={s.ServiceId}>{s.ServiceName}</option>
+                         )}
+                    </select>
+                  </div>
+                  </div>
+                  </div>    
+                  <div className="row">
+                    <div className="col-lg-6 col-md-6 col-sm-6">
+                    <div className="form-group">
+                     <label>Adult : </label><br/>
+                     <input name="quantity" type="number" className="form-control" maxLength="2" min="1" 
+                     defaultValue={adults} onChange={e => setadults(e.target.value)}/>
+                    </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-sm-6">
+                    <div className="form-group">
+                    <label>Child : </label><br/>
+                    <input name="quantity" type="number" className="form-control" maxLength="2" min="0" 
+                    defaultValue={child} onChange={e => setchild(e.target.value)}/>
+                    </div>
+                    </div>
+                </div>
+                <center className="mt-5">
+                  <button type="submit" className="btn btn-warning btn-lg"> 
+                  <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Update</button>
+                </center>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
-//     return (
-//         <div>
-//              {Reservations.map(r => (
-//             <div key={r.reservationId}>
-//                       <div className="r-container">
-//         <div className="r-container container">
-//           <div className="row">
-//             <div className="rf-card card col-md-6 offset-md-3 offset-md-3">
-//                 <h3 className="form-card-title">Update Reservation</h3>
-//               <div className="card-body">
-//                 <form method="post" action="/Bill">
-//                     <div className="row">
-//                     <div className="form-group">
-//                     <label>Guest : </label>
-//                     <input type="text" className="form-control" name="guestName" placeholder='Enter Guest Name' onChange={this.GuestIdHandler}/>
-//                   </div>
-//                     <div className="col-lg-6 col-md-6 col-sm-12">
-//                   <div className="form-group">
-//                     <label> Check-In: </label>
-//                     <input type="date" name="CheckIn" className="form-control"
-//                       value={r.CheckIn} onChange={this.CheckInHandler} min={this.disableDates()}/>
-//                   </div>
-//                   </div>
-//                   <div className="col-lg-6 col-md-6 col-sm-12">
-//                   <div className="form-group">
-//                     <label> Check-Out: </label>
-//                     <input name="CheckOut" className="form-control" type="date"
-//                       value={r.CheckOut} onChange={this.CheckOutHandler} min={this.disableDates()}/>
-//                   </div>
-//                   </div>
-//                   </div>
-//                   <div className="row">
-//                     <div className="col-lg-6 col-md-6 col-sm-12">
-//                   <div className="form-group">
-//                     <label> Room Number: </label>
-//                     <select className="form-select" value={r.RoomId} onChange={this.RoomIdHandler}>
-//                         <option value="null">Select Room </option>
-//                             {(Rooms.filter(r=>r.IsAvailable === true)).map(rp=>
-//                         <option  key={rp.RoomId} value={rp.RoomId}>{rp.RoomId} {rp.RoomType.RoomTypeName}</option>
-//                          )}
-//                     </select>
-//                   </div>
-//                   </div>
-//                   <div className="col-lg-6 col-md-6 col-sm-12">
-//                   <div className="form-group">
-//                   <label> Services: </label>
-//                     <select className="form-select" value={r.ServiceId} onChange={this.ServiceIdHandler}>
-//                         <option value="null">Select Service </option>
-//                             {Services.map(s=>
-//                         <option  key={s.ServiceId} value={s.ServiceId}>{s.ServiceName}</option>
-//                          )}
-//                     </select>
-//                   </div>
-//                   </div>
-//                   </div>    
-//                   <div className="row">
-//                     <div className="col-lg-6 col-md-6 col-sm-12">
-//                     <div className="form-group">
-//                     <label>Adult : </label><br/>
-//                     <div className="m-2" style={{display:"inline-block"}}>
-//                     <a href="#" onClick={this.decrement}><i className="fi fa fa-1x fa-minus" aria-hidden="true"></i></a></div>
-//                     <div className="" style={{display:"inline-block"}}>
-//                     <input name="quantity" type="text" className="count-text form-control" value={r.NumberOfAdults} onChange={this.inputHandle} maxLength="2"/>
-//                     </div>
-//                     <div className="m-2" style={{display:"inline-block"}}>
-//                     <a href="#" onClick={this.increment}><i className="fi fa fa-plus" aria-hidden="true"></i></a>
-//                     </div>
-//                     </div>
-//                     </div>
-//                     <div className="col-lg-6 col-md-6 col-sm-12">
-//                     <div className="form-group">
-//                     <label>Child : </label><br/>
-//                     <div className="m-2" style={{display:"inline-block"}}>
-//                     <a href="#" className="" onClick={this.decrementChild}><i className="fi fa fa-1x fa-minus" aria-hidden="true"></i></a>
-//                     </div>
-//                     <div className="" style={{display:"inline-block"}}>
-//                     <input name="quantity" type="text" className="count-text form-control" value={r.NumberOfChildren} onChange={this.inputChildHandle} maxLength="2"/>
-//                     </div>
-//                     <div className="m-2" style={{display:"inline-block"}}>
-//                     <a href="#" onClick={this.incrementChild}><i className="fi fa fa-plus" aria-hidden="true"></i></a>
-//                     </div>
-//                     </div>
-//                     </div>
-//                 </div>
-//                 <center className="mt-5">
-//                   <button className="btn btn-warning btn-lg" onClick={this.makeReservation}> 
-//                   <i class="fa fa-check" aria-hidden="true"></i> Confirm</button>
-//                 </center>
-//                 </form>
-//               </div>
-//             </div>
-//           </div>
-
-//         </div>
-//       </div>
-//             </div> ))}
-//         </div>
-//       )
-
-// }
-
-// export default UpdateReservation
+export default UpdateReservation

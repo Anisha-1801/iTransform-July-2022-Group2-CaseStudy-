@@ -11,7 +11,7 @@ import Guest from './Components/Guest/Guest';
 import Reservation from './Components/Reservation/Reservation';
 import MakeReservation from './Components/Reservation/ReservationForm/MakeReservation';
 import Bill from './Components/Bill/Bill';
-// import UpdateReservation from './Components/Reservation/ReservationForm/UpdateReservation'
+import UpdateReservation from './Components/Reservation/ReservationForm/UpdateReservation'
 import AddDepartmentForm from './Components/Department/AddDepartmentForm';
 import Department from './Components/Department/Department';
 import UpdateDepartmentForm from './Components/Department/UpdateDepartmentForm';
@@ -39,7 +39,7 @@ function App() {
        {/* Reservation Routes */}
        <Route path='/Reservation' element={<Reservation/>}/>
        <Route path='/Reservation/Add' element={<MakeReservation/>} />
-       {/* <Route path='/Reservation/Update/' element={<UpdateReservation/>} /> */}
+       <Route path='/Reservation/Update' element={<UpdateReservation/>} />
        <Route path='/Department' element={<Department/>} />
        <Route path='/Department/Add' element={<AddDepartmentForm/>} />
        <Route path='/Department/Update' element={<UpdateDepartmentForm/>} />

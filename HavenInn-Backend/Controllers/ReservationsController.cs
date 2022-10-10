@@ -75,8 +75,27 @@ namespace HavenInn_Backend.Controllers
             {
                 return BadRequest();
             }
+            DateTime checkin = Convert.ToDateTime(reservation.CheckIn);
+            DateTime checkout = Convert.ToDateTime(reservation.CheckOut);
 
-            _context.Entry(reservation).State = EntityState.Modified;
+            TimeSpan period = checkout.Subtract(checkin);
+
+            string time = DateTime.Now.ToLongTimeString();
+            Reservation reservation1 = new Reservation
+            {
+                ReservationId = reservation.ReservationId,
+                GuestId = reservation.GuestId,
+                UserId = reservation.UserId,
+                RoomId = reservation.RoomId,
+                ServiceId = reservation.ServiceId,
+                CheckIn = reservation.CheckIn,
+                CheckOut = reservation.CheckOut,
+                BookingTime = Convert.ToDateTime(time),
+                NoOfNights = Convert.ToInt32(period.Days),
+                NumberOfAdults = reservation.NumberOfAdults,
+                NumberOfChildren = reservation.NumberOfChildren
+            };
+            _context.Entry(reservation1).State = EntityState.Modified;
 
             try
             {
