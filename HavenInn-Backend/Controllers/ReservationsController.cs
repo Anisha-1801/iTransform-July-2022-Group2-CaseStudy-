@@ -31,7 +31,7 @@ namespace HavenInn_Backend.Controllers
         {
             try
             {
-                return await _context.Reservation.Include("Guest").Include("Room").Include(s=>s.Service).ToListAsync();
+                return await _context.Reservation.Include("Guest").Include("Room").Include("Service").ToListAsync();
             }
               catch (Exception e)
             {
@@ -46,9 +46,11 @@ namespace HavenInn_Backend.Controllers
         {
             try
             { 
-            var reservation = await _context.Reservation.FindAsync(id);
+           // var reservation = await _context.Reservation.FindAsync(id);
+            var reservation = await _context.Reservation
+                                            .Where(r => r.ReservationId == id).Include("Guest").Include("Room").Include("Service").Include("User").FirstAsync();
 
-            if (reservation == null)
+                if (reservation == null)
             {
                 return NotFound();
             }

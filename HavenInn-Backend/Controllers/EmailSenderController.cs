@@ -38,15 +38,15 @@ namespace Email02.Controllers
         }
 
         [HttpPost, Route("Reservation")]
-        public async Task<IActionResult> SendEmailAsynctoguest(/*string recipientEmail, string recipientFirstName*/int id)
+        public async Task<IActionResult> SendEmailAsynctoguest(int id, int roomId)
         {
-            string Subject = "Reservation Successfull";
+            string Subject = "Reservation Successful";
             var guest = _context.Guest.Where(g => g.GuestId==id).FirstOrDefault();
             string recipientEmail = guest.Email ;
             string recipientFirstName =guest.Name;
-            var reservation =_context.Reservation.Where(r=>r.GuestId==guest.GuestId).Include(i=>i.Room).FirstOrDefault();
+            var reservation =_context.Reservation.Where(r=>r.GuestId==guest.GuestId).Where(r=>r.RoomId == roomId).Include(i=>i.Room).FirstOrDefault();
            
-            string Body =$"Welcome to Hotel HavenInn<br/>"+
+            string Body =$"<h1>Welcome to HavenInn</h1><br/>"+
                          $"Your Reservation Id:{reservation.ReservationId}<br/>" +
                          $"Your Room no:{reservation.RoomId}<br/>" +
                          $"Room Details:{reservation.Room.Description}<br/>" +

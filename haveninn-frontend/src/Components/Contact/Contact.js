@@ -40,11 +40,13 @@ const Contact = () => {
   return (
     <div>
       <div className="form-body">
+        <center>
         {result && (
           <p className={`${result.success ? "success" : "error"}`}>
             {result.message}
           </p>
         )}
+        </center>
         <form onSubmit={sendEmail} className="SignupForm">
           <h3 id="label-heading">Contact Us</h3>
           <Form.Group controlId="name">
@@ -88,14 +90,15 @@ const Contact = () => {
               onChange={onInputChange}
             />
           </Form.Group>
+          <center>
           <Button
-            variant="outline-warning btn-lg"
+            variant="outline-warning btn-lg mt-4"
             id="submit-button"
             type="submit"
             onClick={sendEmail}
           >
             <i class="fa fa-inbox" aria-hidden="true"></i> &nbsp; Submit
-          </Button>
+          </Button></center>
         </form>
       </div>
     </div>

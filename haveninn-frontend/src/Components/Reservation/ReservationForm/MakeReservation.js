@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Variables from '../../../Variables/Variables'
+import './Form.css'
 
 
 
@@ -17,7 +18,7 @@ class MakeReservation extends Component {
             ReservationId: "",
             GuestId: "",
             RoomId: "",
-            ServiceId: "",
+            ServiceId: null,
             UserId: "",
             CheckIn: new Date().toISOString().slice(0,10),
             CheckOut: new Date().toISOString().slice(0,10),
@@ -145,6 +146,23 @@ class MakeReservation extends Component {
         }
     }
 
+    //Date functionality
+    disableDates = () => {
+      var today, dd, mm, yyyy;
+      today = new Date();
+      console.log(today)
+      dd = today.getDate();
+      if (dd < 10) {
+          dd = '0' + dd
+      }
+      mm = today.getMonth() + 1;
+      if (mm < 10) {
+          mm = '0' + mm
+      }
+      yyyy = today.getUTCFullYear();
+      return yyyy + "-" + mm + "-" + dd;
+  }
+
     
     componentDidMount(){
         this.fetchRooms()
@@ -184,44 +202,41 @@ class MakeReservation extends Component {
           let uroom ={RoomId:Reservation.RoomId,RoomTypeId:rti[0],IsAvailable:status,Description:D[0]}
           console.log(uroom)
          axios.put(Variables.api+`Rooms/${Reservation.RoomId}`,uroom,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
-          .then(res=>alert(res))
-         .catch(err=> console.log(err))     
+         .then(res=>console.log(res))
+         .catch(err=>console.log(err))    
 
-         axios.post(Variables.api+`EmailSender/Reservation?id=${Reservation.GuestId}`)
-         .then(alert("success"))
-         .catch(alert("failed"))           
+         axios.post(Variables.api+`EmailSender/Reservation?id=${Reservation.GuestId}&roomId=${Reservation.RoomId}`)
+         .then(res=>console.log(res))
+         .catch(err=>console.log(err))           
     }
 
   render() {
-    const { Rooms,RoomId,Services, ServiceId, CheckIn, CheckOut, NumberOfAdults, NumberOfChildren,UserId } = this.state;
-    
-   
-    return (
-        
-      <div>
-        <div className="container">
+    const { Rooms,RoomId,Services, ServiceId, CheckIn, CheckOut, NumberOfAdults, NumberOfChildren} = this.state;
+    return (  
+      <div className="r-container">
+        <div className="r-container container">
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3">
-              {
-                
-                <h3>Make Reservation</h3>
-              }
-           
+            <div className="rf-card card col-md-6 offset-md-3 offset-md-3">
+                <h3 className="form-card-title">Make Reservation</h3>
               <div className="card-body">
-                <form >
+                <form action="/Reservation">
                     <div className="row">
+                    <div className="form-group">
+                    <label>Guest : </label>
+                    <input type="text" className="form-control" name="guestName" placeholder='Enter Guest Name' onChange={this.GuestIdHandler}/>
+                  </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                     <label> Check-In: </label>
                     <input type="date" name="CheckIn" className="form-control"
-                      value={CheckIn} onChange={this.CheckInHandler} />
+                      value={CheckIn} onChange={this.CheckInHandler} min={this.disableDates()}/>
                   </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                     <label> Check-Out: </label>
                     <input name="CheckOut" className="form-control" type="date"
-                      value={CheckOut} onChange={this.CheckOutHandler} />
+                      value={CheckOut} onChange={this.CheckOutHandler} min={this.disableDates()}/>
                   </div>
                   </div>
                   </div>
@@ -249,29 +264,39 @@ class MakeReservation extends Component {
                   </div>
                   </div>
                   </div>    
-                  <div className="form-group">
-                    <label>Guest : </label>
-                    <input type="text" className="form-control" name="guestName" placeholder='Enter Guest Name' onChange={this.GuestIdHandler}/>
-                  </div>
                   <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-12">
                     <div className="form-group">
-                    <label>Adult : </label>
-                    <a href="#" className="btn btn-secondary" onClick={this.decrement}>-</a>
-                    <input name="quantity" type="text" className="form-control count-text" value={NumberOfAdults} onChange={this.inputHandle} maxLength="2"/>
-                    <a href="#" className="btn btn-secondary" onClick={this.increment}>+</a>
+                    <label>Adult : </label><br/>
+                    <div className="m-2" style={{display:"inline-block"}}>
+                    <a href="#" onClick={this.decrement}><i className="fi fa fa-1x fa-minus" aria-hidden="true"></i></a></div>
+                    <div className="" style={{display:"inline-block"}}>
+                    <input name="quantity" type="text" className="count-text form-control" value={NumberOfAdults} onChange={this.inputHandle} maxLength="2"/>
+                    </div>
+                    <div className="m-2" style={{display:"inline-block"}}>
+                    <a href="#" onClick={this.increment}><i className="fi fa fa-plus" aria-hidden="true"></i></a>
+                    </div>
                     </div>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
                     <div className="form-group">
-                    <label>Child : </label>
-                    <a href="#" className="btn btn-secondary" onClick={this.decrementChild}>-</a>
-                    <input name="quantity" type="text" className="form-control count-text" value={NumberOfChildren} onChange={this.inputChildHandle} maxLength="2"/>
-                    <a href="#" className="btn btn-secondary" onClick={this.incrementChild}>+</a>
+                    <label>Child : </label><br/>
+                    <div className="m-2" style={{display:"inline-block"}}>
+                    <a href="#" className="" onClick={this.decrementChild}><i className="fi fa fa-1x fa-minus" aria-hidden="true"></i></a>
+                    </div>
+                    <div className="" style={{display:"inline-block"}}>
+                    <input name="quantity" type="text" className="count-text form-control" value={NumberOfChildren} onChange={this.inputChildHandle} maxLength="2"/>
+                    </div>
+                    <div className="m-2" style={{display:"inline-block"}}>
+                    <a href="#" onClick={this.incrementChild}><i className="fi fa fa-plus" aria-hidden="true"></i></a>
+                    </div>
                     </div>
                     </div>
                 </div>
-                  <button className="btn btn-success" onClick={this.makeReservation}>Create</button>
+                <center className="mt-5">
+                  <button className="btn btn-warning btn-lg" onClick={this.makeReservation}> 
+                  <i class="fa fa-check" aria-hidden="true"></i> Confirm</button>
+                </center>
                 </form>
               </div>
             </div>

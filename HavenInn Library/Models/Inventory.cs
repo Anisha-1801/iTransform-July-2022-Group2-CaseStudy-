@@ -14,21 +14,17 @@ namespace HavenInn_Library.Models
         public int InventoryId { get; set; }
 
         [Required]
-        [RegularExpression("^[A-Z][a-zA-Z ]*$", ErrorMessage = "Cannot contain digits or special characters !!")]
+
         public string Item { get; set; }
 
         [Required]
-        [RegularExpression("^[A-Z][a-zA-Z ]*$", ErrorMessage = "Cannot contain digits or special characters !!")]
         public string Category { get; set; }
 
         [Required]
-        [RegularExpression("^([0-9])$", ErrorMessage = "Cannot contain characters!!")]
-        [Range(1, 1000000)]
+
         public int? Quantity { get; set; }
 
         [Required]
-        [RegularExpression("^([0-9])$", ErrorMessage = "Cannot contain characters!!")]
-        [Range(1,1000000)]
         public decimal? UnitPrice { get; set; }
 
         [Required]

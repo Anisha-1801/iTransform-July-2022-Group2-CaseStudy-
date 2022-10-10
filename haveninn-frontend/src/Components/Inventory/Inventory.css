@@ -1,0 +1,32 @@
+.card-container{
+    background-color: #d9b553;
+    margin-right:0;
+}
+
+.inventory-card{
+    margin:0 auto;
+    display:block;
+    border-radius: 10px;
+}
+
+.inventory-card:hover{
+    /* box-shadow: 5px 10px 8px #c3c3c3; */
+    /* box-shadow: 5px 10px 8px #777777; */
+    /* box-shadow: 5px 10px 0px grey; */
+    -webkit-transition:  box-shadow .3s ease-out;
+    box-shadow: 3px 6px 8px rgb(36, 35, 35);
+}
+.para-head{
+font-family: 'Ubuntu', sans-serif;
+font-weight: 900;
+color: #000;
+margin-bottom: 3%;
+} 
+
+.para-text{
+    padding-top: 1%;
+    font-size: 17px;
+}
+.inventoryh3{
+    color: rgb(35, 62, 142);
+}

@@ -28,7 +28,6 @@ namespace HavenInn_Library.Models
         public int? StaffId { get; set; }
 
         [Required]
-        [EmailAddress(ErrorMessage = "Invalid Emailid !!")]
         public string Email { get; set; }
 
         public virtual Staff Staff { get; set; }

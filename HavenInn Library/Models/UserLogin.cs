@@ -8,7 +8,6 @@ namespace HavenInn_Library.Models
     public class UserLogin
     {
         [Required]
-        [EmailAddress(ErrorMessage = "Invalid Emailid !!")]
         public string Email { get; set; }
 
         [Required]

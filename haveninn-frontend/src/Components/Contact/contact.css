@@ -6,12 +6,11 @@
     margin-left: 20%;
     margin-bottom: 15%;
 }
-#submit-button{
-    margin:5% 20%;
-  }
+
 
   .form-body{
-    background-color: #000000;
+    background: rgb(30,30,30);
+background: linear-gradient(0deg, rgba(30,30,30,1) 36%, rgba(0,0,0,1) 100%);
     font-family: "Montserrat";
     color:#ffffff;
 }

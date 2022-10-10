@@ -111,7 +111,7 @@ namespace HavenInn_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        [Authorize(Roles = "Manager,Owner")]
+        [Authorize(Roles = "Receptionist,Manager,Owner")]
         public async Task<IActionResult> PutRoom(int id, Room room)
         {
             if (id != room.RoomId)

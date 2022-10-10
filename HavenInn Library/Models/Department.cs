@@ -18,7 +18,6 @@ namespace HavenInn_Library.Models
         public int DepartmentId { get; set; }
 
         [Required]
-        [RegularExpression("^[A-Z][a-zA-Z ]*$", ErrorMessage = "Invalid Name Format !!")]
         public string DepartmentName { get; set; }
 
         public virtual ICollection<Staff> Staff { get; set; }
