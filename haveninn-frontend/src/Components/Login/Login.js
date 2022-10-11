@@ -24,14 +24,14 @@ function Login(props) {
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
-   localStorage.removeItem('token');
+   sessionStorage.removeItem('token');
     const payload = {
       email: state.email,
       password: state.password, 
     };
     axios.post(Variables.api + "UserLogin", payload)
-    .then((res) => {localStorage.setItem('token', res.data)
-    localStorage.setItem('email',payload.email)
+    .then((res) => {sessionStorage.setItem('token', res.data)
+    sessionStorage.setItem('email',payload.email)
           window.location.reload()})
     .catch((err)=> {
       setResult({

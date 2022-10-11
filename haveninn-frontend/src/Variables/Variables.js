@@ -1,9 +1,9 @@
 const Variables={
     api :'https://localhost:44331/api/',
-    token : localStorage.getItem('token'),
-    email : localStorage.email,
-    Roomid : localStorage.getItem('Roomid'),
-    Roomtype: localStorage.getItem('Roomtype')
+    token : sessionStorage.getItem('token'),
+    email : sessionStorage.email,
+    Roomid : sessionStorage.getItem('Roomid'),
+    Roomtype: sessionStorage.getItem('Roomtype')
 }
 
 export default Variables

@@ -12,7 +12,7 @@ function Navigation() {
     const isUserLoggedin = t != null? true : false
 
     function logout() {
-      localStorage.clear();
+      sessionStorage.clear();
       window.location.reload();
     }
 

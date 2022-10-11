@@ -103,7 +103,7 @@ this.setState({
             .catch(err =>alert('Something went wrong, try again later!' ))
   }
     render(){
-      const filteredreservations = localStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==localStorage.getItem('guestid'))
+      const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
     return (
       <div>
        <div className="row container">
@@ -115,7 +115,7 @@ this.setState({
                 <center>
                 <select className="form-select" value={this.state.ReservationId} onChange={this.idhandler} style={{width:"250px"}}>
                     <option value={null}>Select Reservation Id </option>
-                        {(localStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==localStorage.getItem('roomid')))).map(rp=>
+                        {(sessionStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==sessionStorage.getItem('roomid')))).map(rp=>
                     <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
                       )}
                 </select>

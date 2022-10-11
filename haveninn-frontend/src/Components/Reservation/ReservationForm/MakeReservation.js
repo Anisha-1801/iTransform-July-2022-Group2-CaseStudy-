@@ -224,8 +224,8 @@ class MakeReservation extends Component {
          axios.put(Variables.api+`Rooms/${Reservation.RoomId}`,uroom,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
           .then(res=>console.log(res))
          .catch(err=> console.log(err))     
-         localStorage.setItem('roomid',Reservation.RoomId)
-         localStorage.setItem('guestid',Reservation.GuestId)
+         sessionStorage.setItem('roomid',Reservation.RoomId)
+         sessionStorage.setItem('guestid',Reservation.GuestId)
           
          axios.post(Variables.api+`EmailSender/Reservation?id=${Reservation.GuestId}&roomid=${Reservation.RoomId}`)
          .then(console.log("success"))
@@ -236,7 +236,7 @@ class MakeReservation extends Component {
     generatebill=e=>{
         let bill={PaymentMode:"null",ReservationId:e.target.value,TransactionId:"null",Status:"Unpaid"}
         console.log(bill)
-        localStorage.setItem('reservationid',e.target.value)
+        sessionStorage.setItem('reservationid',e.target.value)
         axios.post(Variables.api+'Bills',bill,{headers: { Authorization: `Bearer ${Variables.token}`}})
         .then(res=>console.log(res))
         .catch(err=>console.log(err))
@@ -245,7 +245,7 @@ class MakeReservation extends Component {
 
   render() {
     const { Rooms,RoomId,Services, ServiceId, CheckIn, CheckOut, NumberOfAdults, NumberOfChildren } = this.state;
-    const filteredreservations = localStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==localStorage.getItem('guestid'))
+    const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
    
     return (
         
@@ -348,7 +348,7 @@ class MakeReservation extends Component {
                         <label className="form-label">Reservation Id</label>
                         <select className="form-select" value={this.state.ReservationId} onChange={this.generatebill} >
                             <option value="null">Select Reservation Id </option>
-                                {(localStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==localStorage.getItem('roomid')))).map(rp=>
+                                {(sessionStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==sessionStorage.getItem('roomid')))).map(rp=>
                             <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
                             )}
                         </select>
