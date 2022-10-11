@@ -4,7 +4,7 @@ import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 import LandingPage from './Components/LandingPage/LandingPage';
 import Navigation from './Components/Navigation/Navigation';
-import SearchRooms from './Components/Receptionist/SearchRooms';
+import SearchRooms from './Components/Rooms/SearchRooms';
 import Dashboard from './Components/Dashboard/Dashboard';
 import GuestAddform from './Components/Guest/GuestAddForm';
 import Guest from './Components/Guest/Guest';
@@ -25,13 +25,13 @@ function App() {
     <div className="App">
     <Navigation/>
     <BrowserRouter> 
-    <Routes>
+    <Routes>   
        <Route exact path='/' element={<LandingPage/>}/>
-       <Route exact path="/home" element={<LandingPage/>}/>
+       {/* <Route exact path="/home" element={<LandingPage/>}/> */}
        <Route path='/about' element={<AboutUs/>} />
        <Route path='/contact' element={<Contact/>} />
+       {/* Home Routes */}
        <Route path='/dashboard' element={<Dashboard/>} />
-       <Route path='/searchroom' element={<SearchRooms/>} />
        {/* Guest Routes */}
        <Route path='/Guest' element={<Guest/>}/>
        <Route path='/Guest/Add' element={<GuestAddform/>}/>
@@ -40,15 +40,23 @@ function App() {
        <Route path='/Reservation' element={<Reservation/>}/>
        <Route path='/Reservation/Add' element={<MakeReservation/>} />
        <Route path='/Reservation/Update' element={<UpdateReservation/>} />
+        {/* Room Routes */}
+        <Route path='/searchroom' element={<SearchRooms/>} />
+        {/* Set Room Rates Route || RoomType*/}
+        {/* Bill Routes */}
+       <Route path='/Bill' element={<Bill/>} />
+       <Route path='/Bill/Add' element={<AddBill/>} />
+       {/* Staff Routes */}
+       {/* Service Routes */}
+       {/* Department Routes */}
+       {/* User Routes */}
        <Route path='/Department' element={<Department/>} />
        <Route path='/Department/Add' element={<AddDepartmentForm/>} />
        <Route path='/Department/Update' element={<UpdateDepartmentForm/>} />
        {/* Inventory Routes */}
        <Route path='/Inventory' element={<Inventory/>} />
        <Route path='/Inventory/Add' element={<AddInventory/>} />
-       {/* Bill Routes */}
-       <Route path='/Bill' element={<Bill/>} />
-       <Route path='/Bill/Add' element={<AddBill/>} />
+       
      </Routes>
    </BrowserRouter>
    <Footer/>

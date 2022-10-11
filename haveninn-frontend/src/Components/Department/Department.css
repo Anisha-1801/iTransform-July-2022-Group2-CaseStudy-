@@ -4,14 +4,34 @@
     padding:1%;
 }
 
-label{
-    color:#fff;
-    margin-bottom: 4px;
-}
-
 .form-card-title{
     font-family: "Montserrat";
     font-weight: 700;
     text-align:center;
     color: #fff;
 }
+
+.form-label{
+    color:#fff;
+    margin-bottom: 4px;
+}
+
+.para-head{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 3%;
+    } 
+
+.d-para-text{
+        padding-top: 1%;
+        font-size: 20px;
+    }
+
+    .label-heading{
+        font-family: "Montserrat";
+        font-weight: 700;
+        text-align:center;
+        color: #fff;
+        display: inline-block;
+    }

@@ -31,7 +31,7 @@ function UpdateDepartmentForm() {
         <div className='row'>
         <div className="col-md-6 mx-auto">
           <div className='mt-3 p-3'>
-             <h3 className='form-card-title'>Add Department</h3>
+             <h3 className='form-card-title'>Update Department</h3>
               <div className=" mt-4">
                 <form action="/Department" onSubmit={()=>{updateDepartmenthandler()}}>
                   <div className="form-group">
@@ -39,7 +39,8 @@ function UpdateDepartmentForm() {
                     <input type="text" placeholder="Enter Department Name" className="form-control"
                       defaultValue={Departments.DepartmentName} onChange={e => setDeptName(e.target.value)} />
                   </div>
-                  <center><button className="btn btn-warning mt-3" type="submit">Update</button></center>
+                  <center><button className="btn btn-warning mt-3" type="submit">
+                  <i class="fa fa-check" aria-hidden="true"></i>&nbsp; Update</button></center>
                 </form>
               </div>
             </div>

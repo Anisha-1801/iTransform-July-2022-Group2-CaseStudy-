@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SearchRooms from '../Receptionist/SearchRooms'
+import SearchRooms from '../Rooms/SearchRooms'
 import './Dashboard.css'
 class Dashboard extends Component {
   render() {
@@ -18,10 +18,7 @@ class Dashboard extends Component {
               <a class="nav-link" href="/Reservation">Reservation</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Department">Department</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Inventory">Inventory</a>
+              <a class="nav-link" href="/Bill">Bill</a>
             </li>
           </ul>
         </div>

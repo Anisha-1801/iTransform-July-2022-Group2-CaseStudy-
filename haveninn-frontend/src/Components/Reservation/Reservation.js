@@ -91,15 +91,12 @@ function Reservation() {
         </p>
       </div>
       <div className="r-card-section col-lg-3 col-md-3 col-sm-12">
-        <button className="btn btn-outline-warning mb-5 me-1" onClick={()=>{getReservationIdforView(r.ReservationId)}}>
-          <i className="fa fa-eye" aria-hidden="true"></i> View
-        </button>
-        <a href="/Reservation/Update" className="btn btn-outline-warning mb-5 me-1" onClick={()=>{getReservationId(r.ReservationId)}}>
-          <i className="fa fa-pencil-square-o" aria-hidden="true"></i> Update
+        <a href="/Reservation/Update" className="mb-5 me-1" onClick={()=>{getReservationId(r.ReservationId)}}>
+          <i className="fa fa-pencil-square-o fs-5" aria-hidden="true"></i>
         </a>
-        <button className="btn btn-outline-danger mb-5 me-1" onClick={()=>{handleShow(r.ReservationId)}}>
-          <i className="fa fa-trash" aria-hidden="true"></i> Delete
-        </button>
+        <a className="mb-5 me-1" onClick={()=>{handleShow(r.ReservationId)}}>
+          <i className="fa fa-trash fs-5" aria-hidden="true"></i>
+        </a>
       </div>
       </div>
       </div>

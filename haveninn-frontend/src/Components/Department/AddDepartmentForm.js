@@ -32,7 +32,6 @@ class AddDepartmentForm extends Component {
   render() {
     return (
       <>
-      <Dashboard/>
       <div  className="d-container">
         <div className="d-container container">
         <div className='row'>
@@ -46,7 +45,8 @@ class AddDepartmentForm extends Component {
                     <input placeholder="Enter Department Name" name="Department Name" className="form-control"
                       value={this.state.Name} onChange={this.changedepartmentnameHandler} />
                   </div>
-                  <center><button className="btn btn-warning mt-3" onClick={this.addDepartmenthandler}>Create</button></center>
+                  <center><button className="btn btn-warning mt-3" onClick={this.addDepartmenthandler}>
+                  <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Create</button></center>
                 </form>
               </div>
             </div>

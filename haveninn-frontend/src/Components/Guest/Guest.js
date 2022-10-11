@@ -2,10 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Variables from "../../Variables/Variables";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import './Guest.css'
 
 function Guest() {
   const [Guests, setGuest] = useState([]);
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  const [Id, setId] = useState('');
+  const handleClose = () => setShow(false);
+  const handleShow = (id) => {setShow(true); setId(id)}
 
   const getGuestId = (id) => {
     navigate("/Guest/Update", { state: { Id: id } });
@@ -21,49 +28,64 @@ function Guest() {
       .catch((error) => console.log(error));
   }, []);
 
+  function deleteGuests() {
+    axios.delete(Variables.api + 'Guests/' + Id, { headers: { "Authorization": `Bearer ${Variables.token}` } })
+        .then(res => {
+            console.log(res);
+            window.location.reload();
+        })
+        .catch(err => console.log(err))
+
+}
+
   return (
-    <div>
+    <div className="guest-container">
       <>
-        <div className="container mt-5 mb-5 guest-container">
+        <div className="guest-container">
+          <div className="d-flex justify-content-center">
+          <h1 className='label-heading'>Guests
+            <a className='add-guest text-warning' href="/Guest/Add">
+            &nbsp;&nbsp;
+            <i className="fa fa-plus-circle"></i></a>
+          </h1>
+          </div>
           <div className="row">
             {Guests.map((guest) => (
               <div className="col-md-6" key={guest.GuestId}>
                 <article className="card mb-3 room-card p-3">
                   <div className="row no-gutters">
-                    <div className="col-md-8">
-                      <div className="m-2">
-                        <h5>
-                          <b>Guest Id: </b>
+                        <h5 className='para-head'><b>Guest Id: </b>
                           {guest.GuestId}
                         </h5>
+                        <div className="g-para-text col-5">
                         <p>
-                          <b>Guest Name</b> {guest.Name}
+                          <b>Name : </b> {guest.Name}
                         </p>
                         <p>
-                          <b>Email</b> {guest.Email}
+                          <b>Email : </b> {guest.Email}
+                        </p>
+                        </div>
+                        <div className="g-para-text col-5">
+                        <p>
+                          <b>Mobile No. :</b> {guest.MobileNo}
                         </p>
                         <p>
-                          <b>Mobile Number</b> {guest.MobileNo}
+                          <b>Aadhar Card No. :</b> {guest.AadharCardNo}
                         </p>
-                        <p>
-                          <b>Aadhar Card Number</b> {guest.AadharCardNo}
-                        </p>
-                      </div>
-                    </div>
-
-                    <aside className="col-md-4">
+                        </div>
+                    <aside className="col-1">
                       <div>
-                        <div className="d-grid gap-3 d-md-flex justify-content-md-right mt-5">
+                        <div className="d-grid gap-3 d-flex justify-content-around me-1">
                           <a href="/Guest/Update">
                             <i
-                              className="far fa-edit fa-2x text-dark"
+                              className="far fa-edit fs-4 text-warning"
                               onClick={() => getGuestId(guest.GuestId)}
                             ></i>
                           </a>
-                          <a href="/Guestf">
+                          <a href="#">
                             <i
-                              className="fa fa-trash fa-2x text-dark"
-                              onClick={() => this.deleteGuest(guest.GuestId)}
+                              className="fa fa-trash fs-4 text-danger"
+                              onClick={() => handleShow(guest.GuestId)}
                             ></i>
                           </a>
                         </div>
@@ -73,6 +95,24 @@ function Guest() {
                 </article>
               </div>
             ))}
+                  <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title> <i className="fa fa-trash-o fa-1x centered" aria-hidden="true" style={{color:"red"}}></i> Delete Guests</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <center>
+          <p>Do you really want to delete this record? This process cannot be undone.</p>
+          </center>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="danger" onClick={deleteGuests}>
+            Confirm Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
           </div>
         </div>
       </>

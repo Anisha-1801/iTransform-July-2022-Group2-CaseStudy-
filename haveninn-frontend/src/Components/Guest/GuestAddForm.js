@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import Variables from '../../Variables/Variables';
-// import { Alert } from 'react-bootstrap';
+
 
 class GuestAddform extends Component {
   constructor(props) {
@@ -44,39 +44,40 @@ class GuestAddform extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='r-container'>
         <br></br>
         <div className="container">
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3">
-              {
-                <h3>AddGuest</h3>
-              }
+            <div className="rf-card col-md-6 offset-md-3 offset-md-3">
+              <center>
+                <h3 className='label-heading'>Add Guest</h3></center>
               <div className="card-body">
                 <form >
                   <div className="form-group">
-                    <label> Name: </label>
-                    <input placeholder="Name" name="Name" className="form-control"
-                      value={this.state.Name} onChange={this.changenameHandler} />
+                    <label className="label-text"> Name* : </label>
+                    <input name="Name" className="form-control" placeHolder="Enter Guest's Name" required={true}
+                      value={this.state.Name} onChange={this.changenameHandler}  pattern={"[A-Za-z]"} title="Only alphabets allowed"/> 
                   </div>
                   <div className="form-group">
-                    <label> Email: </label>
-                    <input placeholder="Email" name="Email" className="form-control"
+                    <label className="label-text"> Email Address* : </label>
+                    <input name="Email" className="form-control" placeHolder="Enter Email Address" required={true}
                       value={this.state.Email} onChange={this.changeemailHandler} />
                   </div>
                   <div className="form-group">
-                    <label> MobileNo: </label>
-                    <input placeholder="MobileNo" name="MobileNo" className="form-control"
-                      value={this.state.MobileNo} onChange={this.changemobilenoHandler} />
+                    <label className="label-text"> Mobile No.* : </label>
+                    <input name="MobileNo" className="form-control" placeHolder="Enter Mobile Number" required={true}
+                      value={this.state.MobileNo} onChange={this.changemobilenoHandler} pattern={"[7-9]{1}[0-9]{9}"} 
+                      title="Phone number should contain 10 digits"/>
                   </div>
                   <div className="form-group">
-                    <label> AadharCardNo: </label>
-                    <input placeholder="AadharCardNo" name="AadharCardNo" className="form-control"
-                      value={this.state.AadharCardNo} onChange={this.changeaadharcardnoHandler} />
+                    <label className="label-text"> Aadhar Card No.* : </label>
+                    <input name="AadharCardNo" className="form-control" placeHolder="Enter Aadhar Card Number" required={true}
+                      value={this.state.AadharCardNo} onChange={this.changeaadharcardnoHandler} pattern={"/\\d{16}"} 
+                      title="Aadhar Card should contain 16 digits"/>
                   </div>
-
-                  <button className="btn btn-success" onClick={this.addguesthandler}>Create</button>
-                  {/* <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button> */}
+                  <center>
+                  <button className="btn btn-warning btn-lg mt-4" onClick={this.addguesthandler}>
+                  <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Create</button></center>
                 </form>
               </div>
             </div>
