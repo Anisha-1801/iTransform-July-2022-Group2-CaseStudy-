@@ -19,6 +19,7 @@ import Inventory from './Components/Inventory/Inventory';
 import AddInventory from './Components/Inventory/AddInventory';
 import GuestUpdateForm from './Components/Guest/GuestUpdateForm';
 import AddBill from './Components/Bill/AddBill';
+import UpdateInventory from './Components/Inventory/UpdateInventory';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
        {/* Inventory Routes */}
        <Route path='/Inventory' element={<Inventory/>} />
        <Route path='/Inventory/Add' element={<AddInventory/>} />
+       <Route path='/Inventory/Update' element={<UpdateInventory/>} />
        
      </Routes>
    </BrowserRouter>

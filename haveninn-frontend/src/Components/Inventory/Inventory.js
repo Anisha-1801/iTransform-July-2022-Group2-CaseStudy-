@@ -1,86 +1,115 @@
 import axios from 'axios'
-import React, { Component } from 'react'
-import Variables from '../../Variables/Variables'
-import '../Inventory/Inventory.css'
+import React, { useState, useEffect } from 'react'
+import Variables from '../../Variables/Variables';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import { useNavigate } from 'react-router-dom';
 
 
-class Inventory extends Component {
-    constructor(props) {
-      super(props)
-    
-      this.state = {
-        Inventory: []
-      }
-    }
+function Inventory() {
+  const [Inventory, setInventory] = useState([])
+  const navigate = useNavigate();
 
-    componentDidMount(){
-        
-        axios.get(Variables.api + 'Inventories', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
-        //.then(response => console.log(response.data))
-        .then(response => response.data)
-        .then(res => { this.setState({
-           Inventory : res
-        })})
-        .catch( error => alert(error))
-    }
-    render() {
-      const {Inventory} = this.state; 
-      return (
-      <div className="container mt-4 mb-4">
-        <div className="row">
-            <a className='btn btn-outline-warning' href="/Inventory/Add"> Addd</a>
-          {Inventory.map(inventory =>(
-            <div className="col-sm-6" key={inventory.InventoryId}>
-              <article className="card mb-3 inventory-card p-3" key={inventory.InventoryId}>
-                <div className="row no-gutters">
-                  <div className="col-md-6">
-                    <div className="ms-2">
-                      <a href="/inventory" className='mb-2'>
-                        <h3 className='inventoryh3'>Inventory Id : {inventory.InventoryId}</h3>
-                      </a>
-                      <p className="para-text">
-                        <b>Category :</b> {inventory.Category} <br/>
-                        <b>Quantity :</b> {inventory.Quantity}
-                      </p>
-                      
+  const getInventoryId = id => {
+    navigate('/updateinventory', { state: { Id: id } });
+  }
+  const [show, setShow] = useState(false);
+  const [Id, setId] = useState('');
+  const handleClose = () => setShow(false);
+  const handleShow = (id) => {
+    setShow(true);
+    setId(id)
+  }
+
+  function deleteInventory() {
+    axios.delete(Variables.api + 'Inventories/' + Id, { headers: { "Authorization": `Bearer ${Variables.token}` } })
+      .then(res => {
+        console.log(res);
+        window.location.reload();
+      })
+      .catch(err => console.log(err))
+
+  }
+
+  useEffect(() => {
+    axios.get(Variables.api + 'Inventories', { headers: { "Authorization": `Bearer ${Variables.token}` } })
+      .then(response => response.data)
+      .then(res => setInventory(res))
+      .catch(error => console.log(error))
+  }, [])
+  return (
+    <div className='r-container'>
+      <div className="d-flex justify-content-center">
+        <h1 className='label-heading'>Inventory
+        <a className='add-guest text-warning' href="/Inventory/Add">
+          &nbsp;&nbsp;
+        <i className="fa fa-plus-circle"></i></a>
+        </h1>
+      </div>
+          <div className="row">
+            {Inventory.map(inventory => (
+              <div className="col-sm-6">
+                <article className="room-card card mb-3 inventory-card p-3" key={inventory.InventoryId}>
+                  <div className="row no-gutters">
+                    <div className="col-md-5">
+                        <a href="/inventory" className='mb-2'>
+                          <h3 className='para-head'>Inventory Id : {inventory.InventoryId}</h3>
+                        </a>
+                        <p className="para-text">
+                          <b>Category :</b> {inventory.Category} <br />
+                          <b>Quantity :</b> {inventory.Quantity}
+                        </p>
                     </div>
-                  </div>
-                  <aside className="col-md-6">
-                    <div>
-                      <a href="/inventory" className='mb-2'>
-                        <h4 className='inventoryh3'>Unit Price : &#8377;{inventory.UnitPrice}</h4>
-                      </a>
-                        
+                    <aside className="col-md-5">
+                      <div>
+                        <a href="/Inventory">
+                          <h5 className='para-head'>Unit Price : &#8377;{inventory.UnitPrice}</h5>
+                        </a>
                         <p className="mt-2"><b>Status : </b>{String(inventory.IsStockAvailable) ? "Available" : "Out Of Stock"}</p>
                         <p className="mt-3">
-                        {inventory.IsStockAvailable ? <button className="btn btn-outline-success ">
-                            <i className="fa fa-box ms-2" aria-hidden="true"></i> InStock</button>: 
-                            <button className="btn btn-warning ms-2" disabled><i className="fa fa-check" aria-hidden="true"></i> OutOfStock</button> }
-                      </p>  
-                     
-                    </div> 
-                  </aside>
-                  <aside className='col-md-4 '>
-                    <div className="d-grid gap-3 d-md-flex justify-content-md-left">
-                          <a href="/viewinventory "className='ms-2'>
-                            <i className="fa fa-eye fs-5" aria-hidden="true"></i>
-                          </a>
-                          <a href="/editiventory" className='ms-2'>
-                            <i className="fa fa-edit fs-5"></i>
-                            </a>
-                          <a href="/deleteinventory" className='ms-2'>
-                            <i className='fa fa-trash fs-5'></i>
-                          </a>
+                          {inventory.IsStockAvailable ? <button className="btn btn-outline-success ">
+                            <i className="fa fa-box ms-2" aria-hidden="true"></i> &nbsp; In Stock</button> :
+                            <button className="btn btn-warning ms-2" disabled><i className="fa fa-check" aria-hidden="true"></i> OutOfStock</button>}
+                        </p>
+
                       </div>
-                  </aside>
-                </div>
-              </article>
-            </div>
+                    </aside>
+                    <aside className='col-md-1'>
+                      <div class="d-grid gap-3 d-flex justify-content-left">
+                        <a href="/Inventory/Update" className='text-warning' onClick={() => { getInventoryId(inventory.InventoryId) }}>
+                          <i className="fa fa-edit fs-4"></i>
+                        </a>
+                        <a href="#" className='text-danger' onClick={() => { handleShow(inventory.InventoryId) }}>
+                          <i className='fa fa-trash fs-4'></i>
+                        </a>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
+              </div>
             ))}
-      </div>
-        </div>
-    )
-  }
+          </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title> <i className="fa fa-trash-o fa-1x centered" aria-hidden="true" style={{ color: "red" }}></i> Delete Staff</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <center>
+            <p>Do you really want to delete this record? This process cannot be undone.</p>
+          </center>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="danger" onClick={deleteInventory}>
+            Confirm Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  )
+
 }
 
 export default Inventory
