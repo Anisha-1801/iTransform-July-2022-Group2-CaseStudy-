@@ -20,6 +20,12 @@ class Dashboard extends Component {
             <li class="nav-item">
               <a class="nav-link" href="/Bill">Bill</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Staff">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Inventory">Inventory</a>
+            </li>
           </ul>
         </div>
         <SearchRooms/>

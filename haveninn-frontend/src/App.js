@@ -20,6 +20,9 @@ import AddInventory from './Components/Inventory/AddInventory';
 import GuestUpdateForm from './Components/Guest/GuestUpdateForm';
 import AddBill from './Components/Bill/AddBill';
 import UpdateInventory from './Components/Inventory/UpdateInventory';
+import Staff from './Components/Staff/Staff';
+import UpdateStaffForm from './Components/Staff/UpdateStaffForm';
+import StaffAddForm from './Components/Staff/AddStaffForm';
 
 function App() {
   return (
@@ -58,6 +61,10 @@ function App() {
        <Route path='/Inventory' element={<Inventory/>} />
        <Route path='/Inventory/Add' element={<AddInventory/>} />
        <Route path='/Inventory/Update' element={<UpdateInventory/>} />
+
+       <Route path='/Staff' element={<Staff/>} />
+       <Route path='/Staff/Add' element={<StaffAddForm/>} />
+       <Route path='/Staff/Update' element={<UpdateStaffForm/>} />
        
      </Routes>
    </BrowserRouter>

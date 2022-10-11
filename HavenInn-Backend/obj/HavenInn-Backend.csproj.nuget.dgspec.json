@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "E:\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\N\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "E:\\N\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\arfin\\.nuget\\packages\\",
-        "outputPath": "E:\\N\\HavenInn Library\\obj\\",
+        "projectPath": "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\Asavari\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\arfin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asavari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -107,8 +107,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -117,21 +116,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "E:\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\arfin\\.nuget\\packages\\",
-        "outputPath": "E:\\N\\HavenInn-Backend\\obj\\",
+        "projectPath": "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\Asavari\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\arfin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asavari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -145,8 +144,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "E:\\N\\HavenInn Library\\HavenInnLibrary.csproj"
+              "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "C:\\Users\\Asavari\\OneDrive\\Desktop\\HavenInn-CaseStudy\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
@@ -240,8 +239,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -253,7 +251,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

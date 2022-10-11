@@ -57,35 +57,31 @@ function UpdateInventory() {
                             <div className='mt-3 p-3'>
                                 <h3 className='form-card-title label-title'>Update Inventory</h3>
                                 <div className=" mt-4">
-                                    <form action="/displayinventory" onSubmit={() => { Updateinventoryhandler() }} >
+                                    <form action="/Inventory" onSubmit={() => { Updateinventoryhandler() }} >
                                         <div className="form-group">
-                                        <label className='label-title'>Inventory Id : </label>
+                                        <label className="label-text">Inventory Id : </label>
                                             <input type="text" className="form-control" disabled={true} defaultValue={inventoryId} />
 
-                                            <label className="form-label label-title">Items : </label>
+                                            <label className="label-text">Items : </label>
                                             <input type="text" className="form-control"
                                                 defaultValue={items} onChange={e => setItems(e.target.value)} />
 
-                                            <label className="form-label label-title">Category : </label>
+                                            <label className="label-text">Category : </label>
                                             <input type="text" className="form-control"
                                                 defaultValue={category} onChange={e => setCategory(e.target.value)} />
 
-                                            <label className="form-label label-title">Quantity :</label>
+                                            <label className="label-text">Quantity :</label>
                                             <input type="text" className="form-control"
                                                 defaultValue={quantity} onChange={e => setquantity(e.target.value)} />
 
-                                            <label className="form-label label-title">UnitPrice :</label>
+                                            <label className="label-text">UnitPrice :</label>
                                             <input type="text" className="form-control"
                                                 defaultValue={unitPrice} onChange={e => setUnitPrice(e.target.value)} />
 
 
-                                            <label className="form-label label-title">Status:</label>
+                                            <label className="label-text">Status:</label>
                                             <input type="text" className="form-control"
                                                 defaultValue={available} onChange={e => setavailable(e.target.value)} />
-
-                                            {/* <label className="form-label">UserId</label>
-                                            <input type="text" className="form-control" disabled={true}
-                                                defaultValue={userid} onChange={e => setuserid(e.target.value)} /> */}
                                         </div>
                                         <center><button className="btn btn-warning mt-3 btn-lg" type="submit">
                                         <i class="fa fa-check" aria-hidden="true"></i> &nbsp;Update</button></center>

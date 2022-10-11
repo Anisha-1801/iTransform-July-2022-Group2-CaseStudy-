@@ -30,7 +30,7 @@ namespace HavenInn_Backend.Controllers
         {
             try
             {
-            return await _context.Staff.ToListAsync();
+            return await _context.Staff.Include(s => s.Department).ToListAsync();
             }
               catch (Exception e)
             {
@@ -45,7 +45,7 @@ namespace HavenInn_Backend.Controllers
         {
             try
             { 
-            var staff = await _context.Staff.FindAsync(id);
+            var staff = await _context.Staff.Include(s => s.Department).Where(r => r.StaffId==id).FirstAsync();
 
             if (staff == null)
             {

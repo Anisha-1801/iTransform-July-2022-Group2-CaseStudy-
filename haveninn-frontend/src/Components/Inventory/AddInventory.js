@@ -61,53 +61,41 @@ componentDidMount(){
     const {Item,Category,Quantity, UnitPrice} = this.state;
    
     return (
-      <div className='Inventory-form-body'>
+      <div className='Inventory-form-body rf-card '>
         <br></br>
         <div className="container">
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3" id='i-card-bg'>
+            <div className="rf-card card col-md-6 offset-md-3 offset-md-3" id='i-card-bg'>
               {
-                <h3 id='inventory-heading'> Add Inventory</h3>
+                <h3 className='label-heading'> Add Inventory</h3>
               }
               <div className="card-body">
                 <form >
                 
                   <div className="form-group">
-                    <label className="form-label"> Items: </label>
-                    <input placeholder="Items" name="Items" className="form-control"
+                    <label  className="label-text"> Items : </label>
+                    <input placeholder="Items" name="Enter Item" className="form-control"
                     value={Item} onChange={this.changeitemsHandler}/>
-                      
                   </div>
 
                    <div className="form-group">
-                   <label> Category: </label>
+                   <label className="label-text"> Category : </label>
                     <input type="text" placeholder="Enter Category type" className="form-control" value={Category} onChange={this.changecategoryHandler} />
 
                  </div> 
                   <div className="form-group">
-                    <label className="form-label"> Quantity: </label>
-                    <input placeholder="Quantity" name="Quantity" className="form-control" value={Quantity}
+                    <label className="label-text"> Quantity : </label>
+                    <input placeholder="Enter Quantity" name="Quantity" className="form-control" value={Quantity}
                        onChange={this.changequantityHandler} />
                   </div>
                   <div className="form-group">
-                    <label className="form-label"> UnitPrice: </label>
-                    <input placeholder="UnitPrice" name="UnitPrice" className="form-control" value={UnitPrice}
+                    <label className="label-text"> UnitPrice : </label>
+                    <input placeholder="Enter Unit Price" name="UnitPrice" className="form-control" value={UnitPrice}
                      onChange={this.changeunitpriceHandler} />
                   </div>
-                  {/* <label>Userid</label>
-                  <select className="form-select" value={UserId} onChange={this.useridhandler} >
-                        <option value="null">Select Userid </option>
-                            {user.map(u=>
-                            <option value={u.UserId}>{u.UserId}</option>
-                         )}
-                    </select> */}
-                    {/* {user.map(u=>
-                    <input type="hidden" value={u.UserId}/>
-                    )} */}
-                  <br></br>
                   <center>
-                  <button className="i-btn btn-warning" onClick={this.Addinventoryhandler}>
-                    Add to Inventory</button>
+                  <button className="btn btn-warning btn-lg mt-4" onClick={this.Addinventoryhandler}>
+                  <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Create</button>
                   </center>
                 </form>
               </div>

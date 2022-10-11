@@ -54,9 +54,9 @@ function Guest() {
               <div className="col-md-6" key={guest.GuestId}>
                 <article className="card mb-3 room-card p-3">
                   <div className="row no-gutters">
-                        <h5 className='para-head'><b>Guest Id: </b>
+                        <h3 className='para-head'><b>Guest Id: </b>
                           {guest.GuestId}
-                        </h5>
+                        </h3>
                         <div className="g-para-text col-5">
                         <p>
                           <b>Name : </b> {guest.Name}

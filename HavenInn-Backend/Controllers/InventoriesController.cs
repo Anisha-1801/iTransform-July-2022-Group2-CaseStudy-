@@ -28,8 +28,8 @@ namespace HavenInn_Backend.Controllers
         public async Task<ActionResult<IEnumerable<Inventory>>> GetInventory()
         {
             try
-            { 
-            return await _context.Inventory.ToListAsync();
+            {
+                return await _context.Inventory.Include(u => u.User).ToListAsync();
             }
               catch (Exception e)
             {
@@ -43,10 +43,10 @@ namespace HavenInn_Backend.Controllers
         public async Task<ActionResult<Inventory>> GetInventory(int id)
         {
             try 
-            { 
-            var inventory = await _context.Inventory.FindAsync(id);
+            {
+                var inventory = await _context.Inventory.Where(s => s.InventoryId == id).Include(i => i.User).FirstAsync();
 
-            if (inventory == null)
+                if (inventory == null)
             {
                 return NotFound();
             }

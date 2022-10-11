@@ -11,7 +11,7 @@ function Inventory() {
   const navigate = useNavigate();
 
   const getInventoryId = id => {
-    navigate('/updateinventory', { state: { Id: id } });
+    navigate('/Inventory/Update', { state: { Id: id } });
   }
   const [show, setShow] = useState(false);
   const [Id, setId] = useState('');
@@ -75,7 +75,7 @@ function Inventory() {
                       </div>
                     </aside>
                     <aside className='col-md-1'>
-                      <div class="d-grid gap-3 d-flex justify-content-left">
+                      <div className="d-grid gap-3 d-flex justify-content-around me-1 mt-5">
                         <a href="/Inventory/Update" className='text-warning' onClick={() => { getInventoryId(inventory.InventoryId) }}>
                           <i className="fa fa-edit fs-4"></i>
                         </a>
