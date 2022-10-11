@@ -113,7 +113,7 @@ this.setState({
               <div className="form-group">
                 <label className="form-label">Reservation Id :</label>
                 <center>
-                <select className="form-select" value={this.state.ReservationId} onChange={this.idhandler} style={{width:"250px"}}>
+                <select className="form-select" required={true} value={this.state.ReservationId} onChange={this.idhandler} style={{width:"250px"}}>
                     <option value={null}>Select Reservation Id </option>
                         {(sessionStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==sessionStorage.getItem('roomid')))).map(rp=>
                     <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
@@ -131,12 +131,12 @@ this.setState({
               <div className="card-body">
                 <form >
                 <div className="form-group">
-                    <label className="form-label">Bill Id</label>
-                    <input type="text" className="form-control" value={this.state.BillId} disabled={true}/>
+                    <label className="form-label">Bill Id :</label>
+                    <input type="text" className="form-control" required={true} value={this.state.BillId} disabled={true}/>
                   </div>
                   <div className="form-group">
-                    <label className="form-label">PaymentMode</label>
-                    <select className="form-select" value={this.state.Payementmode} onChange={this.paymentmodehandler}>
+                    <label className="form-label">PaymentMode :</label>
+                    <select className="form-select" required={true} value={this.state.Payementmode} onChange={this.paymentmodehandler}>
                         <option value="Cash">Cash</option>
                         <option value="Card">Card</option>
                     </select>
@@ -144,19 +144,19 @@ this.setState({
                      {this.state.visibility ? <>
                   <div className="form-group card-display">
                     <label className="form-label">Card Name</label>
-                    <input  type ="text" className="form-control"/>
+                    <input  type ="text" className="form-control" required={true}/>
                     <label className="form-label">Card Number</label>
-                    <input  type ="text" className="form-control"/>
+                    <input  type ="text" className="form-control" required={true}/>
                   </div>
                   <div className="form-group card-display">
                     <div className='row'>
                       <div className='col'>
                         <label className="form-label">Expiration</label>
-                         <input  type ="text" className="form-control" placeholder='MM/YYYY'/>
+                         <input  type ="text" className="form-control" required={true} placeholder='MM/YYYY'/>
                       </div>
                       <div className="col">           
                           <label className="form-label">CVV</label>
-                          <input  type ="text" className="form-control"/>
+                          <input  type ="text" className="form-control" required={true}/>
                       </div>
                     </div>
                   </div>

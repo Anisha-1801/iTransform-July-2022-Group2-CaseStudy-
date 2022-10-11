@@ -1,0 +1,92 @@
+
+
+
+.r-container{
+    background: rgb(30,30,30);
+    background: linear-gradient(0deg, rgba(30,30,30,1) 36%, rgba(0,0,0,1) 100%);
+    padding:1%;
+}
+
+.rf-card{
+    background: rgb(30,30,30);
+    background: linear-gradient(0deg, rgba(30,30,30,1) 36%, rgba(0,0,0,1) 100%);
+    border: 0px;
+}
+
+.label{
+    color:rgb(14, 0, 0);
+    margin-bottom: 4px;
+}
+.form-label{
+  color:white;
+  margin-bottom: 4px;
+
+}
+
+.form-card-title{
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-align:center;
+    color: #fff;
+}
+
+.count-control-b{
+    display: inline-block;
+}
+
+
+.count-text{
+    size: 10%;
+    display:inline-block;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .quantity__minus,
+  .quantity__plus {
+    /* display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    background: #dee0ee;
+    text-decoration: none;
+    text-align: center;
+    line-height: 23px; */
+  }
+  .quantity__minus:hover,
+  .quantity__plus:hover {
+    /* background: #575b71;
+    color: #fff; */
+  } 
+  .quantity__minus {
+    border-radius: 3px;
+  }
+  .quantity__plus {
+    border-radius: 3px;
+  }
+  .quantity__input {
+    display:inline-block;
+    width: 50px;
+    height: 30px;
+    /* margin: 0;
+    padding: 0;
+    text-align: center;
+    border-top: 2px solid #dee0ee;
+    border-bottom: 2px solid #dee0ee;
+    border-left: 1px solid #dee0ee;
+    border-right: 2px solid #dee0ee;
+    background: #fff;
+    color: #8184a1; */
+  }
+  .quantity__minus:link,
+  .quantity__plus:link {
+    color: #8184a1;
+  } 
+  .quantity__minus:visited,
+  .quantity__plus:visited {
+    color: #fff;
+  }

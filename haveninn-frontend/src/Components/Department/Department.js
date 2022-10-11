@@ -25,7 +25,7 @@ function Department() {
       <div className="container mt-5 mb-5">
       <div className="d-flex justify-content-center">
         <h1 className='label-heading'>Department
-        <a className='add-guest text-warning' href="/Guest/Add">
+        <a className='add-guest text-warning' href="/Department/Add">
           &nbsp;&nbsp;
         <i className="fa fa-plus-circle"></i></a>
         </h1>

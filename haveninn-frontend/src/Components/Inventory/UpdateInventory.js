@@ -63,24 +63,24 @@ function UpdateInventory() {
                                             <input type="text" className="form-control" disabled={true} defaultValue={inventoryId} />
 
                                             <label className="label-text">Items : </label>
-                                            <input type="text" className="form-control"
+                                            <input type="text" className="form-control" required={true}
                                                 defaultValue={items} onChange={e => setItems(e.target.value)} />
 
                                             <label className="label-text">Category : </label>
-                                            <input type="text" className="form-control"
+                                            <input type="text" className="form-control" required={true}
                                                 defaultValue={category} onChange={e => setCategory(e.target.value)} />
 
                                             <label className="label-text">Quantity :</label>
-                                            <input type="text" className="form-control"
+                                            <input type="text" className="form-control" required={true}
                                                 defaultValue={quantity} onChange={e => setquantity(e.target.value)} />
 
                                             <label className="label-text">UnitPrice :</label>
-                                            <input type="text" className="form-control"
+                                            <input type="text" className="form-control" required={true}
                                                 defaultValue={unitPrice} onChange={e => setUnitPrice(e.target.value)} />
 
 
                                             <label className="label-text">Status:</label>
-                                            <input type="text" className="form-control"
+                                            <input type="text" className="form-control" required={true}
                                                 defaultValue={available} onChange={e => setavailable(e.target.value)} />
                                         </div>
                                         <center><button className="btn btn-warning mt-3 btn-lg" type="submit">

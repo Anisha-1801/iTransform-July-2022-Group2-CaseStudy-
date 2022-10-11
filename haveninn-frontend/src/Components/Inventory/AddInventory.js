@@ -74,23 +74,23 @@ componentDidMount(){
                 
                   <div className="form-group">
                     <label  className="label-text"> Items : </label>
-                    <input placeholder="Items" name="Enter Item" className="form-control"
+                    <input placeholder="Items" name="Enter Item" className="form-control" required={true}
                     value={Item} onChange={this.changeitemsHandler}/>
                   </div>
 
                    <div className="form-group">
                    <label className="label-text"> Category : </label>
-                    <input type="text" placeholder="Enter Category type" className="form-control" value={Category} onChange={this.changecategoryHandler} />
+                    <input type="text" placeholder="Enter Category type" className="form-control" required={true} value={Category} onChange={this.changecategoryHandler} />
 
                  </div> 
                   <div className="form-group">
                     <label className="label-text"> Quantity : </label>
-                    <input placeholder="Enter Quantity" name="Quantity" className="form-control" value={Quantity}
+                    <input placeholder="Enter Quantity" name="Quantity" className="form-control" required={true} value={Quantity}
                        onChange={this.changequantityHandler} />
                   </div>
                   <div className="form-group">
                     <label className="label-text"> UnitPrice : </label>
-                    <input placeholder="Enter Unit Price" name="UnitPrice" className="form-control" value={UnitPrice}
+                    <input placeholder="Enter Unit Price" name="UnitPrice" className="form-control" required={true} value={UnitPrice}
                      onChange={this.changeunitpriceHandler} />
                   </div>
                   <center>

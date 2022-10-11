@@ -41,11 +41,11 @@ function RoomTypeUpdateForm() {
                                     <form action="/RoomType"  onSubmit={() => { updateRoomTypeHandler() }} >
                                         <div className="form-group">
                                             <label className="form-label label-text">Room Type : </label>
-                                            <input type="text" placeholder="" className="form-control"
+                                            <input type="text" placeholder="" className="form-control" required={true}
                                                 defaultValue={RTName} onChange={e => setRoomTypeName(e.target.value)} />
 
                                             <label className="form-label label-text">Price : </label>
-                                            <input type="text" placeholder="" className="form-control"
+                                            <input type="text" placeholder="" className="form-control" required={true}
                                                 defaultValue={price} onChange={e => setPrice(e.target.value)} />
                                         </div>
                                         <center><button className="btn btn-warning mt-3 btn-lg" type="submit">

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\final\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "E:\\final\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\final\\N\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "E:\\final\\N\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\naveen kumar\\.nuget\\packages\\",
-        "outputPath": "E:\\final\\N\\HavenInn Library\\obj\\",
+        "projectPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\naveen kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -122,24 +121,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\final\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\final\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "E:\\final\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\naveen kumar\\.nuget\\packages\\",
-        "outputPath": "E:\\final\\N\\HavenInn-Backend\\obj\\",
+        "projectPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\naveen kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -148,15 +147,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\final\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "E:\\final\\N\\HavenInn Library\\HavenInnLibrary.csproj"
+              "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
@@ -263,7 +261,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

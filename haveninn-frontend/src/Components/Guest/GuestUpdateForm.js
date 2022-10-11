@@ -51,19 +51,19 @@ function GuestUpdateForm() {
                                         <div className="form-group">
 
                                             <label className="form-label">Name : </label>
-                                            <input type="text" placeholder="" className="form-control"
+                                            <input type="text" placeholder="" className="form-control" required={true}
                                                 defaultValue={name} onChange={e => setName(e.target.value)} />
 
                                             <label className="form-label">Email : </label>
-                                            <input type="text" placeholder="" className="form-control"
+                                            <input type="text" placeholder="" className="form-control"required={true}
                                                 defaultValue={email} onChange={e => setEmail(e.target.value)} />
 
                                             <label className="form-label">MobileNo :</label>
-                                            <input type="text" placeholder="" className="form-control"
+                                            <input type="text" placeholder="" className="form-control" required={true}
                                                 defaultValue={mobileNo} onChange={e => setMobileNo(e.target.value)} />
 
                                             <label className="form-label">AadharCardNo :</label>
-                                            <input type="text" placeholder="" className="form-control"
+                                            <input type="text" placeholder="" className="form-control" required={true}
                                                 defaultValue={aadharCardNo} onChange={e => setAadharCardNo(e.target.value)} />
                                         </div>
                                         <center><button className="btn btn-warning mt-3" type="submit">Update</button></center>

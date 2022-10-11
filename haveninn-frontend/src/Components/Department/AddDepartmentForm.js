@@ -41,8 +41,8 @@ class AddDepartmentForm extends Component {
               <div className=" mt-4">
                 <form>
                   <div className="form-group">
-                    <label className="form-label">Department Name</label>
-                    <input placeholder="Enter Department Name" name="Department Name" className="form-control"
+                    <label className="form-label">Department Name :</label>
+                    <input placeholder="Enter Department Name" name="Department Name" className="form-control" required={true}
                       value={this.state.Name} onChange={this.changedepartmentnameHandler} />
                   </div>
                   <center><button className="btn btn-warning mt-3" onClick={this.addDepartmenthandler}>

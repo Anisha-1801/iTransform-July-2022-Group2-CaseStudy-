@@ -116,7 +116,7 @@ function UpdateReservation() {
                     <div className="col-lg-6 col-md-6 col-sm-12">
                       <div className="form-group">
                         <label>Guest : </label>
-                        <input type="text" className="form-control" defaultValue={gName} disabled={true}/>
+                        <input type="text" className="form-control" required={true} defaultValue={gName} disabled={true}/>
                       </div>
                     </div>
                     </div>
@@ -124,13 +124,13 @@ function UpdateReservation() {
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                     <label> Check-In: </label>
-                    <input type="date" name="CheckIn" className="form-control" defaultValue={checkIn} disabled={true}/>
+                    <input type="date" name="CheckIn" className="form-control" required={true} defaultValue={checkIn} disabled={true}/>
                   </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                     <label> Check-Out: </label>
-                    <input name="CheckOut" className="form-control" type="date" defaultValue={checkOut} 
+                    <input name="CheckOut" className="form-control" required={true} type="date" defaultValue={checkOut} 
                     onChange={e => setcheckOut(e.target.value)}/>
                   </div>
                   </div>
@@ -139,7 +139,7 @@ function UpdateReservation() {
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                     <label> Room Number: </label>
-                    <select className="form-select" onChange={e => setroomId(e.target.value)}>
+                    <select className="form-select" required={true} onChange={e => setroomId(e.target.value)}>
                         <option defaultValue={roomId}>{roomId} </option>
                         {(Rooms.filter(r=>r.IsAvailable == true)).map(rp=>
                         <option  key={rp.RoomId} value={rp.RoomId}>{rp.RoomId} {rp.RoomType.RoomTypeName}</option>
@@ -150,7 +150,7 @@ function UpdateReservation() {
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                   <label> Services: </label>
-                    <select className="form-select" onChange={e => setserviceId(e.target.value)}>
+                    <select className="form-select" required={true} onChange={e => setserviceId(e.target.value)}>
                         <option value={serviceId}> {sName}</option>
                             {Service.map(s=>
                         <option key={s.ServiceId} value={s.ServiceId}>{s.ServiceName}</option>
@@ -163,14 +163,14 @@ function UpdateReservation() {
                     <div className="col-lg-6 col-md-6 col-sm-6">
                     <div className="form-group">
                      <label>Adult : </label><br/>
-                     <input name="quantity" type="number" className="form-control" maxLength="2" min="1" 
+                     <input name="quantity" type="number" className="form-control" required={true} maxLength="2" min="1" 
                      defaultValue={adults} onChange={e => setadults(e.target.value)}/>
                     </div>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6">
                     <div className="form-group">
                     <label>Child : </label><br/>
-                    <input name="quantity" type="number" className="form-control" maxLength="2" min="0" 
+                    <input name="quantity" type="number" className="form-control" required={true} maxLength="2" min="0" 
                     defaultValue={child} onChange={e => setchild(e.target.value)}/>
                     </div>
                     </div>
