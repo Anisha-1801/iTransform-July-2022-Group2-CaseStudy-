@@ -46,7 +46,7 @@ namespace HavenInn_Backend.Controllers
         {
             try
             { 
-            var room = await _context.Room.FindAsync(id);
+            var room = await _context.Room.Where(r => r.RoomId == id).Include("RoomType").FirstAsync();
 
             if (room == null)
             {
