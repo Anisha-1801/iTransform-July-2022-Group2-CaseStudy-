@@ -59,7 +59,7 @@ class GuestAddform extends Component {
                   <div className="form-group">
                     <label className="label-text"> Name* : </label>
                     <input name="Name" className="form-control" placeHolder="Enter Guest's Name" required={true}
-                      value={this.state.Name} onChange={this.changenameHandler}  pattern={"[A-Za-z]"} title="Only alphabets allowed"/> 
+                      value={this.state.Name} onChange={this.changenameHandler} /> 
                   </div>
                   <div className="form-group">
                     <label className="label-text"> Email Address* : </label>
@@ -69,14 +69,14 @@ class GuestAddform extends Component {
                   <div className="form-group">
                     <label className="label-text"> Mobile No.* : </label>
                     <input name="MobileNo" className="form-control" placeHolder="Enter Mobile Number" required={true}
-                      value={this.state.MobileNo} onChange={this.changemobilenoHandler} pattern={"[7-9]{1}[0-9]{9}"} 
-                      title="Phone number should contain 10 digits"/>
+                      value={this.state.MobileNo} onChange={this.changemobilenoHandler}  
+                     />
                   </div>
                   <div className="form-group">
                     <label className="label-text"> Aadhar Card No.* : </label>
                     <input name="AadharCardNo" className="form-control" placeHolder="Enter Aadhar Card Number" required={true}
-                      value={this.state.AadharCardNo} onChange={this.changeaadharcardnoHandler} pattern={"/\\d{16}"} 
-                      title="Aadhar Card should contain 16 digits"/>
+                      value={this.state.AadharCardNo} onChange={this.changeaadharcardnoHandler} 
+                      />
                   </div>
                   <center>
                   <button className="btn btn-warning btn-lg mt-4" onClick={this.addguesthandler}>

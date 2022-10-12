@@ -245,7 +245,7 @@ class MakeReservation extends Component {
 
   render() {
     const { Rooms,RoomId,Services, ServiceId, CheckIn, CheckOut, NumberOfAdults, NumberOfChildren } = this.state;
-    const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
+    // const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
    
     return (
       <>
@@ -349,7 +349,7 @@ class MakeReservation extends Component {
                         <label className="form-label">Reservation Id</label>
                         <select className="form-select" value={this.state.ReservationId} onChange={this.generatebill} >
                             <option value="null">Select Reservation Id </option>
-                                {(sessionStorage.getItem('roomid')==null?filteredreservations:(filteredreservations.filter(r=>r.RoomId==sessionStorage.getItem('roomid')))).map(rp=>
+                                {this.state.Reservations.map(rp=>
                             <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
                             )}
                         </select>

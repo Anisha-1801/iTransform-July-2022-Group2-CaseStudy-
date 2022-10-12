@@ -124,7 +124,7 @@ namespace Email02.Controllers
             string roomtype = _context.RoomType.Where(r => r.RoomTypeId == Convert.ToInt32(roomtypeid)).Select(s => s.RoomTypeName).FirstOrDefault().ToString();
             string status = _context.Bill.Where(b => b.ReservationId == Convert.ToInt32(Reservationid)).Select(s => s.Status).FirstOrDefault().ToString();
             string roomdescription = _context.Room.Where(r => r.RoomId == Convert.ToInt32(roomid)).Select(s => s.Description).FirstOrDefault().ToString();
-            string Body = $"Good Morning {GuestName} <br/>" +
+            string Body = $"Here is Your Bill {GuestName} <br/>" +
                         $" Room :{roomid}<br/>" +
                         $"Details:{roomdescription}<br/>" +
                         $"Roomtype :{roomtype}<br/>" +
