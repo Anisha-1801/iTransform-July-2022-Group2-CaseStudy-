@@ -105,13 +105,13 @@ this.setState({
     render(){
       const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
     return (
-      <div>
-       <div className="row container">
-        <div className="col-lg-6 col-md-6 col-sm-12">
-          <h4 className='text-center'>Guests</h4>
+      <div style={{backgroundColor:"black"}}>
+       <div className="row container" >
+        <div className="col-lg-6 col-md-6 col-sm-12" style={{marginLeft:"33%"}}>
+          <center><h4 className='text-center label-heading'>Guests</h4></center>
             <form onSubmit={this.idhandler}>
               <div className="form-group">
-                <label className="form-label">Reservation Id :</label>
+                {/* <label className="form-label">Reservation Id :</label> */}
                 <center>
                 <select className="form-select" required={true} value={this.state.ReservationId} onChange={this.idhandler} style={{width:"250px"}}>
                     <option value={null}>Select Reservation Id </option>
@@ -119,15 +119,15 @@ this.setState({
                     <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
                       )}
                 </select>
-                <button className="btn btn-success mt-3">Get bill</button></center>
+                <button className="btn btn-warning mt-3 btn-md">Get bill</button></center>
               </div>
             </form>
             </div>
           </div>
-          <div className="container">
-        <div className="col-md-6 m-5 mx-auto">
-          <div className='card mt-3 p-3'>
-             <h4 className='text-center'>Bill</h4>
+          <div className="r-container">
+        <div className="r-container col-md-6 mx-auto">
+          <div className='r-container rf-card card mt-3 p-3'>
+             <h4 className='label-heading'>Bill</h4>
               <div className="card-body">
                 <form >
                 <div className="form-group">
@@ -180,8 +180,8 @@ this.setState({
                     <label className="form-label">Status</label>
                     <input  className="form-control" value={this.state.Status} disabled={true}/>
                   </div>
-                 <center> <button className="btn btn-success mt-3" onClick={this.payment}>Complete Reservation</button></center>
-                 <center> <button className="btn btn-success mt-3" onClick={this.email}>Send copy to guest</button></center>
+                 <center> <button className="btn btn-warning mt-4" onClick={this.payment}>Complete Reservation</button></center>
+                 <center> <button className="btn btn-warning mt-3" onClick={this.email}>Send copy to guest</button></center>
                 </form>
               </div>
             </div>

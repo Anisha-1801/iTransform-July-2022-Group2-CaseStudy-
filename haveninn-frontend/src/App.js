@@ -35,6 +35,8 @@ import RoomAddForm from './Components/Rooms/RoomAddForm';
 import User from './Components/Users/Users';
 import Users from './Components/Users/Users';
 import AddUsers from './Components/Users/AddUsers';
+import Password from './Components/Users/Password'
+import ViewReports from './Components/ViewReport/ViewReports';
 
 function App() {
   return (
@@ -85,9 +87,13 @@ function App() {
        <Route path='/Services' element={<Services/>} />
        <Route path='/Services/Add' element={<AddServicesForm/>} />
        <Route path='/Services/Update' element={<UpdateServicesForm/>} />
-
+      {/* Users Routes */}
        <Route path='/Users' element={<Users/>} />
        <Route path='/Users/Add' element={<AddUsers/>} />
+       <Route path='/Users/Changepassword' element={<Password/>} />
+
+       <Route path='/Reports' element={<ViewReports/>} />
+
 
        
        

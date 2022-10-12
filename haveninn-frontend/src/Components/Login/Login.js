@@ -11,6 +11,7 @@ function Login(props) {
     email: "",
     password: "",
   });
+  
   const handleChange = (e) => {
     const { id, value } = e.target;
     setState((prevState) => ({
@@ -27,9 +28,14 @@ function Login(props) {
       password: state.password, 
     };
     axios.post(Variables.api + "UserLogin", payload)
-    .then((res) => {sessionStorage.setItem('token', res.data)
+    .then((res) => {sessionStorage.setItem('token', res.data.token)
+    sessionStorage.setItem('role',res.data.Role)
     sessionStorage.setItem('email',payload.email)
-          window.location.reload()})
+          window.location.reload()
+          window.location.href = '/dashboard'
+        
+        })
+
     .catch((err)=> {console.log(err)
     alert('invalid credentials')
     setState({ email: '', password: '' })
@@ -49,7 +55,7 @@ function Login(props) {
       <Modal.Body>
         <Form className="login-form">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label className="text-dark" >Email Address</Form.Label>
             <Form.Control
               id="email"
               type="email"
@@ -60,7 +66,7 @@ function Login(props) {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label className="text-dark">Password</Form.Label>
             <Form.Control
               id="password"
               type="password"

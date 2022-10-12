@@ -37,7 +37,8 @@ namespace HavenInn_Backend.Controllers
                 if (user != null)
                 {
                     var Token = Generate(user);
-                    return Ok(Token);
+                    var role = new { token = Token, Role = user.Role };
+                    return Ok(role);
                 }
                 return NotFound("User Not found");
             }

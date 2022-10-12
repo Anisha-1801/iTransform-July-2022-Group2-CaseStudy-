@@ -57,6 +57,7 @@ function Inventory() {
                         </a>
                         <p className="para-text">
                           <b>Category :</b> {inventory.Category} <br />
+                          <b>Item :</b> {inventory.Item}<br/>
                           <b>Quantity :</b> {inventory.Quantity}
                         </p>
                     </div>

@@ -73,8 +73,8 @@ function UpdateStaffForm() {
         MobileNumber : mobile,
         Email : email
       },{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
-      .then(res => alert(res))
-      .catch(err => alert(err) )
+      .then(res => alert("Updated Successfully"))
+      .catch(err => alert("Something went wrong, Try again later!") )
 
 
     } 
