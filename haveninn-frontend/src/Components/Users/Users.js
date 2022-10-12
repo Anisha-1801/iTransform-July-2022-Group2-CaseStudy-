@@ -27,6 +27,12 @@ function Users() {
 
   }
 
+  const sendMail = id => {
+    axios.post(Variables.api + `EmailSender/UserEmail?staffid=${id}`)
+          .then(res=>alert("Email with Credentials Sent!"))
+          .catch(err=>alert("Oops! Something went wrong!"))
+  }
+
   useEffect(() => {
     axios.get(Variables.api + 'Users', { headers: { "Authorization": `Bearer ${Variables.token}` } })
       .then(response => response.data)
@@ -66,6 +72,9 @@ function Users() {
                 </div>
                 <aside className="col-md-6 mt-3">
                   <div className="d-grid gap-3 d-md-flex justify-content-md-center mt-4">
+                  <a href="#" className='ms-2' onClick={() => sendMail(user.StaffId)} >
+                       <i class="fa fa-envelope fs-3 text-warning" aria-hidden="true"></i>
+                    </a>
                     <a href="#" className='ms-2' onClick={() => handleShow(user.UserId)} >
                       <i className='fa fa-trash fs-3 text-danger'></i>
                     </a>

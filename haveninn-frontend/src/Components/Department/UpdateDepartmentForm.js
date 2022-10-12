@@ -20,8 +20,8 @@ function UpdateDepartmentForm() {
     const updateDepartmenthandler = () => {
         axios.put(Variables.api + `Departments/${deptid}`, {DepartmentId : location.state.Id, DepartmentName : DeptName} , { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
         .then(response => response.data)
-        .then(res => console.log(res))
-        .catch(error => alert(error))
+        .then(res => alert("Updated Successfully"))
+        .catch(error => alert("Oops! Something went wrong."))
     }
 
   return (

@@ -1,6 +1,5 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import AboutUs from './Components/AboutUs/AboutUs';
-import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 import LandingPage from './Components/LandingPage/LandingPage';
 import Navigation from './Components/Navigation/Navigation';
@@ -47,7 +46,6 @@ function App() {
        <Route exact path='/' element={<LandingPage/>}/>
        {/* <Route exact path="/home" element={<LandingPage/>}/> */}
        <Route path='/about' element={<AboutUs/>} />
-       <Route path='/contact' element={<Contact/>} />
        {/* Home Routes */}
        <Route path='/dashboard' element={<Dashboard/>} />
        {/* Guest Routes */}

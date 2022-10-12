@@ -33,7 +33,7 @@ class AddServicesForm extends Component {
     let Service = { ServiceName: this.state.ServiceName, Price: this.state.Price }
     console.log(Service)
     axios.post(Variables.api + 'Services', Service,{ headers: { "Authorization": `Bearer ${Variables.token}` } })
-      .then(res => { console.log(res) })
+      .then(res => { alert("Service added successfully!") })
       .catch(err => alert("Something went wrong, Try Again later!"))
   }
   render() {

@@ -52,8 +52,8 @@ class RoomAddForm extends Component {
         let Room = { RoomId: this.state.RoomId, RoomTypeId: this.state.RoomTypeId, isAvailable: this.state.isAvailable, Description: this.state.Description }
         console.log(Room)
         axios.post(Variables.api + 'Rooms', Room, { headers: { "Authorization": `Bearer ${Variables.token}` } })
-            .then(res => { alert(res) })
-            .catch(err => alert(err))
+            .then(res => { alert("Room Added Successfully!") })
+            .catch(alert("Oops! Something went wrong."))
     }
 
     render() {

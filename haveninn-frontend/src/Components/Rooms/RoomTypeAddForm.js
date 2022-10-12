@@ -12,8 +12,6 @@ class RoomTypeAddForm extends Component {
             Price: ''
         }
 
-
-
         this.changeroomtypenameHandler = this.changeroomtypenameHandler.bind(this);
         this.changepriceHandler = this.changepriceHandler.bind(this);
         this.addroomtypehandler = this.addroomtypehandler.bind(this);
@@ -32,8 +30,8 @@ class RoomTypeAddForm extends Component {
         let Roomtype = { RoomTypeName: this.state.RoomTypeName, Price: this.state.Price }
         console.log(Roomtype)
         axios.post(Variables.api + 'RoomTypes', Roomtype, { headers: { "Authorization": `Bearer ${Variables.token}` } })
-            .then(res => { alert(res) })
-            .catch(err => alert(err))
+            .then(res => { alert("Room Type Added Successfully!") })
+            .catch(err => alert("Oops! Something went wrong."))
     }
 
     render() {

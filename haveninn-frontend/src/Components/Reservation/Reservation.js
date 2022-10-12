@@ -39,6 +39,14 @@ function Reservation() {
            .catch(err => console.log(err))
     }
 
+    const generateBill = id =>{
+      let bill={PaymentMode:"null",ReservationId:id,TransactionId:"null",Status:"Unpaid"}
+      console.log(bill)
+      axios.post(Variables.api+'Bills',bill,{headers: { Authorization: `Bearer ${Variables.token}`}})
+      .then(res=>console.log(res))
+      .catch(err=>console.log(err))
+    }
+
     
   return (
     <>
@@ -90,10 +98,13 @@ function Reservation() {
         </p>
       </div>
       <div className="r-card-section col-lg-3 col-md-3 col-sm-12 ">
+      <a className="mb-5 me-3" href="/Bill/Add" onClick={()=>{generateBill(r.ReservationId)}}>
+      <i class="fas fa-wallet fs-4 text-dark"></i>
+        </a>
         <a href="/Reservation/Update" className="mb-5 me-1" onClick={()=>{getReservationId(r.ReservationId)}}>
           <i  className="far fa-edit fs-4 text-warning" aria-hidden="true"></i>
         </a> &nbsp;
-        <a className="mb-5 me-1" onClick={()=>{handleShow(r.ReservationId)}}>
+        <a className="mb-5 me-1" href="#" onClick={()=>{handleShow(r.ReservationId)}}>
           <i  className="fa fa-trash fs-4 text-danger" aria-hidden="true"></i>
         </a>
       </div>

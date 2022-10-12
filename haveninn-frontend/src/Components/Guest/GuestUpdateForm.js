@@ -34,8 +34,8 @@ function GuestUpdateForm() {
                AadharCardNo: aadharCardNo},
          { headers: { "Authorization": `Bearer ${Variables.token}` } })
             .then(response => response.data)
-            .catch(error => alert(error))
-            alert('donee')
+            .then(res=> alert("Updated Successfully!"))
+            .catch(error => alert("Oops! Something went wrong."))
     }
 
     return (

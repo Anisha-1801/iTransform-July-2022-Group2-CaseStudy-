@@ -44,8 +44,8 @@ changequantityHandler = (e) => {
     let Inventory = {Item: this.state.Item, Category: this.state.Category, Quantity: this.state.Quantity, UnitPrice : this.state.UnitPrice,IsStockAvailable : true, UserId : u[0]}
     axios.post(Variables.api + 'Inventories', Inventory,{ headers: { "Authorization": `Bearer ${Variables.token}` } })
     //   .then(res => console.log(res))
-      .then(res=> alert(res))
-      .catch(err => alert(err))
+      .then(res=> alert("Inventory Item Added Successfully!"))
+      .catch(err => alert("Oops! Something went wrong."))
   }
 componentDidMount(){
   axios.get(Variables.api + 'Users', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
@@ -59,7 +59,6 @@ componentDidMount(){
   
   render() {
     const {Item,Category,Quantity, UnitPrice} = this.state;
-   
     return (
       <>
       {Variables.isUserLoggedin ? 

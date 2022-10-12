@@ -39,8 +39,8 @@ class GuestAddform extends Component {
     let Guest = { Name: this.state.Name, Email: this.state.Email, MobileNo: this.state.MobileNo, AadharCardNo: this.state.AadharCardNo }
     console.log(Guest)
     axios.post(Variables.api + 'Guests', Guest,{ headers: { "Authorization": `Bearer ${Variables.token}` } })
-      .then(res => { alert(res) })
-      .catch(err => alert(err))
+      .then(res => { alert("Guest Added Successfully!") })
+      .catch(err => alert("Oops! Something went wrong."))
   }
   render() {
     return (

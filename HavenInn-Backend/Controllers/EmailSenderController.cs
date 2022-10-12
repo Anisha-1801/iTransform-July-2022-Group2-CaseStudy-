@@ -95,7 +95,7 @@ namespace Email02.Controllers
             var guest = _context.Guest.Where(g => g.GuestId == reservation.GuestId).FirstOrDefault();
             string recipientEmail = guest.Email;
             string recipientFirstName = guest.Name;
-            string Body = $"Welcome to Hotel HavenInn<br/>" +
+            string Body = $"Welcome to Hotel HavenInn!<br/>" +
                          $"Your Reservation Id:{Convert.ToInt32(reservation.ReservationId)}<br/>" +
                          $"Your Room no:{reservation.RoomId}<br/>" +
                          $"Room Details:{reservation.Room.Description}<br/>" +
@@ -110,6 +110,25 @@ namespace Email02.Controllers
             {
                 return BadRequest(ex.Message.ToString());
             }
+        }
+        [HttpPost, Route("UserEmail")]
+        public async Task<IActionResult> SendEmailtoStaff(int staffid){
+            var user = _context.User.Where( user => user.StaffId == staffid).FirstOrDefault();
+            var staff = _context.Staff.Where(staff => staff.StaffId == staffid).FirstOrDefault();
+            var mail = user.Email;
+            var firstName = staff.FirstName + staff.LastName;
+            var subject = "Here are your credentials!";
+            string body = $"You are successfully added as {user.Role}<br/>" + $"Email : {user.Email}<br/>" + $"Password : {user.Password}<br/>";
+            try
+            {
+                string messageStatus = await _emailSender.SendEmailAsync(mail, firstName, subject, body);
+                return Ok(messageStatus);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+
         }
 
         [HttpPost, Route("Email/Bill")]
@@ -128,7 +147,7 @@ namespace Email02.Controllers
                         $" Room :{roomid}<br/>" +
                         $"Details:{roomdescription}<br/>" +
                         $"Roomtype :{roomtype}<br/>" +
-                        $"Total Price:{bill}<br/>" +
+                        $"Total Price:&#8377; {bill} <br/>" +
                         $"Payment Mode : {mode}<br/>" +
                         $"Transaction Id:{t} <br/>" +
                         $"Status:{status}";

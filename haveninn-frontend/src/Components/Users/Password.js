@@ -21,6 +21,7 @@ class Password extends Component {
    }
    
     updatepassword(){
+      // eslint-disable-next-line
         const User=this.state.Users.filter(u=>u.Email==Variables.email)
         const u=User.map(u=>u.UserId)
         const r=User.map(u=>u.Role)
@@ -28,14 +29,13 @@ class Password extends Component {
 
         axios.put(Variables.api + `Users/${u[0]}`, {UserId:u[0],Password:this.state.Password,Role:r[0],StaffId:s[0],Email:Variables.email} , { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
         .then(response => response.data)
-        .then(alert('successfully changed your password'))
-        .catch(error => alert("Password Changed Successfully"))
+        .then(alert('Password changed Successfully '))
+        .catch(error => alert("Oops! Something went wrong."))
         sessionStorage.clear()
         window.location.reload()
-
-        // alert('successfully changed your password')
     }
 render(){
+  // eslint-disable-next-line
     const User=this.state.Users.filter(u=>u.Email==Variables.email)
     const u=User.map(u=>u.UserId)
     const P=User.map(u=>u.Password)

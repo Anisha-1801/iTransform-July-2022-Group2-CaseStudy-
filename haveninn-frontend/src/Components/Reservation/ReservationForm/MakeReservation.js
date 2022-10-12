@@ -208,11 +208,11 @@ class MakeReservation extends Component {
         
        } else {
         axios.post(Variables.api + 'Reservations',Reservation,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
-             .then(res=>console.log(res))
+             .then(res=>alert('Reservation done successfully!'))
              .then( this.setState({
               show: true
             }))
-             .catch(err=> {console.log(err)
+             .catch(err=> {alert("Oops! Something went wrong.")
             })
          // eslint-disable-next-line
           const room=this.state.Rooms.filter(s=>s.RoomId==Reservation.RoomId)
@@ -222,27 +222,17 @@ class MakeReservation extends Component {
           let uroom ={RoomId:Reservation.RoomId,RoomTypeId:rti[0],IsAvailable:status,Description:D[0]}
           console.log(uroom)
          axios.put(Variables.api+`Rooms/${Reservation.RoomId}`,uroom,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
-          .then(res=>console.log(res))
-         .catch(err=> console.log(err))     
+          .then(res=>console.log("Room Status Updated"))
+         .catch(err=> console.log("Oops! Something went wrong." + err))     
          sessionStorage.setItem('roomid',Reservation.RoomId)
          sessionStorage.setItem('guestid',Reservation.GuestId)
           
          axios.post(Variables.api+`EmailSender/Reservation?id=${Reservation.GuestId}&roomid=${Reservation.RoomId}`)
-         .then(console.log("success"))
-         .catch(err=>console.log(err))
+         .then(alert("Email sent successfully!"))
+         .catch(err=>alert("Oops! Something went wrong."))
         } 
     }
     
-    generatebill=e=>{
-        let bill={PaymentMode:"null",ReservationId:e.target.value,TransactionId:"null",Status:"Unpaid"}
-        console.log(bill)
-        sessionStorage.setItem('reservationid',e.target.value)
-        axios.post(Variables.api+'Bills',bill,{headers: { Authorization: `Bearer ${Variables.token}`}})
-        .then(res=>console.log(res))
-        .catch(err=>console.log(err))
-
-       }
-
   render() {
     const { Rooms,RoomId,Services, ServiceId, CheckIn, CheckOut, NumberOfAdults, NumberOfChildren } = this.state;
     // const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
@@ -256,7 +246,7 @@ class MakeReservation extends Component {
             <div className="rf-card card col-md-6 offset-md-3 offset-md-3">
                 <h3 className="form-card-title">Make Reservation</h3>
               <div className="card-body">
-                <form> 
+                <form action='/Reservation'> 
                     <div className="row">
                     <div className="form-group">
                     <label className='form-label'>Guest : </label>
@@ -335,40 +325,10 @@ class MakeReservation extends Component {
                   <i class="fa fa-check" aria-hidden="true"></i> &nbsp;Confirm</button>
                 </center>
                 </form>
-          {/* Modal */}
-          <>
-      <Modal show={this.state.show} onHide={this.handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Generate Bill</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-              <div className='bill-card card '>
-                  <div className="card-body">
-                    <form action="/Bill/Add">
-                      <div className="form-group">
-                        <label className="form-label">Reservation Id</label>
-                        <select className="form-select" value={this.state.ReservationId} onChange={this.generatebill} >
-                            <option value="null">Select Reservation Id </option>
-                                {this.state.Reservations.map(rp=>
-                            <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
-                            )}
-                        </select>
-                        <center className="mt-2">
-                        <Button type="submit" variant="outline-warning"> Generate Bill</Button>
-                        </center>
-                      </div>
-                    </form>
-                  </div>
-          </div>
-        </Modal.Body>
-      </Modal>
-    </>
               </div>
             </div>
           </div>
-
         </div>
-        
       </div>
       :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
       </>

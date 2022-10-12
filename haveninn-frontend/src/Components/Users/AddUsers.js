@@ -53,11 +53,8 @@ class AddUsers extends Component {
     let User = { Password: this.state.Password, Role: this.state.Role, StaffId: this.state.StaffId, Email: this.state.Email }
     console.log(User)
     axios.post(Variables.api + 'Users', User,{ headers: { "Authorization": `Bearer ${Variables.token}` } })
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-    axios.post(Variables.api + `EmailSender/UserEmail?staffid=${User.StaffId}`).then(res=>console.log(res)).catch(err=>console.log(err))
-   
-    
+      .then(res => alert("User Added Successfully"))
+      .catch(err => alert("Oops! Something went wrong."))
   }
     render() {
       return (
@@ -93,7 +90,7 @@ class AddUsers extends Component {
                     <select className="form-select mb-3"  value={this.state.StaffId} onChange={this.changestaffidHandler}>
                         <option value="null" >Select StaffId</option>
                         {this.state.Staffs.map(s=>
-                        <option size="4" key={s.StaffId} value={s.StaffId}>{s.StaffId}</option>
+                        <option size="4" key={s.StaffId} value={s.StaffId}>{s.FirstName + " " + s.LastName}</option>
                         )}
                     </select>
                   </div>

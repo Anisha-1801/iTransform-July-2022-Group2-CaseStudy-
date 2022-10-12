@@ -23,6 +23,7 @@ function UpdateServicesForm() {
     const updateServicehandler = () => {
         axios.put(Variables.api + `Services/${sId}`, {ServiceId : location.state.Id, ServiceName : sName , Price :sPrice } , { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
         .then(response => response.data)
+        .then(alert("Updated Successfully!"))
         //.then(res => setServices(res))
         .catch(error => alert("Something went wrong, Try Again later!"))
         

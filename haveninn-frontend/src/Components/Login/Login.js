@@ -37,7 +37,7 @@ function Login(props) {
         })
 
     .catch((err)=> {console.log(err)
-    alert('invalid credentials')
+    alert('Invalid credentials')
     setState({ email: '', password: '' })
        })  
   };

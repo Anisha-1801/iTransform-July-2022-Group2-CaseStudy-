@@ -79,9 +79,11 @@ function RoomUpdateForm() {
                                             </select>
 
                                             <label className="form-label label-text">Status:</label>
-                                            <input type="text"  className="form-control" required={true}
-                                                defaultValue={isavailable} onChange={e => setIsavailable(e.target.value)} />
-
+                                            <select className="form-control" value={isavailable} required={true} onChange={e => setIsavailable(e.target.value)}>
+                                                <option value="true">Available</option>
+                                                <option value="false">Not Available</option>
+                                            </select>
+                                        
                                             <label className="form-label label-text">Description:</label>
                                             <input type="text"  className="form-control" required={true}
                                                 defaultValue={description} onChange={e => setDescription(e.target.value)} />

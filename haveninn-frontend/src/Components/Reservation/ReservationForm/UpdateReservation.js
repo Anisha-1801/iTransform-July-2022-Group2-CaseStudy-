@@ -30,7 +30,7 @@ function UpdateReservation() {
       axios.get(Variables.api + 'Rooms', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
       .then(response => response.data)
       .then(res => { setRooms(res)})
-      .catch( error => console.log(error))
+      .catch( error => console.log("Oops! Something went wrong."))
 
       console.log(Rooms)
   }
@@ -39,7 +39,7 @@ function UpdateReservation() {
     axios.get(Variables.api + 'Services', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
     .then(response => response.data)
     .then(res => { setServices(res)})
-    .catch( error => console.log(error))
+    .catch( error => console.log("Oops! Something went wrong."))
   }
 
   function setCorrectFormat(date){
@@ -70,7 +70,8 @@ function UpdateReservation() {
         setgName(res.Guest.Name);
         setsName(res.Service.ServiceName);
       })
-      .catch( error => alert(error))
+      .catch( error => {alert("Oops! Something went wrong.");
+            console.log(error)})
 
       fetchRooms();
       fetchServices();
@@ -86,14 +87,12 @@ function UpdateReservation() {
         ServiceId : serviceId,
         CheckIn: checkIn,
         CheckOut: checkOut,
-        // BookingTime: updateTime,
-        // NoOfNights: nights,
         NumberOfAdults: adults,
         NumberOfChildren: child
     },
     { headers: {"Authorization" : `Bearer ${Variables.token}`}})
-    .then(res => console.log(res))
-    .catch( error => alert(error))
+    .then(res => alert("Updated Successfully!"))
+    .catch(alert("Oops! Something went wrong."))
   }
 
 

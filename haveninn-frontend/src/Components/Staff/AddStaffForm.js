@@ -75,8 +75,8 @@ class StaffAddForm extends Component {
         Address: this.state.Address,Salary: this.state.Salary,MobileNumber: this.state.MobileNumber,Email: this.state.Email }
     console.log(Staff)
     axios.post(Variables.api + 'Staffs', Staff,{ headers: { "Authorization": `Bearer ${Variables.token}` } })
-      .then(res => { alert(res) })
-      .catch(err => alert(err))
+      .then(res => { alert("Staff Added Successfully!") })
+      .catch(err => alert("Oops! Something went wrong."))
   }
 
   componentDidMount() {

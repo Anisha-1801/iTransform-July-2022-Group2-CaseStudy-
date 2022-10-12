@@ -25,8 +25,8 @@ class AddDepartmentForm extends Component {
     let Department = { DepartmentName: this.state.DepartmentName}
     console.log(Department)
     axios.post(Variables.api + 'Departments', Department , { headers: { "Authorization": `Bearer ${Variables.token}` } })
-      .then(res => { alert(res) })
-      .catch(err => alert(err))
+      .then(res => { alert('Department Added Successfully!') })
+      .catch(err => alert("Oops! Something went wrong."))
   }
 
   render() {

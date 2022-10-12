@@ -83,7 +83,7 @@ this.setState({
    {
     const time= new Date()
       const bill ={
-        BillId:this.state.Bill. BillId,
+        BillId:this.state.Bill.BillId,
         PaymentMode:this.state.Payementmode, 	
         ReservationId: this.state.Bill.ReservationId,
         TotalPrice:this.state.Bill.TotalPrice,	
@@ -93,8 +93,8 @@ this.setState({
       }
       console.log(bill)
       axios.put(Variables.api+`Bills/${this.state.BillId}`,bill,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
-      .then(res=>alert(res))
-      .catch(err=>alert(err))
+      .then(res=>alert("Success!"))
+      .catch(err=>alert("Oops! Something went wrong."))
   }
 
   email(){
@@ -103,7 +103,6 @@ this.setState({
             .catch(err =>alert('Something went wrong, try again later!' ))
   }
     render(){
-      // const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
     return (
       <>
       {Variables.isUserLoggedin ?
@@ -113,7 +112,6 @@ this.setState({
           <center><h4 className='text-center label-heading'>Guests</h4></center>
             <form onSubmit={this.idhandler}>
               <div className="form-group">
-                {/* <label className="form-label">Reservation Id :</label> */}
                 <center>
                 <select className="form-select" required={true} value={this.state.ReservationId} onChange={this.idhandler} style={{width:"250px"}}>
                     <option value={null}>Select Reservation Id </option>

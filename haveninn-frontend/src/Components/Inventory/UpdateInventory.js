@@ -44,7 +44,8 @@ function UpdateInventory() {
             },
             { headers: { "Authorization": `Bearer ${Variables.token}` } })
             .then(response => response.data)
-            .catch(error => alert(error))
+            .then(res=> alert("Updated Successfully!"))
+            .catch(error => alert("Oops! Something went wrong."))
     }
 
     return (
