@@ -47,3 +47,8 @@
     left:70%;
     font-family:'Josefin Sans', sans-serif;
 }
+
+#basic-nav-dropdown{
+    text-decoration: none;
+    color:#fff;
+}

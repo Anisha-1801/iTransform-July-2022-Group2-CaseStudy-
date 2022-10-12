@@ -42,16 +42,13 @@ function Reservation() {
     
   return (
     <div className="reservation-container">
-    <div className="row">
-    <div className="col-lg-9">
-      <h3 className='label-heading'>Reservations</h3>
-    </div>
-    <div className="col-lg-3">
-      <a className="btn btn-outline-warning btn-lg mt-5 mb-3" href="/Reservation/Add">
-      <i className="fa fa-plus" aria-hidden="true"></i>&nbsp;
-        Add</a>
-    </div>
-    </div>
+    <div className="d-flex justify-content-center">
+          <h1 className='label-heading'>Reservations
+            <a className='add-guest text-warning' href="/Reservation/Add">
+            &nbsp;&nbsp;
+            <i className="fa fa-plus-circle"></i></a>
+          </h1>
+          </div>
       {Reservations.map(r => (
     <div className="row m-1" key={r.ReservationId}>
       <div className="r-card card mb-2">
@@ -83,19 +80,19 @@ function Reservation() {
       </div>
       <div className="r-card-section col-lg-3 col-md-3 col-sm-12">
         <p className="para-text">
-          <b>Check-In : </b> {new Date(r.CheckIn).toLocaleString()}
+          <b>Check-In : </b> {new Date(r.CheckIn).toLocaleDateString()}
           <br />
-          <b>Check-Out : </b> {new Date(r.CheckOut).toLocaleString()}
+          <b>Check-Out : </b> {new Date(r.CheckOut).toLocaleDateString()}
           <br />
-          <b>Booking Time : </b> {r.BookingTime}
+          <b>Booking Time : </b> {new Date(r.BookingTime).toLocaleTimeString()}
         </p>
       </div>
-      <div className="r-card-section col-lg-3 col-md-3 col-sm-12">
+      <div className="r-card-section col-lg-3 col-md-3 col-sm-12 ">
         <a href="/Reservation/Update" className="mb-5 me-1" onClick={()=>{getReservationId(r.ReservationId)}}>
-          <i className="fa fa-pencil-square-o fs-5" aria-hidden="true"></i>
-        </a>
+          <i  className="far fa-edit fs-4 text-warning" aria-hidden="true"></i>
+        </a> &nbsp;
         <a className="mb-5 me-1" onClick={()=>{handleShow(r.ReservationId)}}>
-          <i className="fa fa-trash fs-5" aria-hidden="true"></i>
+          <i  className="fa fa-trash fs-4 text-danger" aria-hidden="true"></i>
         </a>
       </div>
       </div>

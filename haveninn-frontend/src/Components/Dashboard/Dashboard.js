@@ -13,8 +13,8 @@ class Dashboard extends Component {
           <>  
         {/* Receptionist */}
         <div className="dashboard">
-        <img className="recep" src={require("./Images/hotel.png")} alt="receptionist dashboard"/>
-          <ul class="nav nav-pills justify-content-center">
+        
+          <ul class="nav nav-pills justify-content-center bg-warning">
             <li class="nav-item">
               <a class="nav-link text-dark" href="/searchroom">Rooms</a>
             </li>
@@ -28,6 +28,7 @@ class Dashboard extends Component {
               <a class="nav-link text-dark" href="/Bill">Bill</a>
             </li>
           </ul>
+          <img className="recep" src={require("../images/Reception.png")} alt="receptionist dashboard"/>
         </div>
         </>
         </div>
@@ -40,8 +41,7 @@ class Dashboard extends Component {
           <>
         {/* Manager */}
         <div className="dashboard">
-        <img className="recep" src={require("./Images/hotel.png")} alt="receptionist dashboard"/>
-          <ul class="nav nav-pills justify-content-center">
+          <ul class="nav nav-pills justify-content-center  bg-warning">
             <li class="nav-item">
               <a class="d-link nav-link text-dark" href="/Room">Rooms</a>
             </li>
@@ -55,6 +55,7 @@ class Dashboard extends Component {
               <a class="d-link nav-link text-dark" href="/Services">Services</a>
             </li>
           </ul>
+          <img className="recep" src={require("../images/Manager.png")} alt="manager dashboard"/>
         </div>
         </>
         </div>
@@ -67,8 +68,7 @@ return (
           <>
         {/* Owner */}
         <div className="dashboard">
-        <img className="recep" src={require("./Images/hotel.png")} alt="receptionist dashboard"/>
-          <ul class="nav nav-pills justify-content-center">
+          <ul class="nav nav-pills justify-content-center bg-warning">
           <li class="nav-item">
               <a class="nav-link text-dark" href="/searchroom">Search Rooms</a>
             </li>
@@ -107,6 +107,7 @@ return (
             </li>
             
           </ul>
+          <img className="recep" src={require("../images/Owner.png")} alt="owner dashboard"/>
         </div>
         </>
       </div>

@@ -109,13 +109,13 @@ function UpdateReservation() {
                     <div className="row">
                       <div className="col-lg-6 col-md-6 col-sm-12">
                       <div className="form-group">
-                        <label>Reservation Id : </label>
+                        <label className='form-label'>Reservation Id : </label>
                         <input type="text" className="form-control" disabled={true} defaultValue={Rid}/>
                       </div>
                       </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
                       <div className="form-group">
-                        <label>Guest : </label>
+                        <label className='form-label'>Guest : </label>
                         <input type="text" className="form-control" required={true} defaultValue={gName} disabled={true}/>
                       </div>
                     </div>
@@ -123,13 +123,13 @@ function UpdateReservation() {
                     <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                    <label> Check-In: </label>
+                    <label className='form-label'> Check-In: </label>
                     <input type="date" name="CheckIn" className="form-control" required={true} defaultValue={checkIn} disabled={true}/>
                   </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                    <label> Check-Out: </label>
+                    <label className='form-label'> Check-Out: </label>
                     <input name="CheckOut" className="form-control" required={true} type="date" defaultValue={checkOut} 
                     onChange={e => setcheckOut(e.target.value)}/>
                   </div>
@@ -138,7 +138,7 @@ function UpdateReservation() {
                   <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                    <label> Room Number: </label>
+                    <label className='form-label'> Room Number: </label>
                     <select className="form-select" required={true} onChange={e => setroomId(e.target.value)}>
                         <option defaultValue={roomId}>{roomId} </option>
                         {(Rooms.filter(r=>r.IsAvailable == true)).map(rp=>
@@ -149,7 +149,7 @@ function UpdateReservation() {
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                  <label> Services: </label>
+                  <label className='form-label'> Services: </label>
                     <select className="form-select" required={true} onChange={e => setserviceId(e.target.value)}>
                         <option value={serviceId}> {sName}</option>
                             {Service.map(s=>
@@ -162,14 +162,14 @@ function UpdateReservation() {
                   <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-6">
                     <div className="form-group">
-                     <label>Adult : </label><br/>
+                     <label className='form-label'>Adult : </label><br/>
                      <input name="quantity" type="number" className="form-control" required={true} maxLength="2" min="1" 
                      defaultValue={adults} onChange={e => setadults(e.target.value)}/>
                     </div>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6">
                     <div className="form-group">
-                    <label>Child : </label><br/>
+                    <label className='form-label'>Child : </label><br/>
                     <input name="quantity" type="number" className="form-control" required={true} maxLength="2" min="0" 
                     defaultValue={child} onChange={e => setchild(e.target.value)}/>
                     </div>

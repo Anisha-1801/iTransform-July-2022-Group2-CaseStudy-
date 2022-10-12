@@ -52,7 +52,7 @@ class GuestAddform extends Component {
               <center>
                 <h3 className='label-heading'>Add Guest</h3></center>
               <div className="card-body">
-                <form >
+                <form action = "/Reservation/Add">
                   <div className="form-group">
                     <label className="label-text"> Name* : </label>
                     <input name="Name" className="form-control" placeHolder="Enter Guest's Name" required={true}

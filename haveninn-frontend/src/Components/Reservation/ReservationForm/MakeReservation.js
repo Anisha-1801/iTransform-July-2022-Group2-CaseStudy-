@@ -258,19 +258,19 @@ class MakeReservation extends Component {
                 <form> 
                     <div className="row">
                     <div className="form-group">
-                    <label>Guest : </label>
+                    <label className='form-label'>Guest : </label>
                     <input type="text" className="form-control" name="guestName" placeholder='Enter Guest Name' onChange={this.GuestIdHandler}/>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                    <label> Check-In: </label>
+                    <label className='form-label'> Check-In: </label>
                     <input type="date" name="CheckIn" className="form-control"
                       value={CheckIn} onChange={this.CheckInHandler} min={this.disableDates()}/>
                   </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                    <label> Check-Out: </label>
+                    <label className='form-label'> Check-Out: </label>
                     <input name="CheckOut" className="form-control" type="date"
                       value={CheckOut} onChange={this.CheckOutHandler}  min={this.disableDates()} />
                   </div>
@@ -279,7 +279,7 @@ class MakeReservation extends Component {
                   <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                    <label> Room Number: </label>
+                    <label className='form-label'> Room Number: </label>
                     <select className="form-select" value={RoomId} onChange={this.RoomIdHandler}>
                         <option value="null"> Select Room</option>
                             {(Rooms.filter(r=>r.IsAvailable === true)).map(rp=>
@@ -290,7 +290,7 @@ class MakeReservation extends Component {
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
-                  <label> Services: </label>
+                  <label className='form-label'> Services: </label>
                     <select className="form-select" value={ServiceId} onChange={this.ServiceIdHandler}>
                         <option value="null">Select Service </option>
                             {Services.map(s=>
@@ -303,7 +303,7 @@ class MakeReservation extends Component {
                   <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-6">
                     <div className="form-group">
-                    <label>Adult : </label><br/>
+                    <label className='form-label'>Adult : </label><br/>
                     <div className="m-2" style={{display:"inline-block"}}>
                     <a href="#" onClick={this.decrement}><i className="fi fa fa-1x fa-minus" aria-hidden="true"></i></a></div>
                     <div className="" style={{display:"inline-block"}}>
@@ -316,7 +316,7 @@ class MakeReservation extends Component {
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6">
                     <div className="form-group">
-                    <label>Child : </label><br/>
+                    <label className='form-label'>Child : </label><br/>
                     <div className="m-2" style={{display:"inline-block"}}>
                     <a href="#" className="" onClick={this.decrementChild}><i className="fi fa fa-1x fa-minus" aria-hidden="true"></i></a>
                     </div>

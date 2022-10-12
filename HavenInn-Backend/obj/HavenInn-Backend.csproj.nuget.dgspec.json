@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\obj\\",
+        "projectPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\Asavari\\.nuget\\packages\\",
+        "outputPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Asavari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,8 +107,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -121,25 +116,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn-Backend\\obj\\",
+        "projectPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\Asavari\\.nuget\\packages\\",
+        "outputPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Asavari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -153,8 +144,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\haveninn\\stableversion\\N\\HavenInn Library\\HavenInnLibrary.csproj"
+              "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
@@ -248,8 +239,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -261,7 +251,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

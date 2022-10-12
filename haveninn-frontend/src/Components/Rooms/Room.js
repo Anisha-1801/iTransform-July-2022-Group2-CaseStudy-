@@ -62,7 +62,7 @@ function Room() {
                   <div className="col-md-8">
                     <div className="ms-2">
                       <a href="/Rooms" className='mb-2'>
-                        <h3>Room Number : {room.RoomId}</h3>
+                        <h3 className='para-head'>Room Number : {room.RoomId}</h3>
                       </a>
                       <p className="para-text">
                         <b>Description :</b> {room.Description} <br />
@@ -83,10 +83,10 @@ function Room() {
                       <div class="d-grid gap-3 d-md-flex justify-content-md-right">
 
                         <a href="/Room/Update" className='mb-2' onClick={() => getroomId(room.RoomId)}>
-                          <i className="fa fa-edit fs-5"></i>
+                          <i className="fa fa-edit fs-5 text-warning"></i>
                         </a>
                         <a href="#" className="mb-5 me-1" onClick={() => { handleShow(room.RoomId) }}>
-                          <i className="fa fa-trash fs-5" aria-hidden="true"></i>
+                          <i className="fa fa-trash fs-5 text-danger" aria-hidden="true"></i>
                         </a>
 
                         <Modal show={show} onHide={handleClose}>

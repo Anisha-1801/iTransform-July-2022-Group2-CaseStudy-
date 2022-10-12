@@ -167,3 +167,16 @@ C:\Users\HP\Desktop\haveninn\stableversion\N\HavenInn Library\obj\Debug\netcorea
 C:\Users\HP\Desktop\haveninn\stableversion\N\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.dll
 C:\Users\HP\Desktop\haveninn\stableversion\N\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.pdb
 C:\Users\HP\Desktop\haveninn\stableversion\N\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.genruntimeconfig.cache
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.deps.json
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.runtimeconfig.json
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.runtimeconfig.dev.json
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.dll
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.pdb
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.csproj.AssemblyReference.cache
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.GeneratedMSBuildEditorConfig.editorconfig
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.AssemblyInfoInputs.cache
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.AssemblyInfo.cs
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.csproj.CoreCompileInputs.cache
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.dll
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.pdb
+F:\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.genruntimeconfig.cache

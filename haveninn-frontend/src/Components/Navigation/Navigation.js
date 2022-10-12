@@ -43,7 +43,7 @@ function Navigation() {
           >
             <ul className="navbar-nav ms-auto navbar-center">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/home">
+                <a className="nav-link" aria-current="page" href="/">
                   Home
                 </a>
               </li>
@@ -83,7 +83,7 @@ function Navigation() {
             {isUserLoggedin ?
               <>
                 
-                <span className="email-span"><NavDropdown title={email} id="basic-nav-dropdown">
+                <span className="email-span"><NavDropdown title={email} id="basic-nav-dropdown" >
                   <NavDropdown.Item href="/Users/Changepassword">Change Password</NavDropdown.Item>
                   <NavDropdown.Item href="/"  onClick={logout} >Logout</NavDropdown.Item>
                 </NavDropdown> </span>
