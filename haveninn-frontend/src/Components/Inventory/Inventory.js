@@ -38,6 +38,8 @@ function Inventory() {
       .catch(error => console.log(error))
   }, [])
   return (
+    <>
+    {Variables.isUserLoggedin ? 
     <div className='r-container'>
       <div className="d-flex justify-content-center">
         <h1 className='label-heading'>Inventory
@@ -109,6 +111,8 @@ function Inventory() {
         </Modal.Footer>
       </Modal>
     </div>
+     :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+     </>
   )
 
 }

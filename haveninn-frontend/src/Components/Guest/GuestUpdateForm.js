@@ -39,6 +39,9 @@ function GuestUpdateForm() {
     }
 
     return (
+        <>
+        {Variables.isUserLoggedin ? 
+
         <div>
             <div className="d-container">
                 <div className="d-container container">
@@ -75,6 +78,8 @@ function GuestUpdateForm() {
                 </div>
             </div>
         </div>
+        :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+        </>
     )
 
 }

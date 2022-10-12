@@ -44,6 +44,8 @@ function Room() {
 
 
   return (
+    <>
+    {Variables.isUserLoggedin ? 
     <div className='r-container'>
       <div className="container r-container">
       <div className="d-flex justify-content-center">
@@ -117,7 +119,8 @@ function Room() {
         </div>
       </div>
     </div>
-
+:<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+</>
   )
 }
 

@@ -9,7 +9,7 @@ class Dashboard extends Component {
     {
     return (
       <div>
-        
+        {Variables.isUserLoggedin ?
           <>  
         {/* Receptionist */}
         <div className="dashboard">
@@ -30,7 +30,7 @@ class Dashboard extends Component {
           </ul>
           <img className="recep" src={require("../images/Reception.png")} alt="receptionist dashboard"/>
         </div>
-        </>
+        </>:<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
         </div>
     )
     }
@@ -38,6 +38,7 @@ class Dashboard extends Component {
     {
     return (
         <div>   
+           {Variables.isUserLoggedin ?
           <>
         {/* Manager */}
         <div className="dashboard">
@@ -57,14 +58,15 @@ class Dashboard extends Component {
           </ul>
           <img className="recep" src={require("../images/Manager.png")} alt="manager dashboard"/>
         </div>
-        </>
+         </>:<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
         </div>
     )
     }
     else
     {
 return (
-    <div>   
+    <div> 
+       {Variables.isUserLoggedin ?  
           <>
         {/* Owner */}
         <div className="dashboard">
@@ -109,7 +111,7 @@ return (
           </ul>
           <img className="recep" src={require("../images/Owner.png")} alt="owner dashboard"/>
         </div>
-        </>
+         </>:<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
       </div>
     )
   }

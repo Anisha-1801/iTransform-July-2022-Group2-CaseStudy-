@@ -45,6 +45,7 @@ class ViewReports extends Component {
     }
   render() {
 
+
     for (let i = 0; i < this.state.Bills.length; i++) {
         this.state.Billtotal += this.state.Bills[i].TotalPrice;
     }
@@ -77,6 +78,8 @@ class ViewReports extends Component {
       ];
     //   const label=['Bills','Staff','Inventory']
     return (
+      <>
+      {Variables.isUserLoggedin ? 
         <div className="r-container">
             <center><h3 className="label-heading">HavenInn Report-{monthName}</h3></center>
             <div>
@@ -107,6 +110,8 @@ class ViewReports extends Component {
     </div>
     </div>
     </div>
+     :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+     </>
      )
   }
 }

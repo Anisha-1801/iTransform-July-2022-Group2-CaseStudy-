@@ -52,6 +52,8 @@ function Staff() {
   }, [])
 
   return (
+    <>
+    {Variables.isUserLoggedin ? 
     <div className="staff-container">
       <>
     <div className="container mt-4 mb-4">
@@ -137,7 +139,9 @@ function Staff() {
                 </Button>
             </Modal.Footer>
             </Modal>
-  </div>    
+  </div>   
+   :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+   </> 
   )
 }
 

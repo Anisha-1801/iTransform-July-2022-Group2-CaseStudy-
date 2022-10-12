@@ -24,6 +24,8 @@ function RoomType() {
 
 
     return (
+        <>
+        {Variables.isUserLoggedin ?
         <div className='r-container'>
             <div className="container r-container mt-4 mb-4">
                 <div className="d-flex justify-content-center">
@@ -63,7 +65,8 @@ function RoomType() {
                 </div>
             </div>
         </div>
-
+:<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+</>
     )
 }
 

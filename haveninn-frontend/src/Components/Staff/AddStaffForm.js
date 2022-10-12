@@ -114,6 +114,8 @@ class StaffAddForm extends Component {
 
   render() {
     return (
+      <>
+        {Variables.isUserLoggedin ? 
       <div className='Staff-form-body'>
         <div className='container'>
           <div className="row">
@@ -219,6 +221,8 @@ class StaffAddForm extends Component {
 
         </div>
       </div>
+       :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+       </>
     )
   }
 }

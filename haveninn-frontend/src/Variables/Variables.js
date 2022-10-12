@@ -4,7 +4,9 @@ const Variables={
     email : sessionStorage.email,
     Roomid : sessionStorage.getItem('Roomid'),
     Roomtype: sessionStorage.getItem('Roomtype'),
-    Role: sessionStorage.getItem('role')
+    Role: sessionStorage.getItem('role'),
+    isUserLoggedin : sessionStorage.getItem('token') != null ? true : false
+
 }
 
 export default Variables

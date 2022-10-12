@@ -38,9 +38,9 @@ class AddServicesForm extends Component {
   }
   render() {
     return (
+      <>
+      {Variables.isUserLoggedin ? 
       <div>
-       
-        
         <div className='r-container'>
         <div className="r-container">
           <div className="row">
@@ -74,6 +74,8 @@ class AddServicesForm extends Component {
         </div>
       </div>
       </div>
+      :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+      </>
     )
   }
 }

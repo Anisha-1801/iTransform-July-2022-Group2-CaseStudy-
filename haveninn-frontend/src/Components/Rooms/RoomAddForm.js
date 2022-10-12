@@ -58,6 +58,8 @@ class RoomAddForm extends Component {
 
     render() {
         return (
+            <>
+            {Variables.isUserLoggedin ? 
             <div className="r-container">
                 <div className="d-container container">
                     <div className="row">
@@ -105,6 +107,8 @@ class RoomAddForm extends Component {
 
                 </div>
             </div>
+            :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+            </>
         )
     }
 }

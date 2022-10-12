@@ -8,10 +8,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Navigation() {
   const [modalShow, setModalShow] = React.useState(false);
-  const t = Variables.token;
+  
   const email = Variables.email;
-  const isUserLoggedin = t != null ? true : false
-
+  
   function logout() {
     sessionStorage.clear();
     window.location.reload();
@@ -47,7 +46,7 @@ function Navigation() {
                   Home
                 </a>
               </li>
-              {isUserLoggedin ?
+              {Variables.isUserLoggedin ?
                 <></> : <>
                   <li className="nav-item">
                     <a className="nav-link" href="/about">
@@ -61,7 +60,7 @@ function Navigation() {
                   </li> */}
                 </>
               }
-              {isUserLoggedin ?
+              {Variables.isUserLoggedin ?
                 <>
                   
                   <li className="nav-item">
@@ -80,7 +79,7 @@ function Navigation() {
                 </>
               }
             </ul>
-            {isUserLoggedin ?
+            {Variables.isUserLoggedin ?
               <>
                 
                 <span className="email-span"><NavDropdown title={email} id="basic-nav-dropdown" >

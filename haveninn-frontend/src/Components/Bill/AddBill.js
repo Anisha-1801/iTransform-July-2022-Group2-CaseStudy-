@@ -13,7 +13,7 @@ class AddBill extends Component {
       Bill:[],
       Payementmode:"null",
       ReservationId:0,
-      TransactionId:"null",
+      TransactionId:"NA",
       Status:"unpaid",
       BillId:0,
       TotalPrice:0,
@@ -105,6 +105,8 @@ this.setState({
     render(){
       const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
     return (
+      <>
+      {Variables.isUserLoggedin ?
       <div style={{backgroundColor:"black"}}>
        <div className="row container" >
         <div className="col-lg-6 col-md-6 col-sm-12" style={{marginLeft:"33%"}}>
@@ -187,8 +189,9 @@ this.setState({
             </div>
             </div>
           </div>
-
       </div>
+      :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+      </>
     )
   }
 }

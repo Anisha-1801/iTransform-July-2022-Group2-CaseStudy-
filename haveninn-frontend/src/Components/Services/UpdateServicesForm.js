@@ -30,6 +30,8 @@ function UpdateServicesForm() {
 
 
   return (
+    <>
+        {Variables.isUserLoggedin ? 
     <div>
         <div className='r-container'>
        <div  className="d-container">
@@ -62,6 +64,8 @@ function UpdateServicesForm() {
         </div>
         </div>
     </div>
+     :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+     </>
   )
 }
 

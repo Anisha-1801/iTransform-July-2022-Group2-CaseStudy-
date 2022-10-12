@@ -20,6 +20,8 @@ function Department() {
     }, [])
 
   return (
+    <>
+    {Variables.isUserLoggedin ? 
     <div className="d-container">
       <>
       <div className="container mt-5 mb-5">
@@ -61,6 +63,8 @@ function Department() {
       </div>
     </>
     </div>
+    :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+    </>
   )
 }
 

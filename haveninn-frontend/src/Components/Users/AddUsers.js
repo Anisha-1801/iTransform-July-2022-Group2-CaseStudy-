@@ -61,7 +61,8 @@ class AddUsers extends Component {
   }
     render() {
       return (
-        
+        <>
+        {Variables.isUserLoggedin ? 
       <div className='r-container'>
         <br></br>
         <div className="container">
@@ -116,6 +117,8 @@ class AddUsers extends Component {
 
         </div>
       </div>
+      :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+      </>
     )
   }
 }

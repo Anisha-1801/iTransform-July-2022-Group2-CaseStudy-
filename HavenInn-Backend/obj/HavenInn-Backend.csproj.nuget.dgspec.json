@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\Asavari\\.nuget\\packages\\",
-        "outputPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\obj\\",
+        "projectPath": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\naveen kumar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Asavari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\naveen kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -107,7 +112,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -116,21 +122,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\Asavari\\.nuget\\packages\\",
-        "outputPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\obj\\",
+        "projectPath": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\naveen kumar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Asavari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\naveen kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -138,14 +148,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "F:\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj"
+              "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\Finallllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
@@ -239,7 +250,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -251,7 +263,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

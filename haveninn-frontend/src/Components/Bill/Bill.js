@@ -35,6 +35,8 @@ function Bill() {
 
 
     return (
+        <>
+        {Variables.isUserLoggedin ? 
         <div className='r-container'> 
             <>
                 <div className=" mt-5 mb-5">
@@ -100,6 +102,8 @@ function Bill() {
             </Modal.Footer>
             </Modal>
         </div>
+        :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+        </>
     )
 }
 

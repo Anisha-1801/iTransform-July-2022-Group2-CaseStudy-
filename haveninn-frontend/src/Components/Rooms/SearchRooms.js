@@ -59,7 +59,9 @@ handleclick=()=>{
     (filteredRooms.filter(room=>String(room.RoomType.RoomTypeName)===String(roomTypeName)))
 
     return (
+    
       <>
+        {Variables.isUserLoggedin ? 
       <div className="row p-5 card-container">
       <div className="mb-3 filters d-grid gap-3 d-md-flex justify-content-md-right form-check form-switch">
           <input className="form-check-input mt-2 fs-5" type="checkbox" checked={isChecked} onChange={this.handleclick}/>
@@ -113,6 +115,7 @@ handleclick=()=>{
           </div>
         ))}
       </div>
+       :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
       </>
     );
   }

@@ -32,6 +32,8 @@ class AddDepartmentForm extends Component {
   render() {
     return (
       <>
+       <>
+        {Variables.isUserLoggedin ?
       <div  className="d-container">
         <div className="d-container container">
         <div className='row'>
@@ -54,6 +56,8 @@ class AddDepartmentForm extends Component {
             </div>
           </div>
         </div>
+        :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+        </>
         </>
     )
   }

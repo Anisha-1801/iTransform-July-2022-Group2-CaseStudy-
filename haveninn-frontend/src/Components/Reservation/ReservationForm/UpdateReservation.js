@@ -98,6 +98,8 @@ function UpdateReservation() {
 
 
   return (
+    <>
+    {Variables.isUserLoggedin ? 
     <div>
       <div className="r-container">
         <div className="r-container container">
@@ -186,6 +188,8 @@ function UpdateReservation() {
         </div>
       </div>
     </div>
+    :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+    </>
   )
 }
 

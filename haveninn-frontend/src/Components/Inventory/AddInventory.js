@@ -61,6 +61,8 @@ componentDidMount(){
     const {Item,Category,Quantity, UnitPrice} = this.state;
    
     return (
+      <>
+      {Variables.isUserLoggedin ? 
       <div className='Inventory-form-body rf-card '>
         <br></br>
         <div className="container">
@@ -104,6 +106,8 @@ componentDidMount(){
 
         </div>
       </div>
+      :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+      </>
     )
   }
 }

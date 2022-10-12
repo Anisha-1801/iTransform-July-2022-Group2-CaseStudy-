@@ -25,6 +25,8 @@ function UpdateDepartmentForm() {
     }
 
   return (
+    <>
+    {Variables.isUserLoggedin ? 
     <div>
         <div  className="d-container">
         <div className="d-container container">
@@ -49,6 +51,8 @@ function UpdateDepartmentForm() {
           </div>
         </div>
     </div>
+     :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+     </>
   )
 }
 

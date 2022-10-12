@@ -248,7 +248,8 @@ class MakeReservation extends Component {
     const filteredreservations = sessionStorage.getItem('guestid')==null?this.state.Reservations :this.state.Reservations.filter(r=>r.GuestId==sessionStorage.getItem('guestid'))
    
     return (
-        
+      <>
+      {Variables.isUserLoggedin ? 
       <div className="r-container">
         <div className="r-container container">
           <div className="row">
@@ -369,6 +370,8 @@ class MakeReservation extends Component {
         </div>
         
       </div>
+      :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+      </>
     )
   }
 }

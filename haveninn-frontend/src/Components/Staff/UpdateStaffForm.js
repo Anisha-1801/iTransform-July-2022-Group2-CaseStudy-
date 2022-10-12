@@ -80,6 +80,8 @@ function UpdateStaffForm() {
     } 
 
     return (
+      <>
+      {Variables.isUserLoggedin ? 
       <div  className="d-container">
       <div className="d-container container">
       <div className='row'>
@@ -155,6 +157,8 @@ function UpdateStaffForm() {
           </div>
         </div>
       </div>
+      :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+      </>
     )
   
 }

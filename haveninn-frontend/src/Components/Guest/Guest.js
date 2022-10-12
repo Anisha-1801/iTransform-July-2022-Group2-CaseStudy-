@@ -39,6 +39,9 @@ function Guest() {
 }
 
   return (
+    <>
+    {Variables.isUserLoggedin ? 
+
     <div className="guest-container">
       <>
         <div className="guest-container">
@@ -117,6 +120,8 @@ function Guest() {
         </div>
       </>
     </div>
+     :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+     </>
   );
 }
 

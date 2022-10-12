@@ -43,6 +43,8 @@ function Services() {
 
 
     return (
+        <>
+        {Variables.isUserLoggedin ? 
         <div>
             <>
                 <div className='r-container'>
@@ -108,7 +110,8 @@ function Services() {
                 </div>
             </>
         </div>
-
+ :<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+ </>
     )
 }
 

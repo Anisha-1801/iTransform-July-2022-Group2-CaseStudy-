@@ -41,6 +41,8 @@ function Reservation() {
 
     
   return (
+    <>
+        {Variables.isUserLoggedin ? 
     <div className="reservation-container">
     <div className="d-flex justify-content-center">
           <h1 className='label-heading'>Reservations
@@ -118,6 +120,8 @@ function Reservation() {
     </div>
 ))}
 </div>
+:<><center><h1 className="label-heading " style={{color:"black"}}> Please Login to Access This Page </h1></center></> }
+</>
   )
 }
 
