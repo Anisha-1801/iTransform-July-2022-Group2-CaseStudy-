@@ -6486,24 +6486,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\naveen kumar\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Shama\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\c\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
+      "projectUniqueName": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
       "projectName": "HavenInnLibrary",
-      "projectPath": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\c\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
-      "packagesPath": "C:\\Users\\naveen kumar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\naveen kumar\\OneDrive\\Desktop\\c\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\obj\\",
+      "projectPath": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
+      "packagesPath": "C:\\Users\\Shama\\.nuget\\packages\\",
+      "outputPath": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\naveen kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Shama\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6511,7 +6506,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6607,7 +6601,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

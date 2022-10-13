@@ -13,7 +13,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    #region RoomTypeController
     public class RoomTypesController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -26,6 +26,8 @@ namespace HavenInn_Backend.Controllers
         // GET: api/RoomTypes
         [HttpGet]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Get All RoomTypes API
+        ///<summary>Get all RoomTypes</summary> 
         public async Task<ActionResult<IEnumerable<RoomType>>> GetRoomType()
         {
             try
@@ -37,10 +39,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // GET: api/RoomTypes/5
         [HttpGet("{id}")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Get RoomType by ID API
+        ///<summary>Get RoomType by ID</summary> 
         public async Task<ActionResult<RoomType>> GetRoomType(int id)
         {
             try
@@ -59,12 +64,15 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // PUT: api/RoomTypes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [Authorize(Roles = "Owner")]
+        #region Update RoomType by ID API
+        ///<summary>Update RoomType by ID</summary> 
         public async Task<IActionResult> PutRoomType(int id, RoomType roomType)
         {
             if (id != roomType.RoomTypeId)
@@ -92,12 +100,15 @@ namespace HavenInn_Backend.Controllers
 
             return NoContent();
         }
+        #endregion
 
         // POST: api/RoomTypes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Authorize(Roles = "Owner")]
+        #region Add RoomType API
+        ///<summary>Add RoomType</summary> 
         public async Task<ActionResult<RoomType>> PostRoomType(RoomType roomType)
         {
             try
@@ -112,10 +123,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // DELETE: api/RoomTypes/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Owner")]
+        #region Delete RoomType by ID API
+        ///<summary>Delete RoomType by ID</summary> 
         public async Task<ActionResult<RoomType>> DeleteRoomType(int id)
         {
             try
@@ -136,10 +150,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         private bool RoomTypeExists(int id)
         {
             return _context.RoomType.Any(e => e.RoomTypeId == id);
         }
     }
+    #endregion
 }

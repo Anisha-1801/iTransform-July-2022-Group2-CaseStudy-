@@ -14,7 +14,8 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-   
+
+    #region UserController
     public class UsersController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -27,6 +28,8 @@ namespace HavenInn_Backend.Controllers
         // GET: api/Users
         [HttpGet]
         [Authorize(Roles = "Owner,Receptionist,Manager")]
+        #region Get all Users API
+        ///<summary>Get all users</summary> 
         public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
             try
@@ -38,10 +41,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         [Authorize(Roles = "Owner")]
+        #region Get User by ID API
+        ///<summary>Get User by ID</summary> 
         public async Task<ActionResult<User>> GetUser(int id)
         {
             try
@@ -60,12 +66,15 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // PUT: api/Users/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [Authorize(Roles = "Owner,Manager,Receptionist")]
+        #region Update User by ID API
+        ///<summary>Update User by ID</summary> 
         public async Task<IActionResult> PutUser(int id, User user)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
@@ -77,9 +86,6 @@ namespace HavenInn_Backend.Controllers
                 Email = userclaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value,
                 Role = userclaims.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value
             };
-
-
-
 
             if (id != user.UserId)
             {
@@ -113,12 +119,15 @@ namespace HavenInn_Backend.Controllers
 
             return NoContent();
         }
+        #endregion
 
         // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Authorize(Roles = "Owner")]
+        #region Add User API
+        ///<summary>Add User</summary> 
         public async Task<ActionResult<User>> PostUser(User user)
         {
             try
@@ -133,10 +142,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Owner")]
+        #region Delete User by ID API
+        ///<summary>Delete user by id</summary> 
         public async Task<ActionResult<User>> DeleteUser(int id)
         {
             try
@@ -157,10 +169,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         private bool UserExists(int id)
         {
             return _context.User.Any(e => e.UserId == id);
         }
     }
+    #endregion
 }

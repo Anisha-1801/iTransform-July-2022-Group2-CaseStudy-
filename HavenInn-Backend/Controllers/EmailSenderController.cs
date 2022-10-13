@@ -12,8 +12,10 @@ namespace Email02.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    #region EmailSenderController
     public class EmailSenderController : ControllerBase
     {
+
         private readonly HavenInnContext _context;
         IEmailSender _emailSender;
         public EmailSenderController(IEmailSender emailSender,HavenInnContext context)
@@ -23,6 +25,8 @@ namespace Email02.Controllers
         }
 
         [HttpPost, Route("SendEmail")]
+        #region Send Mail API
+        ///<summary>Send Mail</summary> 
         public async Task<IActionResult> SendEmailAsync(string recipientEmail, string recipientFirstName,string Subject ,string Body)
         {
 
@@ -36,6 +40,7 @@ namespace Email02.Controllers
                 return BadRequest(ex.Message.ToString());
             }
         }
+        #endregion
 
         //[HttpPost, Route("Reservation")]
         //public async Task<IActionResult> SendEmailAsynctoguest(int id, int roomId)
@@ -63,6 +68,8 @@ namespace Email02.Controllers
         //    }
         //}
         [HttpPost, Route("Reservation")]
+        #region Send Email to Guest on Reservation Successful API
+        ///<summary>Send Email to Guest on Reservation Successful</summary> 
         public async Task<IActionResult> SendEmailAsynctoguest(int id, int roomid)
         {
             string Subject = "Reservation Successfull";
@@ -87,7 +94,11 @@ namespace Email02.Controllers
                 return BadRequest(ex.Message.ToString());
             }
         }
+        #endregion
+
         [HttpPost, Route("Reservation2")]
+        #region Send Email to Guest on Reservation Successful API
+        ///<summary>Send Email to Guest on Reservation Successful</summary> 
         public async Task<IActionResult> SendEmailAsynctoguest2(int id)
         {
             string Subject = "Reservation Successful";
@@ -111,7 +122,11 @@ namespace Email02.Controllers
                 return BadRequest(ex.Message.ToString());
             }
         }
+        #endregion
+
         [HttpPost, Route("UserEmail")]
+        #region Send Credentials to User API
+        ///<summary>Send Credentials to User</summary> 
         public async Task<IActionResult> SendEmailtoStaff(int staffid){
             var user = _context.User.Where( user => user.StaffId == staffid).FirstOrDefault();
             var staff = _context.Staff.Where(staff => staff.StaffId == staffid).FirstOrDefault();
@@ -130,8 +145,12 @@ namespace Email02.Controllers
             }
 
         }
+        #endregion
 
         [HttpPost, Route("Email/Bill")]
+        #region Send Copy of Bill to Guest API
+        ///<summary>Send Copy of Bill to Guest</summary> 
+
         public async Task<IActionResult> Sendbill(int Reservationid)
         {
             string GuestName = _context.Reservation.Include(g => g.Guest).Where(r => r.ReservationId == Reservationid).Select(s => s.Guest.Name).FirstOrDefault().ToString();
@@ -164,8 +183,11 @@ namespace Email02.Controllers
                 return BadRequest(ex.Message.ToString());
             }
         }
+        #endregion
 
         [HttpPost, Route("Email/User")]
+        #region Send Email to User by UserID with different bidy and subject API
+        ///<summary>Send Email to User by UserId with different body and subject </summary> 
         public async Task<IActionResult> SendEmailAsynctoUser( string Subject,string Body, int Userid)
         {
 
@@ -181,5 +203,7 @@ namespace Email02.Controllers
                 return BadRequest(ex.Message.ToString());
             }
         }
+        #endregion
     }
+#endregion
 }

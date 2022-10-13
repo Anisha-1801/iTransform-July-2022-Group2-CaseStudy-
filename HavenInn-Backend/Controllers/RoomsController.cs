@@ -14,6 +14,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    #region RoomsController
     public class RoomsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -26,6 +27,8 @@ namespace HavenInn_Backend.Controllers
         // GET: api/Rooms
         [HttpGet]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Get all Rooms by RoomType API
+        ///<summary>Get all Rooms by RoomType</summary> 
         public async Task<ActionResult<IEnumerable<Room>>> GetRoom()
         {
             try
@@ -38,10 +41,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // GET: api/Rooms/5
         [HttpGet("{id}")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Get Room by ID API
+        ///<summary>Get Room by ID</summary> 
         public async Task<ActionResult<Room>> GetRoom(int id)
         {
             try
@@ -60,9 +66,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         [HttpGet("available")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Get all Available Rooms API
+        ///<summary>Get all Availabe Rooms</summary> 
         public async Task<ActionResult<IEnumerable<Room>>> availablerooms()
         {
             IQueryable<Room> query = _context.Room;
@@ -84,8 +93,13 @@ namespace HavenInn_Backend.Controllers
             }
 
         }
+        #endregion
+
+
         [HttpGet("Search")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Search Room API
+        ///<summary>Search Room</summary> 
         public async Task<ActionResult<Room>> SearchRoomByRoomType(string roomType,bool status)
         {
             IQueryable<Room> query = _context.Room;
@@ -107,11 +121,15 @@ namespace HavenInn_Backend.Controllers
             }
 
         }
+        #endregion
+
         // PUT: api/Rooms/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Update Room by ID API
+        ///<summary>Update Room by ID</summary> 
         public async Task<IActionResult> PutRoom(int id, Room room)
         {
             if (id != room.RoomId)
@@ -139,12 +157,15 @@ namespace HavenInn_Backend.Controllers
 
             return NoContent();
         }
+        #endregion
 
         // POST: api/Rooms
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Authorize(Roles = "Manager,Owner")]
+        #region Add Room API
+        ///<summary>Add Room</summary> 
         public async Task<ActionResult<Room>> PostRoom(Room room)
         {
             try
@@ -159,10 +180,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // DELETE: api/Rooms/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Manager,Owner")]
+        #region Delete Room by ID API
+        ///<summary>Delete Room by ID</summary> 
         public async Task<ActionResult<Room>> DeleteRoom(int id)
         {
             try
@@ -183,10 +207,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         private bool RoomExists(int id)
         {
             return _context.Room.Any(e => e.RoomId == id);
         }
     }
+    #endregion
 }

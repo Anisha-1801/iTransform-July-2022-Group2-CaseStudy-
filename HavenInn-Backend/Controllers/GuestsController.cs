@@ -15,7 +15,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+    #region GuestController
     public class GuestsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -28,6 +28,8 @@ namespace HavenInn_Backend.Controllers
         // GET: api/Guests
         [HttpGet]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Get All Guests API
+        ///<summary>Get all Guest</summary> 
         public async Task<ActionResult<IEnumerable<Guest>>> GetGuest()
         {
             try
@@ -39,10 +41,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // GET: api/Guests/5
         [HttpGet("Search/{id}")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Search Guest by ID API
+        ///<summary>Search Guest by ID</summary> 
         public async Task<ActionResult<Guest>> GetGuest(int id)
         {
             try 
@@ -61,8 +66,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
-         [HttpGet("{name}")]
+        #endregion
+
+        [HttpGet("{name}")]
         [Authorize(Roles = "Receptionist,Manager,Owner")]
+        #region Get Guest by Name API
+        ///<summary>Get Guest by Name</summary> 
         public async Task<ActionResult<IEnumerable<Guest>>> GetGuestByName(string name)
         {
 
@@ -88,12 +97,15 @@ namespace HavenInn_Backend.Controllers
             }
 
         }
+        #endregion
 
         // PUT: api/Guests/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [Authorize(Roles = "Receptionist,Owner")]
+        #region Update Guest by ID API
+        ///<summary>Update Guest by ID</summary> 
         public async Task<IActionResult> PutGuest(int id, Guest guest)
         {
 
@@ -122,12 +134,15 @@ namespace HavenInn_Backend.Controllers
 
             return NoContent();
         }
+        #endregion
 
         // POST: api/Guests
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Authorize(Roles = "Receptionist,Owner")]
+        #region Add Guest API
+        ///<summary>Add Guest</summary> 
         public async Task<ActionResult<Guest>> PostGuest(Guest guest)
         {
             try
@@ -142,10 +157,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // DELETE: api/Guests/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Receptionist,Owner")]
+        #region Delete Guest by ID API
+        ///<summary>Delete Guest by ID</summary> 
         public async Task<ActionResult<Guest>> DeleteGuest(int id)
         {
             try
@@ -166,10 +184,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         private bool GuestExists(int id)
         {
             return _context.Guest.Any(e => e.GuestId == id);
         }
     }
+    #endregion
 }

@@ -14,6 +14,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    #region StaffsController
     public class StaffsController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -26,6 +27,8 @@ namespace HavenInn_Backend.Controllers
         // GET: api/Staffs
         [HttpGet]
         [Authorize(Roles = "Manager,Owner")]
+        #region Get All Staffs API
+        ///<summary>Get all Staffs</summary> 
         public async Task<ActionResult<IEnumerable<Staff>>> GetStaff()
         {
             try
@@ -37,10 +40,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // GET: api/Staffs/5
         [HttpGet("{id}")]
         [Authorize(Roles = "Manager,Owner")]
+        #region Get Staff by ID API
+        ///<summary>Get Staff by ID</summary> 
         public async Task<ActionResult<Staff>> GetStaff(int id)
         {
             try
@@ -59,12 +65,15 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // PUT: api/Staffs/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [Authorize(Roles = "Manager,Owner")]
+        #region Update Staff by ID API
+        ///<summary>Update Staff by ID</summary> 
         public async Task<IActionResult> PutStaff(int id, Staff staff)
         {
             if (id != staff.StaffId)
@@ -92,12 +101,15 @@ namespace HavenInn_Backend.Controllers
 
             return NoContent();
         }
+        #endregion
 
         // POST: api/Staffs
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Authorize(Roles = "Manager,Owner")]
+        #region Add Staff API
+        ///<summary>Add Staff</summary> 
         public async Task<ActionResult<Staff>> PostStaff(Staff staff)
         {
             try
@@ -112,10 +124,14 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
+
 
         // DELETE: api/Staffs/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Manager,Owner")]
+        #region Delete Staff by ID API
+        ///<summary>Delete Staff by ID</summary> 
         public async Task<ActionResult<Staff>> DeleteStaff(int id)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
@@ -157,10 +173,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         private bool StaffExists(int id)
         {
             return _context.Staff.Any(e => e.StaffId == id);
         }
     }
+    #endregion
 }

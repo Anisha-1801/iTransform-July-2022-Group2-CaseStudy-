@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,10 +14,12 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    #region BillController
     public class BillsController : ControllerBase
     {
         private readonly HavenInnContext _context;
 
+        
         public BillsController(HavenInnContext context)
         {
             _context = context;
@@ -25,6 +28,8 @@ namespace HavenInn_Backend.Controllers
         // GET: api/Bills
         [HttpGet]
         [Authorize(Roles = "Receptionist,Owner,Manager")]
+        #region Get All Bills
+        ///<summary>Get All Bill </summary> 
         public async Task<ActionResult<IEnumerable<Bill>>> GetBill()
         {
             try
@@ -37,10 +42,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // GET: api/Bills/5
         [HttpGet("{id}")]
         [Authorize(Roles = "Receptionist,Owner,Manager")]
+        #region Get Bill by ID API
+        ///<summary>Get Bill by ID </summary> 
         public async Task<ActionResult<Bill>> GetBill(int id)
         {
             try
@@ -59,9 +67,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         [HttpGet("RID")]
         [Authorize(Roles = "Receptionist,Owner,Manager")]
+
+        #region Get Bill by ReservationID API
+        ///<summary>Get Bill by ReservationID </summary> 
         public async Task<ActionResult<Bill>> GetBillByReservationid(int id)
         {
             try
@@ -80,12 +92,16 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // PUT: api/Bills/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [Authorize(Roles = "Receptionist,Owner")]
+
+        #region Update Bill API
+        ///<summary>Update Bill</summary> 
         public async Task<IActionResult> PutBill(int id, Bill bill)
         {
             try
@@ -120,12 +136,16 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // POST: api/Bills
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Authorize(Roles = "Receptionist,Owner")]
+
+        #region Add Bill api
+        ///<summary>Adding Bill</summary> 
         public async Task<ActionResult<Bill>> PostBill(Bill bill)
         {
             try
@@ -162,10 +182,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // DELETE: api/Bills/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Receptionist,Owner")]
+        #region Delete Bill by ID API
+        ///<summary>Delete Bill by ID</summary> 
         public async Task<ActionResult<Bill>> DeleteBill(int id)
         {
             try
@@ -186,12 +209,16 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         private bool BillExists(int id)
         {
             return _context.Bill.Any(e => e.BillId == id);
         }
-        
+
+
+        #region Bill Calculate API
+        ///<summary>Calculate Bill</summary> 
         private Bill calbill(Bill bill)
         {
             var nights = _context.Reservation.Where(r => r.ReservationId == bill.ReservationId)
@@ -218,5 +245,9 @@ namespace HavenInn_Backend.Controllers
        
             return bill1;
         }
+        #endregion
     }
+    #endregion
+
 }
+

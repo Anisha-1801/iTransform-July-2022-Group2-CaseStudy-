@@ -3,6 +3,7 @@ create database HavenInn
 Drop Database HavenInn
 
 ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF
+
 use HavenInn
 Go
 
@@ -216,6 +217,7 @@ INSERT INTO Room values(202,3,1,'Digital safe,Mini fridge')
 INSERT INTO Room values(301,5,1,'Ample storage,Mini fridge,Landscaped gardens')
 INSERT INTO Room values(302,4,1,'Compact Bedrooms,Mini fridge,Seating area')
 
+INSERT INTO [Services] values('No Service',0)
 INSERT INTO [Services] values('Spa',1700)
 INSERT INTO [Services] values('Gym',1899)
 INSERT INTO [Services] values('Gamezone',1999)

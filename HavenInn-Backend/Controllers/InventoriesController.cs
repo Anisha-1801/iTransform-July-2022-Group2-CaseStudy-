@@ -13,6 +13,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    #region IventoriersController
     public class InventoriesController : ControllerBase
     {
         private readonly HavenInnContext _context;
@@ -25,6 +26,8 @@ namespace HavenInn_Backend.Controllers
         // GET: api/Inventories
         [HttpGet]
         [Authorize(Roles = "Manager,Owner")]
+        #region Get all Inventories API
+        ///<summary>Get all Inventories</summary> 
         public async Task<ActionResult<IEnumerable<Inventory>>> GetInventory()
         {
             try
@@ -36,10 +39,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // GET: api/Inventories/5
         [HttpGet("{id}")]
         [Authorize(Roles = "Manager,Owner")]
+        #region Get Inventory by ID API
+        ///<summary>Get Inventory by ID</summary> 
         public async Task<ActionResult<Inventory>> GetInventory(int id)
         {
             try 
@@ -58,12 +64,15 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // PUT: api/Inventories/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [Authorize(Roles = "Manager,Owner")]
+        #region Update Inventory by ID API
+        ///<summary>Update Inventory by ID</summary> 
         public async Task<IActionResult> PutInventory(int id, Inventory inventory)
         {
             if (id != inventory.InventoryId)
@@ -91,12 +100,15 @@ namespace HavenInn_Backend.Controllers
 
             return NoContent();
         }
+        #endregion
 
         // POST: api/Inventories
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Authorize(Roles = "Manager,Owner")]
+        #region Add Inventories API
+        ///<summary>Add Inventories</summary> 
         public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
         {
             try
@@ -111,10 +123,13 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         // DELETE: api/Inventories/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Manager,Owner")]
+        #region Delete Inventory by ID API
+        ///<summary>Delete Inventory by ID</summary> 
         public async Task<ActionResult<Inventory>> DeleteInventory(int id)
         {
             try 
@@ -135,10 +150,12 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
         private bool InventoryExists(int id)
         {
             return _context.Inventory.Any(e => e.InventoryId == id);
         }
     }
+    #endregion
 }

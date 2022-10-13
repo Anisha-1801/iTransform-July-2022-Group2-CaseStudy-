@@ -14,6 +14,7 @@ namespace HavenInn_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    #region UserLoginController
     public class UserLoginController : ControllerBase
     {
         private IConfiguration _config;
@@ -25,10 +26,10 @@ namespace HavenInn_Backend.Controllers
             _config = config;
         }
 
-        
-
         [AllowAnonymous]
         [HttpPost]
+        #region Login Method API
+        ///<summary>Login Method to use Generated Token </summary> 
         public IActionResult Login([FromBody] UserLogin userLogin)
         {
             try
@@ -47,7 +48,10 @@ namespace HavenInn_Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server error {e.Message}");
             }
         }
+        #endregion
 
+        #region Generate Token method
+        ///<summary>Generate Token method</summary> 
         private string Generate(User user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
@@ -68,7 +72,10 @@ namespace HavenInn_Backend.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(Token);
         }
+        #endregion
 
+        #region Authenticate Method
+        ///<summary>Authenticate method</summary> 
         private User Authenticate(UserLogin userLogin)
         {
             var Currentuser = _context.User.FirstOrDefault(o => o.Email == userLogin.Email && o.Password == userLogin.Password);
@@ -79,6 +86,8 @@ namespace HavenInn_Backend.Controllers
             }
             return null;
         }
+        #endregion
     }
+#endregion
 }
 
