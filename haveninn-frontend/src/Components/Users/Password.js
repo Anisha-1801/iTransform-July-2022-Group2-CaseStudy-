@@ -79,7 +79,7 @@ render(){
                       defaultValue={Variables.email} disabled={true} />
                   </div>
                   <center><button className="btn btn-warning mt-3" type="submit">
-                  <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Create</button></center>
+                  <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Update</button></center>
                 </form>
               </div>
             </div>

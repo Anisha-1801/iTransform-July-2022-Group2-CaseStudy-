@@ -174,7 +174,20 @@ class MakeReservation extends Component {
       yyyy = today.getUTCFullYear();
       return yyyy + "-" + mm + "-" + dd;
   }
-    
+  disableDates2 = () => {
+    var today, dd, mm, yyyy;
+    today = new Date();
+    dd = today.getDate()+1;
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    mm = today.getMonth() + 1;
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    yyyy = today.getUTCFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+}
     componentDidMount(){
         this.fetchRooms()
         this.fetchServices()
@@ -183,8 +196,8 @@ class MakeReservation extends Component {
         this.fetchreservations()
     }
    
-    makeReservation=(e)=>{
-      e.preventDefault();
+    makeReservation(){
+      
       // eslint-disable-next-line
         const User = this.state.Users.filter( user => user.Email == Variables.email)
         const u=User.map(u=>u.UserId)
@@ -224,12 +237,6 @@ class MakeReservation extends Component {
          axios.put(Variables.api+`Rooms/${Reservation.RoomId}`,uroom,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
           .then(res=>console.log("Room Status Updated"))
          .catch(err=> console.log("Oops! Something went wrong." + err))     
-         sessionStorage.setItem('roomid',Reservation.RoomId)
-         sessionStorage.setItem('guestid',Reservation.GuestId)
-          
-         axios.post(Variables.api+`EmailSender/Reservation?id=${Reservation.GuestId}&roomid=${Reservation.RoomId}`)
-         .then(alert("Email sent successfully!"))
-         .catch(err=>alert("Oops! Something went wrong."))
         } 
     }
     
@@ -263,7 +270,7 @@ class MakeReservation extends Component {
                   <div className="form-group">
                     <label className='form-label'> Check-Out: </label>
                     <input name="CheckOut" className="form-control" type="date"
-                      value={CheckOut} onChange={this.CheckOutHandler}  min={this.disableDates()} />
+                      value={CheckOut} onChange={this.CheckOutHandler}  min={this.disableDates2()} />
                   </div>
                   </div>
                   </div>

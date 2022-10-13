@@ -20,6 +20,8 @@ function UpdateReservation() {
     const [userId, setuserId] = useState('');
     const [adults, setadults] = useState('');
     const [child, setchild] = useState('');
+    const [mindate,setmindate]=useState('');
+    const [mindate2,setmindate2]=useState('');
     const time = new Date();
     // const updateTime = time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds() ;
     // const nights = checkOut - checkIn;
@@ -53,7 +55,34 @@ function UpdateReservation() {
     var today = now.getFullYear() + '-' + month + '-' + day;
     return today
   }
-
+ function disableDates(){
+    var today, dd, mm, yyyy;
+    today = new Date();
+    dd = today.getDate();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    mm = today.getMonth() + 1;
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    yyyy = today.getUTCFullYear();
+    setmindate(yyyy + "-" + mm + "-" + dd)
+}
+function disableDates2  () {
+  var today, dd, mm, yyyy;
+  today = new Date();
+  dd = today.getDate()+1;
+  if (dd < 10) {
+      dd = '0' + dd
+  }
+  mm = today.getMonth() + 1;
+  if (mm < 10) {
+      mm = '0' + mm
+  }
+  yyyy = today.getUTCFullYear();
+  setmindate2(yyyy + "-" + mm + "-" + dd)
+}
   useEffect(() => {
       axios.get(Variables.api + `Reservations/${Rid}`,{ headers: {"Authorization" : `Bearer ${Variables.token}`}})
       .then(response => response.data)
@@ -75,6 +104,8 @@ function UpdateReservation() {
 
       fetchRooms();
       fetchServices();
+      disableDates();
+      disableDates2();
   }, [])
 
   const UpdateReservation = () => {
@@ -125,13 +156,13 @@ function UpdateReservation() {
                     <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                     <label className='form-label'> Check-In: </label>
-                    <input type="date" name="CheckIn" className="form-control" required={true} defaultValue={checkIn} disabled={true}/>
+                    <input type="date" name="CheckIn" className="form-control" required={true}  defaultValue={checkIn} min={mindate} onChange={e => setcheckIn(e.target.value)}/>
                   </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="form-group">
                     <label className='form-label'> Check-Out: </label>
-                    <input name="CheckOut" className="form-control" required={true} type="date" defaultValue={checkOut} 
+                    <input name="CheckOut" className="form-control" required={true} type="date"  defaultValue={checkOut}  min={mindate2} 
                     onChange={e => setcheckOut(e.target.value)}/>
                   </div>
                   </div>

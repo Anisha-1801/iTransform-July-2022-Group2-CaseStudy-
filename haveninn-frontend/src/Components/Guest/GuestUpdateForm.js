@@ -50,7 +50,7 @@ function GuestUpdateForm() {
                             <div className='mt-3 p-3'>
                                 <h3 className='form-card-title'>Update Guest</h3>
                                 <div className=" mt-4">
-                                    <form action="/guestf" onSubmit={() => { updateGuesthandler() }} >
+                                    <form action="/Guest" onSubmit={() => { updateGuesthandler() }} >
                                         <div className="form-group">
 
                                             <label className="form-label">Name : </label>

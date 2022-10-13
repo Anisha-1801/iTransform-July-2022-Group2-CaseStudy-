@@ -27,11 +27,11 @@ function Reservation() {
     const getReservationId = id => {
       navigate('/Reservation/Update',{state:{Id:id}});
     }
-
-    const getReservationIdforView = id => {
-      navigate('/Reservation/View',{state:{Id:id}});
-    }
-
+ const sendMail = id =>{
+      axios.post(Variables.api+`EmailSender/Reservation2?id=${id}`)
+      .then(res=>alert("Email Sent Successfully"))
+      .catch(err=>alert("something went wrong! try again later"+err))
+ }
     function deleteReservation(){
       axios.delete(Variables.api+'Reservations/'+ Id, { headers: {"Authorization" : `Bearer ${Variables.token}`} })
            .then(res => {console.log(res);
@@ -45,6 +45,7 @@ function Reservation() {
       axios.post(Variables.api+'Bills',bill,{headers: { Authorization: `Bearer ${Variables.token}`}})
       .then(res=>console.log(res))
       .catch(err=>console.log(err))
+      sessionStorage.setItem('reservationid',id)
     }
 
     
@@ -99,14 +100,18 @@ function Reservation() {
       </div>
       <div className="r-card-section col-lg-3 col-md-3 col-sm-12 ">
       <a className="mb-5 me-3" href="/Bill/Add" onClick={()=>{generateBill(r.ReservationId)}}>
-      <i class="fas fa-wallet fs-4 text-dark"></i>
+      <i className="fas fa-wallet fs-4 text-dark"></i>
         </a>
+        <a href="#" className="mt-1 me-3" onClick={() => sendMail(r.ReservationId)} >
+        <i className="fa fa-envelope-o fs-4" aria-hidden="true" style={{color:"#660033"}}></i>
+                    </a>
         <a href="/Reservation/Update" className="mb-5 me-1" onClick={()=>{getReservationId(r.ReservationId)}}>
           <i  className="far fa-edit fs-4 text-warning" aria-hidden="true"></i>
         </a> &nbsp;
         <a className="mb-5 me-1" href="#" onClick={()=>{handleShow(r.ReservationId)}}>
           <i  className="fa fa-trash fs-4 text-danger" aria-hidden="true"></i>
         </a>
+
       </div>
       </div>
       </div>

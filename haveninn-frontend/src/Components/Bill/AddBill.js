@@ -60,7 +60,7 @@ this.setState({
     console.log(this.state.Payementmode)
    }
    transactionhandler=e=>{
-    e.preventDefault();
+  e.preventDefault();
     const min = 1000000;
     const max = 999999999;
     const rand = "T"+ Math.floor(Math.random() *  (max - min));
@@ -94,13 +94,13 @@ this.setState({
       console.log(bill)
       axios.put(Variables.api+`Bills/${this.state.BillId}`,bill,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
       .then(res=>alert("Success!"))
-      .catch(err=>alert("Oops! Something went wrong."))
+      .catch(err=>alert("Oops! Something went wrong"+err))
   }
 
   email(){
         axios.post(Variables.api + `EmailSender/Email/Bill?Reservationid=${this.state.ReservationId}`)
             . then(res=> alert('Email Sent Successfully'))
-            .catch(err =>alert('Something went wrong, try again later!' ))
+            .catch(err =>alert('Something went wrong, try again later!'+err))
   }
     render(){
     return (
@@ -115,11 +115,13 @@ this.setState({
                 <center>
                 <select className="form-select" required={true} value={this.state.ReservationId} onChange={this.idhandler} style={{width:"250px"}}>
                     <option value={null}>Select Reservation Id </option>
-                        {this.state.Reservations.map(rp=>
+                        {(sessionStorage.getItem('reservationid')==null ?
+                        this.state.Reservations:
+                        this.state.Reservations.filter(r=>r.ReservationId==sessionStorage.getItem('reservationid'))).map(rp=>
                     <option  key={rp.ReservationId} value={rp.ReservationId} > {rp.RoomId} {rp.Guest.Name}</option>
                       )}
                 </select>
-                <button className="btn btn-warning mt-3 btn-md">Get bill</button></center>
+                <button className="btn btn-outline-warning mt-3 btn-md">Get bill</button></center>
               </div>
             </form>
             </div>
@@ -160,7 +162,7 @@ this.setState({
                       </div>
                     </div>
                   </div>
-                  <center> <button className="btn btn-success mt-3" onClick={this.transactionhandler}>Pay</button></center>
+                  <center> <button className="btn btn-outline-warning mt-3" onClick={this.transactionhandler}>Pay</button></center>
                   </>
                   :
                   <></>}
@@ -172,16 +174,16 @@ this.setState({
                     <label className="form-label">Total Price</label>
                     <input  className="form-control" value={this.state.TotalPrice}disabled={true}/>
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label className="form-label">TransactionId</label>
                     <input  className="form-control" value={this.state.TransactionId} disabled={true}/>
-                  </div>
+                  </div> */}
                   <div className="form-group">
                     <label className="form-label">Status</label>
                     <input  className="form-control" value={this.state.Status} disabled={true}/>
                   </div>
-                 <center> <button className="btn btn-warning mt-4" onClick={this.payment}>Complete Reservation</button></center>
-                 <center> <button className="btn btn-warning mt-3" onClick={this.email}>Send copy to guest</button></center>
+                 <center> <button className="btn btn-outline-warning mt-4" onClick={this.payment}>Complete Reservation</button></center>
+                 <center> <button className="btn btn-outline-warning mt-3" onClick={this.email}>Send copy to guest</button></center>
                 </form>
               </div>
             </div>

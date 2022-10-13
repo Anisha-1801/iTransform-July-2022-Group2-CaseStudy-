@@ -9,7 +9,7 @@ class RoomAddForm extends Component {
         this.state = {
             RoomId: '',
             RoomTypeId: '',
-            isAvailable: '',
+            isAvailable: true,
             Description: '',
             roomTypes: []
 
@@ -87,13 +87,15 @@ class RoomAddForm extends Component {
 
                                     <div className="form-group">
                                         <label className="label-text"> Status: </label>
-                                        <input placeholder="status" name="status" className="form-control" required={true}
-                                            value={this.state.isAvailable} onChange={this.changeisavailableHandler} />
+                                        <select className="form-control" value={this.state.isAvailable} required={true} onChange={this.changeisavailableHandler}>
+                                                <option value="true">Available</option>
+                                                <option value="false">Not Available</option>
+                                            </select>
                                     </div>
 
                                     <div className="form-group">
                                         <label className="label-text"> Description: </label>
-                                        <input placeholder="description" name="Description" className="form-control" required={true}
+                                        <input placeholder="Description" name="Description" className="form-control" required={true}
                                             value={this.state.Description} onChange={this.changedescriptionHandler} />
                                     </div>
                                     <center className="mt-2">
