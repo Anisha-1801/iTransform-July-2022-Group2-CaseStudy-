@@ -131,37 +131,37 @@ on delete cascade
 ALTER TABLE Staff
 ADD CONSTRAINT FK_Staff_Department
 FOREIGN KEY (DepartmentId) REFERENCES Department(DepartmentId) 
-on delete set null
+on delete cascade
 
 ALTER TABLE [Reservation]
 ADD CONSTRAINT FK_Reservation_Guest
 FOREIGN KEY (GuestId) REFERENCES Guest(GuestId) 
-on delete set null
+on delete cascade
 
 ALTER TABLE [Reservation]
 ADD CONSTRAINT FK_Reservation_User
 FOREIGN KEY (UserId) REFERENCES [User](UserId) 
-on delete set null
+on delete cascade
 
 ALTER TABLE [Reservation]
 ADD CONSTRAINT FK_Reservation_Services
 FOREIGN KEY (ServiceId) REFERENCES [Services](ServiceId) 
-on delete set null
+on delete cascade
 
 ALTER TABLE [Reservation]
 ADD CONSTRAINT FK_Reservation_Room
 FOREIGN KEY (RoomId) REFERENCES Room(RoomId) 
-on delete set null
+on delete cascade
 
 ALTER TABLE Room
 ADD CONSTRAINT FK_Room_RoomType
 FOREIGN KEY (RoomTypeId) REFERENCES RoomType(RoomTypeId) 
-on delete set null
+on delete cascade
 
 ALTER TABLE Inventory
 ADD CONSTRAINT FK_Inventory_User
 FOREIGN KEY (UserId) REFERENCES [User](UserId) 
-on delete set null
+on delete cascade
 
 /*INSERTING DATA INTO TABLES*/
 

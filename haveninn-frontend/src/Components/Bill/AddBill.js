@@ -11,7 +11,7 @@ class AddBill extends Component {
     this.state = {
       Reservations:[],
       Bill:[],
-      Payementmode:"null",
+      Payementmode:"Cash",
       ReservationId:0,
       TransactionId:"NA",
       Status:"unpaid",

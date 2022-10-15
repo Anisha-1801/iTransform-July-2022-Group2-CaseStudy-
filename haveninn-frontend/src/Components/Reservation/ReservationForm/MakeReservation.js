@@ -21,9 +21,9 @@ class MakeReservation extends Component {
             UserId: "",
             CheckIn: new Date().toISOString().slice(0,10),
             CheckOut: new Date().toISOString().slice(0,10),
-            NumberOfAdults: 0,
-            NumberOfChildren: 0,
-            show : false
+            NumberOfAdults: 1,
+            NumberOfChildren: 0
+            //show : false
         }
 
         this.increment = this.increment.bind(this);
@@ -36,15 +36,15 @@ class MakeReservation extends Component {
         this.CheckInHandler = this.CheckInHandler.bind(this);
         this.CheckOutHandler = this.CheckOutHandler.bind(this);
         this.makeReservation = this.makeReservation.bind(this);
-        this.handleClose = this.handleClose.bind(this)
+        //this.handleClose = this.handleClose.bind(this)
         // this.idhandler=this.idhandler.bind(this);
     }
 
-   handleClose(){
-    this.setState({
-      show: false
-    })
-   }
+//    handleClose(){
+//     this.setState({
+//       show: false
+//     })
+//    }
 
     GuestIdHandler = e =>{
         const guest = this.state.Guests.filter( g => String(g.Name).toLocaleLowerCase() === String(e.target.value).toLocaleLowerCase())
@@ -113,14 +113,14 @@ class MakeReservation extends Component {
         })})
         .catch( error => console.log(error))
     }
-    fetchreservations(){
-        axios.get(Variables.api + 'Reservations', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
-        .then(response => response.data)
-        .then(res => { this.setState({
-           Reservations:res
-        })})
-        .catch( error => console.log(error))
-    }
+    // fetchreservations(){
+    //     axios.get(Variables.api + 'Reservations', { headers: {"Authorization" : `Bearer ${Variables.token}`} }) 
+    //     .then(response => response.data)
+    //     .then(res => { this.setState({
+    //        Reservations:res
+    //     })})
+    //     .catch( error => console.log(error))
+    // }
     //Counter 
     increment() {
         this.setState((prevState) => ({
@@ -193,7 +193,7 @@ class MakeReservation extends Component {
         this.fetchServices()
         this.fetchGuests()
         this.fetchUsers()
-        this.fetchreservations()
+        //this.fetchreservations()
     }
    
     makeReservation(){
@@ -222,9 +222,9 @@ class MakeReservation extends Component {
        } else {
         axios.post(Variables.api + 'Reservations',Reservation,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
              .then(res=>alert('Reservation done successfully!'))
-             .then( this.setState({
-              show: true
-            }))
+            //  .then( this.setState({
+            //   show: true
+            // }))
              .catch(err=> {alert("Oops! Something went wrong.")
             })
          // eslint-disable-next-line
