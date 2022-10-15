@@ -53,7 +53,7 @@ class RoomAddForm extends Component {
         console.log(Room)
         axios.post(Variables.api + 'Rooms', Room, { headers: { "Authorization": `Bearer ${Variables.token}` } })
             .then(res => { alert("Room Added Successfully!") })
-            .catch(alert("Oops! Something went wrong."))
+            .catch(err=>alert("Oops! Something went wrong."))
     }
 
     render() {

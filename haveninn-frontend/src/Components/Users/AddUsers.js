@@ -71,7 +71,7 @@ class AddUsers extends Component {
                     </center>
               }
               <div className="card-body mb-3">
-                <form >
+                <form action="/Users">
                   <div className="form-group">
                     <label className='form-label'>Password :</label>
                     <input placeholder="Enter Password" name="Password" className="form-control mb-3" required={true} type="text"

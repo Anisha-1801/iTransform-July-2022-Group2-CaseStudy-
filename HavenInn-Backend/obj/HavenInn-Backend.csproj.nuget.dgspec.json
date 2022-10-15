@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
+    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {}
   },
   "projects": {
-    "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
+    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
         "projectName": "HavenInnLibrary",
-        "projectPath": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
-        "packagesPath": "C:\\Users\\Shama\\.nuget\\packages\\",
-        "outputPath": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\obj\\",
+        "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj",
+        "packagesPath": "C:\\Users\\JANHAVI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Shama\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JANHAVI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -117,21 +121,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {
+    "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
         "projectName": "HavenInn-Backend",
-        "projectPath": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
-        "packagesPath": "C:\\Users\\Shama\\.nuget\\packages\\",
-        "outputPath": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\obj\\",
+        "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\HavenInn-Backend.csproj",
+        "packagesPath": "C:\\Users\\JANHAVI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn-Backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Shama\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JANHAVI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -145,8 +153,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
-                "projectPath": "D:\\Capg\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj"
+              "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj": {
+                "projectPath": "C:\\Users\\JANHAVI\\OneDrive\\Desktop\\NOTES\\Capgemini\\Project\\Finalllllllllllllll\\iTransform-July-2022-Group2-CaseStudy-\\HavenInn Library\\HavenInnLibrary.csproj"
               }
             }
           }
@@ -245,6 +253,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.26, 3.1.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -253,7 +267,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     }
