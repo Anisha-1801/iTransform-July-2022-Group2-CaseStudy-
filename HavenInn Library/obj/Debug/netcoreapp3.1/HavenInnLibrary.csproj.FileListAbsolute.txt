@@ -258,3 +258,16 @@ C:\Users\Asavari\OneDrive\Desktop\iTransform-July-2022-Group2-CaseStudy-\HavenIn
 C:\Users\Asavari\OneDrive\Desktop\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.dll
 C:\Users\Asavari\OneDrive\Desktop\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.pdb
 C:\Users\Asavari\OneDrive\Desktop\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.genruntimeconfig.cache
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.deps.json
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.runtimeconfig.json
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.runtimeconfig.dev.json
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.dll
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\bin\Debug\netcoreapp3.1\HavenInnLibrary.pdb
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.csproj.AssemblyReference.cache
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.AssemblyInfoInputs.cache
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.AssemblyInfo.cs
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.dll
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.pdb
+C:\Users\Naveen\Desktop\CaseStudy\iTransform-July-2022-Group2-CaseStudy-\HavenInn Library\obj\Debug\netcoreapp3.1\HavenInnLibrary.genruntimeconfig.cache

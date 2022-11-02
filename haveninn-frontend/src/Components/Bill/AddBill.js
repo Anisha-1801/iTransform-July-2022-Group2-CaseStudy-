@@ -37,9 +37,9 @@ class AddBill extends Component {
 .catch((error) => console.log(error)); 
 
 this.setState({
- Payementmode:this.state.Bill.PaymentMode,
+//  Payementmode:this.state.Bill.PaymentMode,
  ReservationId:this.state.Bill.ReservationId,
- TransactionId:this.state.Bill.TransactionId,
+ //TransactionId:this.state.Bill.TransactionId,
  Status:this.state.Bill.Status,
  BillId:this.state.Bill.BillId,
  TotalPrice:this.state.Bill.TotalPrice
@@ -89,7 +89,7 @@ this.setState({
         TotalPrice:this.state.Bill.TotalPrice,	
         paymentTime:time.getHours()+":"+time.getMinutes()+":"+time.getSeconds(), 	
         TransactionId:this.state.TransactionId,
-        Status:"paid"
+        Status:"Paid"
       }
       console.log(bill)
       axios.put(Variables.api+`Bills/${this.state.BillId}`,bill,{ headers: {"Authorization" : `Bearer ${Variables.token}`} })
